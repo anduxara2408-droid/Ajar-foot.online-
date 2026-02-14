@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L'Épopée d'Ajar - Histoire du Village</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* STYLES ÉLÉGANTS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: #faf7f2;
+            color: #2c3e50;
+            line-height: 1.8;
+        }
+        
+        /* HERO SECTION - GRANDE PHOTO D'OUVERTURE */
+        .hero {
+            height: 80vh;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.7);
+        }
+        
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.7));
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 2rem;
+        }
+        
+        .hero-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 15px rgba(0,0,0,0.5);
+            letter-spacing: 2px;
+        }
+        
+        .hero-title span {
+            color: #ff8c42;
+            font-size: 6rem;
+            display: block;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5rem;
+            font-weight: 300;
+            max-width: 800px;
+            font-style: italic;
+        }
+        
+        /* NAVIGATION ÉLÉGANTE */
+        nav {
+            background: #2c3e50;
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 400;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+            font-size: 0.95rem;
+        }
+        
+        nav ul li a:hover {
+            color: #ff8c42;
+        }
+        
+        /* CONTENEUR PRINCIPAL */
+        .container {
+            max-width: 1000px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+        
+        /* CHAPITRE STYLE */
+        .chapter {
+            margin-bottom: 5rem;
+            position: relative;
+        }
+        
+        .chapter-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            color: #ff8c42;
+            letter-spacing: 3px;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+        }
+        
+        .chapter-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            color: #2c3e50;
+            border-left: 5px solid #ff8c42;
+            padding-left: 1.5rem;
+        }
+        
+        .chapter-content {
+            font-size: 1.1rem;
+            color: #34495e;
+        }
+        
+        .chapter-content p {
+            margin-bottom: 1.8rem;
+            text-align: justify;
+        }
+        
+        .chapter-content strong {
+            color: #2c3e50;
+            font-weight: 600;
+        }
+        
+        .chapter-content .highlight {
+            color: #ff8c42;
+            font-weight: 600;
+        }
+        
+        /* CITATIONS ÉLÉGANTES */
+        .quote {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            font-style: italic;
+            color: #2c3e50;
+            text-align: center;
+            padding: 3rem 2rem;
+            background: #f0e9e0;
+            border-radius: 20px;
+            margin: 3rem 0;
+            position: relative;
+        }
+        
+        .quote::before {
+            content: '"';
+            font-size: 6rem;
+            position: absolute;
+            top: -20px;
+            left: 20px;
+            color: #ff8c42;
+            opacity: 0.3;
+        }
+        
+        .quote-author {
+            display: block;
+            margin-top: 1rem;
+            font-size: 1rem;
+            font-style: normal;
+            color: #ff8c42;
+            letter-spacing: 2px;
+        }
+        
+        /* LISTE DES NOMS */
+        .names-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            background: #f0e9e0;
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+        }
+        
+        .names-list li {
+            list-style: none;
+            padding: 0.5rem;
+            border-bottom: 1px dashed #ff8c42;
+        }
+        
+        /* CHIFFRES CLÉS */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 4rem 0;
+            text-align: center;
+        }
+        
+        .stat-item {
+            padding: 2rem;
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .stat-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #ff8c42;
+            line-height: 1;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        /* FOOTER ÉLÉGANT */
+        footer {
+            background: #2c3e50;
+            color: #fff;
+            padding: 3rem 2rem;
+            text-align: center;
+            margin-top: 4rem;
+        }
+        
+        footer a {
+            color: #ff8c42;
+            text-decoration: none;
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #ff8c42;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            opacity: 0;
+            transition: opacity 0.3s;
+            box-shadow: 0 5px 20px rgba(255,140,66,0.3);
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+        }
+        
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 3rem;
+            }
+            
+            .hero-title span {
+                font-size: 4rem;
+            }
+            
+            .chapter-title {
+                font-size: 2.2rem;
+            }
+            
+            .names-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HERO SECTION AVEC GRANDE PHOTO -->
+    <div class="hero">
+        <img src="../images/histoire/hero-histoire.jpg" alt="Village Ajar" class="hero-image" onerror="this.src='https://images.unsplash.com/photo-1519681393784-d120267933ba?w=1600'">
+        <div class="hero-overlay">
+            <h1 class="hero-title">
+                <span>Ajar</span>
+                Une Épopée, Un Village, Une Légende
+            </h1>
+            <p class="hero-subtitle">1983 - 2026 : Quarante-trois années d'histoire, de football et de traditions</p>
+        </div>
+    </div>
+    
+    <!-- NAVIGATION -->
+    <nav>
+        <ul>
+            <li><a href="../index.html">Accueil</a></li>
+            <li><a href="#origines">Les Origines</a></li>
+            <li><a href="#ecole">L'École des Pionniers</a></li>
+            <li><a href="#generation1">La Première Génération</a></li>
+            <li><a href="#generation2">L'Âge d'Or</a></li>
+            <li><a href="#inter-arena">L'Ère Moderne</a></li>
+            <li><a href="#championnat">Le Championnat</a></li>
+            <li><a href="#heritage">L'Héritage</a></li>
+        </ul>
+    </nav>
+    
+    <!-- CONTENU PRINCIPAL DE L'HISTOIRE -->
+    <div class="container">
+        
+        <!-- CHAPITRE 1 : LES ORIGINES (1983-1989) -->
+        <section id="origines" class="chapter">
+            <div class="chapter-number">Chapitre premier</div>
+            <h2 class="chapter-title">1983-1989 : L'Aube d'une Légende</h2>
+            
+            <div class="chapter-content">
+                <p>C'est en <span class="highlight">1983</span> que tout commence. Cette année-là, le village d'Ajar, niché au cœur du Guidimakha, va écrire la première page d'une histoire qui marquera à jamais toute une région. À cette époque, le football était une pratique rare, presque confidentielle, dans les villages mauritaniens. Seuls Ajar et quelques localités voisines s'adonnaient à ce sport venu d'ailleurs.</p>
+                
+                <p>L'initiative revient à une association pionnière, la <strong>"Fedde"</strong>, composée des jeunes intellectuels et dynamiques du village. Sous la présidence de <strong>Moro Camara</strong>, cette assemblée rassemblait des figures aujourd'hui légendaires : <strong>Ladji Boubou Diabira</strong>, <strong>Harouna Traoré</strong>, <strong>Adama Cissokho</strong>, <strong>Sally Makha Camara</strong>, <strong>Samba Sy</strong>, <strong>Feremakha</strong>, <strong>Thiapato Diallo</strong>, <strong>Diaguily Tandia</strong>, <strong>Tappa Soumbounou</strong> (de Diadjibine), <strong>Mody Boubou Soumaré</strong>, <strong>Bouyagui Diallo</strong>, <strong>Demba N'Diaye</strong> et <strong>Bocar Dramé</strong>, qui deviendra plus tard le marabout du village.</p>
+                
+                <p>Ces visionnaires décidèrent d'organiser le tout premier match de l'histoire contre le village voisin de <strong>Tachott</strong>. Du côté de Tachott, deux hommes avaient préparé le terrain : <strong>Togounté Coulibaly</strong> et <strong>Haroulémé Camara</strong>, qui avaient su mobiliser la jeunesse de leur localité.</p>
+                
+                <div class="quote">
+                    Nous voulions créer quelque chose de nouveau, qui sorte les jeunes des champs et des troupeaux pour leur offrir une autre perspective.
+                    <span class="quote-author">Ladji Boubou Diabira</span>
+                </div>
+                
+                <p>Ce premier affrontement se déroula sur le terrain d'Ajar, dans une ambiance électrique. Pour éviter toute polémique, on opta pour un <strong>mélange démocratique</strong> des joueurs, incluant même quelques éléments de Djadjibine et d'Ouloumbony. Le match s'acheva sur le score de <span class="highlight">2 buts à 0</span> en faveur d'Ajar, grâce à des réalisations de <strong>Vieux Diabira</strong> et <strong>Ladji Boubou Diabira</strong>.</p>
+                
+                <p>Le soir venu, tout le village célébra l'événement par une grande <strong>soirée théâtrale</strong>. Car à Ajar, le football n'était pas qu'un sport : c'était aussi un prétexte à la culture, aux échanges intellectuels et à la convivialité. Après chaque rencontre, on organisait des conférences sur des thèmes aussi variés que la colonisation, l'immigration ou la politique africaine. <strong>Adama Cissokho</strong>, d'une mémoire prodigieuse, pouvait réciter sans faillir le nom de tous les présidents africains et même mondiaux.</p>
+                
+                <p>L'année suivante, Tachott rendit l'invitation. Mais le voyage vers leur village fut mouvementé. En traversant <strong>Agoinitt</strong>, localité située à 18 kilomètres d'Ajar, la délégation mixte (filles et garçons voyageant ensemble) provoqua un scandale dans ce village où les mentalités étaient plus conservatrices. Fait amusant : lors de la première visite de Tachott à Ajar, leur délégation était composée de <strong>garçons déguisés en filles</strong>, car les jeunes femmes de Tachott avaient refusé de participer.</p>
+                
+                <p>Tout ne fut pas simple pour autant. Des voix s'élevèrent contre ces rencontres, notamment celles de <strong>Thierno Sy</strong>, <strong>Moustapha Diallo</strong> (que la terre lui soit légère) et <strong>Sammama Konaté</strong>. Paradoxalement, ce furent ces mêmes opposants qui contribuèrent financièrement à l'organisation des événements, chaque chef de famille versant <span class="highlight">100 ouguiyas</span> (une somme considérable pour l'époque).</p>
+                
+                <p>En 1989, un match de solidarité devait opposer Ajar à ses voisins d'<strong>ARR</strong>. Un grand festival était préparé, mais les tensions entre le Sénégal et la Mauritanie de cette période contraignirent nos aînés à annuler la rencontre, par crainte pour la sécurité des visiteurs. Ce fut l'un des rares événements sportifs à ne pas avoir lieu dans cette décennie fondatrice.</p>
+            </div>
+        </section>
+        
+        <!-- CHAPITRE 2 : L'ÉCOLE ET LES PREMIERS INTELLECTUELS -->
+        <section id="ecole" class="chapter">
+            <div class="chapter-number">Chapitre deuxième</div>
+            <h2 class="chapter-title">Les 15 Pionniers de l'École</h2>
+            
+            <div class="chapter-content">
+                <p>Dans les années 1980, être scolarisé dans le Guidimakha relevait de l'exploit. Seuls quelques villages envoyaient leurs enfants à l'école : <strong>Ajar</strong>, <strong>Ouloumby</strong>, <strong>Dafort</strong>, <strong>Tachott Berane</strong> et <strong>Tachott Botkhollo</strong>. Les localités riveraines du fleuve (Diaguilt, Djogunuturo, Khabou...) bénéficiaient de la proximité du Sénégal et comptaient également quelques écoliers.</p>
+                
+                <p>Mais c'est à Ajar que l'on trouvait la plus forte concentration d'élèves : <span class="highlight">15 jeunes</span>, un chiffre exceptionnel pour l'époque, quand les autres villages n'en comptaient que 4 à 6. Parmi ces quinze pionniers, <span class="highlight">trois filles</span> figurent en bonne place, preuve de l'esprit d'ouverture qui caractérisait déjà le village.</p>
+                
+                <div class="names-list">
+                    <strong>Les trois filles :</strong>
+                    <ul>
+                        <li><strong>Yaye Goumbe Soumaré</strong> – aujourd'hui député</li>
+                        <li><strong>Taba Dramé</strong></li>
+                        <li><strong>Djénèba Dramé</strong></li>
+                    </ul>
+                    <p><em>Il y avait une quatrième fille, la sœur d'Oumar Ba (une Peulh), mais on lui fit quitter l'école très tôt pour le mariage.</em></p>
+                </div>
+                
+                <div class="names-list">
+                    <strong>Les douze garçons :</strong>
+                    <ul>
+                        <li><strong>Bocar Dramé</strong> – marabout actuel du village</li>
+                        <li><strong>Sally Makha Camara</strong></li>
+                        <li><strong>Bouyagui Diallo</strong></li>
+                        <li><strong>Ladji Diabira</strong></li>
+                        <li><strong>Harouna Traoré</strong></li>
+                        <li><strong>Moro Camara</strong></li>
+                        <li><strong>Diallo Daffa</strong></li>
+                        <li><strong>Djermouna Daffa</strong></li>
+                        <li><strong>Samba Sy</strong></li>
+                        <li><strong>Adama Cissokho</strong></li>
+                        <li><strong>Oumar Ba</strong></li>
+                        <li><strong>Harouna Sy</strong></li>
+                    </ul>
+                </div>
+                
+                <p>Leur quotidien était fait de sacrifices. Chaque matin, avant l'aube, ils enfourchaient leurs ânes et parcouraient des kilomètres, traversant <strong>Hassi Bagara</strong>, <strong>Arsal</strong> et <strong>Diyalla</strong> pour rejoindre l'école. <strong>Boubacar Souraghé</strong> était le compagnon qui ramenait les ânes au village, parfois secondé par <strong>Mamadou Hademou</strong>.</p>
+                
+                <div class="quote">
+                Nous marchions dans l'obscurité, portés par la certitude que l'éducation était la clé de l'avenir. Nous ne savions pas que nous étions en train d'écrire l'histoire.
+                <span class="quote-author">Ladji Boubou Diabira</span>
+                </div>
+            </div>
+        </section>
+        
+        <!-- CHAPITRE 3 : LA PREMIÈRE GÉNÉRATION DE FOOTBALLEURS (1994-1998) -->
+        <section id="generation1" class="chapter">
+            <div class="chapter-number">Chapitre troisième</div>
+            <h2 class="chapter-title">1994-1998 : La Génération Montante</h2>
+            
+            <div class="chapter-content">
+                <p>Les années 1990 voient émerger une nouvelle génération de joueurs. Après les pionniers des années 80, c'est au tour de <strong>Mamadou Sakho</strong>, <strong>Demba Samba Camara</strong>, <strong>Moro Sankhare</strong>, <strong>Moudery Diabira</strong>, <strong>Mek'hallé</strong>, <strong>Fodé Diawara</strong>, <strong>Diarré Tandia</strong> (gardiens), <strong>Kisma Diabira</strong> et <strong>Kisma Silly Diabira</strong> de porter les couleurs du village.</p>
+                
+                <p>En 1994-1995, Ajar affronte Ouloumbony et s'incline <span class="highlight">4 buts à 1</span> à domicile. Le seul but ajarois est inscrit sur penalty par <strong>Kisma Silly Diabira</strong>. Parmi les spectateurs de ce match, un jeune garçon observe avec passion : <strong>Diallo Tandia</strong>, qui ne sait pas encore qu'il deviendra bientôt l'un des piliers de l'équipe.</p>
+                
+                <p>L'année <span class="highlight">1996</span> marque un tournant. Pour le match retour contre Ouloumbony, deux adolescents sont recrutés : <strong>Diallo Tandia</strong> et <strong>Harouna Sankhare</strong>. Seul Diallo fera finalement le déplacement. L'équipe, dirigée par l'entraîneur <strong>Demba Samba Camara</strong>, compte alors dans ses rangs : <strong>Diabe Soumare</strong>, <strong>Siakha Diabira</strong>, <strong>Moro Sankhare</strong>, <strong>Mamadou Sakho</strong>, <strong>Boulaye N'Diaye</strong>, <strong>Fodé Diawara</strong>, <strong>Diarré Tandia</strong>, <strong>Bafodé Tandia</strong>, <strong>Mamadou Bouppou</strong> (paix à son âme), <strong>Mek'hallé</strong> et <strong>Demba Silly Diabira</strong>.</p>
+                
+                <p>Au cours de cette rencontre, <strong>Diabe Soumare</strong>, le capitaine, se blesse. C'est alors que le jeune Diallo Tandia, à peine âgé de quelques années, entre sur la pelouse. <strong>Demba Samba</strong> lui confie le brassard, un geste symbolique fort. Dans les dernières minutes, l'équipe obtient un penalty que <strong>Demba Samba Sankhare</strong> transforme, offrant la victoire à Ajar. Malheureusement, une bagarre éclate et le match est interrompu.</p>
+                
+                <p>La même année, Ajar affronte <strong>Agoinitt</strong> (village situé à 18 km). L'équipe aligne <strong>Moro Sankhare</strong>, <strong>Ablaye Tandia</strong> (aujourd'hui journaliste au Sénégal), <strong>Siakha Diabira</strong> et <strong>Diarré Tandia</strong> dans les buts. Score final : <span class="highlight">2 buts à 1</span> pour Ajar, avec des réalisations de Siakha Diabira et Moro Sankhare.</p>
+                
+                <p>L'année <span class="highlight">1998</span> restera gravée dans les mémoires comme celle de la <strong>première participation d'Ajar au tournoi du Guidimakha</strong>. Les villages engagés étaient : Chaggar, Dafort, Tachott Botkholl, Agoinitt, Ouloumbony, Gorillaghe et Ajar. Notre équipe, désormais renforcée par les recrues de 1997-1998 (<strong>Pape Adama Soumare</strong>, <strong>Sedifo Sankhare</strong>, <strong>Gande Sy</strong>, <strong>Demba Daffa</strong>), devait disputer son premier match contre Artoumo, mais la pluie en décida autrement. Ce fut finalement contre Chaggar.</p>
+                
+                <p>Après des matchs préparatoires contre Foullan Kaani (une défaite 1-0 à l'aller, une victoire 2-0 au retour), l'équipe se présenta au tournoi avec confiance. Contre Chaggar, <strong>Pape Samba Soumare</strong>, revenu de Suède, ouvrit le score, imité par <strong>Moro Sankhare</strong> pour une victoire 2-1. Contre Artoumo, ce fut plus difficile : défaite 2-1 malgré un but de la tête de <strong>Siakha Diabira</strong>. <strong>Pape Demba</strong> réunit alors l'équipe dans la forêt pour une séance de motivation qui s'avéra décisive.</p>
+                
+                <p>Contre Ouloumbony, ce fut un festival : <span class="highlight">4 buts à 0</span> avec un triplé de <strong>Harouna Sankhare</strong> et un but de <strong>Pape Samba</strong>. Qualifiés pour la demi-finale, les Ajarois affrontèrent Dafort sur le terrain d'Agoinitt. Menant 1-0 jusqu'à sept minutes de la fin, ils encaissèrent deux buts sur corners de <strong>Dalla Diallo</strong> et s'inclinèrent 2-1. Ils remportèrent toutefois le match pour la troisième place contre Artoumo (2-0). Une première participation honorable.</p>
+            </div>
+        </section>
+        
+        <!-- CHAPITRE 4 : LES ANNÉES 2000 ET L'EXPANSION -->
+        <section id="generation2" class="chapter">
+            <div class="chapter-number">Chapitre quatrième</div>
+            <h2 class="chapter-title">2000-2010 : L'Expansion vers Nouakchott</h2>
+            
+            <div class="chapter-content">
+                <p>L'an 2000 marque une pause dans le tournoi du Guidimakha. À la reprise, Ajar se retrouve dans une poule difficile à Dafort, avec Dafort, Tachott Botkhollo et Agoinitt. Les résultats ne sont pas à la hauteur des espérances : défaite 4-1 contre Dafort, défaite 2-1 contre Tachott (match émaillé de bagarres), puis défaite 2-0 contre Agoinitt avec une équipe B.</p>
+                
+                <p>En 2001, un match amical contre Agoinitt sur le terrain d'Ajar tourne court après une grave blessure d'un joueur adverse (jambe cassée). Le score était alors de 2-0 pour Ajar (buts de Demba Daffa sur penalty et de Harouna Sankhare).</p>
+                
+                <p>L'année 2004 voit Ajar participer au tournoi du Guidimakha organisé à Tachott. L'équipe se qualifie pour la demi-finale après une victoire contre Artoumo et un match nul contre Tachott Berane. En demi-finale, sur le terrain d'Ajar, elle bat Tachott Botkhollo 2-1 (buts de Brahim Diabira) avant de s'incliner en finale contre Dafort sur le score de 1-0.</p>
+                
+                <p>À partir de <span class="highlight">2002</span>, de nombreux Ajarois s'installent à Nouakchott. C'est là que naît l'idée d'exporter le tournoi du Guidimakha dans la capitale. En <span class="highlight">2007</span>, une équipe composée de <strong>Diabe Soumare</strong>, <strong>Demba Silly Diabira</strong>, <strong>Papis Sakho</strong>, <strong>Diallo Tandia</strong>, <strong>Sedifo Sankhare</strong>, <strong>Brahim Diabira</strong>, <strong>Kawu Lemé Traoré</strong> et d'autres, participe au tournoi sur le terrain de Nagas. Victoire contre Testaye, défaite contre Dafort (2-1), match nul contre Tachott Botkhollo : insuffisant pour se qualifier.</p>
+                
+                <p>L'année suivante, le tournoi se déroule à la zone militaire. Match nul contre Chaggar (1-1, but de Gande Sy sur coup franc), victoire contre Ouloumbony (2-1, buts de Harouna Sankhare et Biram Diabira), match nul contre ARR (0-0) : à nouveau éliminés. Vient ensuite le recrutement d'une nouvelle vague de talents : <strong>Bilaly Tandia</strong>, <strong>Boudallaye Diabira</strong>, <strong>Bouceif Silly</strong>, <strong>Oumar Daffa</strong>.</p>
+                
+                <p>Au tournoi du terrain Couva, Ajar bat Baydiam (2-1, Harouna Sankhare et Biram Diabira), perd contre Tachott (2-1) et fait match nul contre Toulel (0-0), terminant avec 4 points, insuffisants pour passer. Plus tard, au stade Basra, une génération encore plus jeune émerge : <strong>Hamidou Diabira</strong>, <strong>Hamidou Gatta</strong>, <strong>Bouceifa Silly</strong>, <strong>Youssouf Diallo</strong>, <strong>Daouda Diallo</strong>, sous la houlette de l'entraîneur <strong>Boudallaye Diabira</strong> (fils de Vieux Silly Diabira, ancien gardien), assisté de <strong>Moussa Diallo</strong>.</p>
+                
+                <p>Cette équipe réalise un parcours exceptionnel jusqu'en demi-finale : 8e de finale contre Sollou (menés 1-0, victoire 3-1 avec des buts de Bouceifa, Bilaly Tandia et Bouceifa Silly), quart de finale contre Baydiam (menés 1-0, victoire 2-1), avant de s'incliner en demi-finale contre Diogunturo dans des circonstances controversées (2 buts refusés, défaite 1-0).</p>
+                
+                <p>La liste des entraîneurs qui se sont succédé à la tête de l'équipe témoigne de la richesse du vivier ajarois : <strong>Demba Samba Camara</strong> (le premier), <strong>Moussa Diallo</strong>, <strong>Pape Demba</strong>, <strong>Patrick Mendès</strong> (un Guinéen recruté par Ablaye Sy et Boubou Diabira), <strong>Boudallaye Diabira</strong>, <strong>Harouna Sankhare</strong>, <strong>Adama Wagué</strong>, puis à nouveau Moussa Diallo, et <strong>Ablaye Silly Diabira</strong> à Nouakchott. En 2011, Diallo Tandia prend lui-même les rênes de l'équipe au village pour un match amical contre Agoinitt (défaite 2-1, seul but de Biram Diabira).</p>
+            </div>
+        </section>
+        
+        <!-- CHAPITRE 5 : L'ÈRE INTER ARENA (2017-2022) -->
+        <section id="inter-arena" class="chapter">
+            <div class="chapter-number">Chapitre cinquième</div>
+            <h2 class="chapter-title">2017-2022 : L'Ère de l'Inter Arena</h2>
+            
+            <div class="chapter-content">
+                <p>L'année <span class="highlight">2017</span> marque un tournant majeur avec la création du stade <strong>Inter Arena</strong> par <strong>Aka Soumare</strong>. Ajar y fait son entrée en <span class="highlight">2018</span>, participant directement à la coupe du Ramadan. L'équipe, alors dirigée par <strong>Boudallaye Diabira</strong>, jongle entre le tournoi Guidimakha et les compétitions de l'Inter Arena.</p>
+                
+                <p>La période 2017-2018 est difficile, marquée par des résultats en dents de scie. <strong>Sadio Diawara</strong> succède alors à Boudallaye. Après un bref intérim de <strong>Samba Traoré</strong> pendant le départ de Sadio, ce dernier revient avant de céder définitivement sa place à <strong>Hamidou Kelly</strong> pour la période 2020-2022.</p>
+                
+                <p>Sadio Diawara, qui avait réalisé un exploit avec l'équipe de Dango (0 défaite, 0 but encaissé), rejoint Ajar en 2017 comme <strong>entraîneur adjoint</strong>, aux côtés de l'entraîneur principal <strong>Hamidou Kelly</strong> et du second adjoint <strong>Moussa Sy</strong>. Le premier match de ce trio est une démonstration : <span class="highlight">10 buts à 0</span> contre Agoinitt !</p>
+                
+                <p>En 2020, Sadio Diawara procède à un renouvellement profond de l'effectif. Il intègre une vague de jeunes talents : <strong>Cheikhou Diabira</strong>, <strong>Demba Granké</strong>, <strong>Daouda Diallo</strong>, <strong>Mody Diallo</strong>. Parallèlement, il écarte plusieurs joueurs, ne conservant que le gardien <strong>Abou Sylla</strong> et <strong>Bilaly Tandia</strong> de l'ancienne génération.</p>
+                
+                <p>Le <span class="highlight">3 septembre 2021</span>, l'équipe reprend l'entraînement dans une ambiance tendue. En novembre, Sadio appelle Hamidou Kelly comme adjoint, mais les relations se détériorent. Finalement, <strong>Hamidou Kelly</strong> prend les rênes de l'équipe et offre à Ajar son <span class="highlight">premier trophée de l'histoire en deuxième division</span>, un accomplissement historique.</p>
+                
+                <div class="quote">
+                Ce trophée, c'est celui de tout un village. Il récompense des années de sacrifices, de travail et de passion.
+                <span class="quote-author">Hamidou Kelly</span>
+                </div>
+            </div>
+        </section>
+        
+        <!-- CHAPITRE 6 : LE CHAMPIONNAT D'AJAR (1995-2026) -->
+        <section id="championnat" class="chapter">
+            <div class="chapter-number">Chapitre sixième</div>
+            <h2 class="chapter-title">1995-2026 : Le Championnat d'Ajar</h2>
+            
+            <div class="chapter-content">
+                <p>Le championnat d'Ajar trouve ses racines dès <span class="highlight">1995</span>, bien avant la création des clubs structurés. À cette époque, pas de trophée officiel : on utilisait une simple décoration trouvée dans le village pour récompenser le vainqueur. Les équipes se formaient spontanément, avec des noms choisis sur le moment.</p>
+                
+                <p>L'année <span class="highlight">1996</span> voit l'arrivée de la délégation du <strong>CER</strong> (Centre d'Éducation Renforcée) de Ladji Boubou Diabira, qui apporte des maillots, des trophées et crée l'association "Solidarité avec Ajar". Jusqu'en 2008, les joueurs évoluent sans soutien financier, aidés par leurs aînés comme <strong>Diabe Soumare</strong>, <strong>Boubou Silly</strong>, <strong>Diabira</strong> ou <strong>Racine Soumare</strong>.</p>
+                
+                <p>En <span class="highlight">2008</span>, <strong>Boubou Silly</strong> convoque tous les jeunes pour créer une association unifiée. L'idée est acceptée, mais il faudra attendre <span class="highlight">2015</span> pour que <strong>Demba Sankhare</strong> propose la création d'équipes structurées pour un véritable championnat. Cette année-là, les premiers clubs voient le jour : <strong>WALÉ</strong>, <strong>SOUMPOU</strong>, <strong>DANGO</strong> et <strong>KELIFADO</strong>.</p>
+                
+                <p>En <span class="highlight">2016</span>, trois nouveaux clubs rejoignent la compétition : <strong>HEL ALY</strong>, <strong>NASSR</strong> et <strong>LION D'AJAR</strong>. Les noms des clubs rendent hommage aux aînés du village : <strong>Sadio Kalloga</strong>, <strong>Mody Ndiaye</strong>, <strong>Maro Sakho</strong>, <strong>Bagaye Soumare</strong> sont autant de figures vénérées qui inspirent le respect et l'émulation chez les jeunes.</p>
+                
+                <p>Le règlement du championnat est exigeant : pendant les vacances, chaque joueur présent à Ajar doit participer aux travaux communautaires sous peine de sanctions (amendes et privation de matchs). Cette règle forge le caractère et l'esprit de responsabilité des joueurs.</p>
+                
+                <div class="stats">
+                    <div class="stat-item">
+                        <div class="stat-number">2017</div>
+                        <div class="stat-label">FC Dango</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">2018-2019</div>
+                        <div class="stat-label">FC Walé</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">2020</div>
+                        <div class="stat-label">Pandémie</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">2023</div>
+                        <div class="stat-label">FC Walé</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">2024</div>
+                        <div class="stat-label">Lion d'Ajar</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">2025</div>
+                        <div class="stat-label">Non terminé</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">2026</div>
+                        <div class="stat-label">À venir</div>
+                    </div>
+                </div>
+                
+                <p>Le <span class="highlight">FC Dango</span> remporte le premier titre officiel en 2017. <span class="highlight">FC Walé</span> domine ensuite deux saisons consécutives (2018-2019) avant que la pandémie de 2020 n'interrompe la compétition. En 2023, Walé effectue un retour triomphal pour décrocher un troisième titre. <span class="highlight">Lion d'Ajar</span> s'impose en 2024, symbole de l'émergence des nouveaux talents. Le championnat 2025 n'a pas pu aller à son terme à cause d'incidents, et c'est avec impatience que le village attend l'édition <span class="highlight">2026</span>, qui s'annonce mémorable.</p>
+            </div>
+        </section>
+        
+        <!-- CHAPITRE 7 : L'HÉRITAGE ET L'AVENIR -->
+        <section id="heritage" class="chapter">
+            <div class="chapter-number">Chapitre septième</div>
+            <h2 class="chapter-title">L'Héritage : Un Village, Une Âme</h2>
+            
+            <div class="chapter-content">
+                <p>Au-delà du football, Ajar a bâti un héritage qui dépasse le cadre sportif. La <strong>Maison des Jeunes</strong>, initiée par les jeunes de Paris (EVRI) en collaboration avec les jeunes du village, a posé les premières pierres d'un espace de vie communautaire. C'est <strong>Ladji Boubou Diabira</strong> qui a poursuivi l'œuvre, apportant clôtures et sanitaires avec l'aide de ses compagnons du <strong>CER</strong>.</p>
+                
+                <p>En <span class="highlight">2003</span>, cette même équipe inaugure le <strong>premier dispensaire d'Ajar</strong>, un équipement vital pour la santé des habitants. La <strong>coopérative des femmes "Djiida"</strong> voit également le jour, avec son jardin communautaire, symbole de l'autonomisation des femmes du village.</p>
+                
+                <p>Des écoles ont été construites jusqu'à Testaye, étendant le rayonnement éducatif d'Ajar. Le terrain de football, témoin de tant d'exploits, accueille aujourd'hui encore les jeunes générations qui rêvent de marcher sur les traces de leurs aînés.</p>
+                
+                <div class="quote">
+                Ce terrain, c'est notre mémoire. Chaque grain de sable a vu passer des générations de joueurs, des larmes de joie et de tristesse, des espoirs et des victoires.
+                <span class="quote-author">Un ancien du village</span>
+                </div>
+                
+                <p>L'héritage d'Ajar, c'est aussi l'histoire de ce qui a commencé comme un simple match entre deux villages pour devenir un tournoi qui s'étend aujourd'hui de Guidimakha à Nouakchott. C'est la fierté de <strong>Ladji Boubou Diabira</strong> qui, revenant de France, découvre aux abords de Tachott tout un village réuni pour un match, et réalise que son rêve a pris racine.</p>
+                
+                <p>En 2026, Ajar se prépare pour un nouveau championnat, une nouvelle page à écrire. Mais quoi qu'il arrive, l'histoire est déjà écrite : celle d'un village où le football, l'école, les associations et la vie communautaire se mêlent pour former une âme unique, un esprit que rien n'effacera.</p>
+                
+                <p style="text-align: center; margin-top: 3rem; font-style: italic; color: #ff8c42;">"Ajar n'est pas qu'un village, c'est une leçon de vie."</p>
+            </div>
+        </section>
+    </div>
+    
+    <!-- PIED DE PAGE -->
+    <footer>
+        <p style="margin-bottom: 1rem;">© 2026 Village Ajar - Tous droits réservés</p>
+        <p><a href="../index.html">Retour à l'accueil</a> | <a href="#top">Haut de page</a></p>
+    </footer>
+    
+    <!-- BOUTON RETOUR HAUT DE PAGE -->
+    <a href="#" class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></a>
+    
+    <script>
+        // Bouton retour en haut
+        window.addEventListener('scroll', function() {
+            const btn = document.getElementById('backToTop');
+            if (window.scrollY > 500) {
+                btn.classList.add('visible');
+            } else {
+                btn.classList.remove('visible');
+            }
+        });
+        
+        // Smooth scroll pour les liens d'ancrage
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -3,680 +3,597 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SITE OFFICIEL - AJAR-FOOT</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Village Ajar - Football, Histoire & Traditions</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* GRANDE PHOTO FIXE EN HAUT */
-        .hero-section {
-            position: relative;
-            width: 100%;
-            height: 70vh;
-            min-height: 500px;
-            overflow: hidden;
-            margin-bottom: 2rem;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
         
-        .hero-image {
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f5f5f5;
+            color: #333;
+        }
+        
+        /* GRAND DIAPORAMA EN HAUT */
+        .hero {
+            height: 80vh;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-slider {
             width: 100%;
             height: 100%;
-            object-fit: cover;
-            filter: brightness(0.9);
+            position: relative;
         }
         
-        .hero-overlay {
+        .hero-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 1.5s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .hero-slide::before {
+            content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,92,191,0.7));
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            background: linear-gradient(135deg, rgba(0,0,0,0.7), rgba(0,0,0,0.3));
+        }
+        
+        .hero-slide.active {
+            opacity: 1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
             text-align: center;
             color: white;
+            max-width: 900px;
             padding: 2rem;
         }
         
-        .hero-title {
-            font-size: 3.5rem;
+        .hero-content h1 {
+            font-size: 4rem;
+            font-weight: 700;
             margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-            color: #ff6b00;
+            text-shadow: 2px 2px 15px rgba(0,0,0,0.5);
         }
         
-        .hero-subtitle {
-            font-size: 1.5rem;
-            max-width: 800px;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        .hero-content .highlight {
+            color: #ff8c42;
         }
         
-        /* CARROUSEL HORIZONTAL */
-        .carousel-section {
-            padding: 3rem 0;
-            background: #f8f9fa;
-        }
-        
-        .carousel-title {
-            text-align: center;
-            color: #005cbf;
-            margin-bottom: 2rem;
-            font-size: 2.5rem;
-        }
-        
-        .carousel-title i {
-            color: #ff6b00;
-            margin-right: 10px;
-        }
-        
-        .carousel-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            position: relative;
-            padding: 0 60px;
-        }
-        
-        .carousel {
-            display: flex;
-            gap: 20px;
-            overflow-x: auto;
-            scroll-behavior: smooth;
-            padding: 20px 0;
-            scrollbar-width: none;
-            -ms-overflow-style: none;
-        }
-        
-        .carousel::-webkit-scrollbar {
-            display: none;
-        }
-        
-        .carousel-item {
-            flex: 0 0 auto;
-            width: 300px;
-            height: 400px;
-            border-radius: 15px;
-            overflow: hidden;
-            position: relative;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            cursor: pointer;
-        }
-        
-        .carousel-item:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
-        }
-        
-        .carousel-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-        
-        .carousel-item:hover .carousel-image {
-            transform: scale(1.05);
-        }
-        
-        .carousel-caption {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(to top, rgba(0,92,191,0.9), transparent);
-            color: white;
-            padding: 1.5rem;
-            transform: translateY(100%);
-            transition: transform 0.3s ease;
-        }
-        
-        .carousel-item:hover .carousel-caption {
-            transform: translateY(0);
-        }
-        
-        .carousel-caption h3 {
-            margin: 0 0 0.5rem 0;
-            color: #ff6b00;
+        .hero-content p {
             font-size: 1.3rem;
+            margin-bottom: 2rem;
         }
         
-        .carousel-caption p {
-            margin: 0;
-            font-size: 0.9rem;
-            opacity: 0.9;
-        }
-        
-        .carousel-btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(0,92,191,0.8);
+        .hero-btn {
+            background: #ff8c42;
             color: white;
             border: none;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            font-size: 1.5rem;
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            border-radius: 50px;
             cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .hero-btn:hover {
+            background: #e67300;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(255,140,66,0.4);
+        }
+        
+        .hero-indicators {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
             display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: background 0.3s ease;
+            gap: 15px;
             z-index: 10;
         }
         
-        .carousel-btn:hover {
-            background: #ff6b00;
+        .hero-indicator {
+            width: 50px;
+            height: 4px;
+            background: rgba(255,255,255,0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
         }
         
-        .carousel-btn.prev {
-            left: 0;
+        .hero-indicator.active {
+            background: #ff8c42;
+            width: 80px;
         }
         
-        .carousel-btn.next {
-            right: 0;
+        /* NAVIGATION */
+        nav {
+            background: #1a2634;
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
         
-        .carousel-indicators {
+        nav ul {
+            list-style: none;
             display: flex;
             justify-content: center;
-            gap: 10px;
-            margin-top: 2rem;
+            flex-wrap: wrap;
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
         }
         
-        .indicator {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: #ccc;
-            cursor: pointer;
-            transition: background 0.3s ease;
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
         }
         
-        .indicator.active {
-            background: #ff6b00;
+        nav ul li a:hover {
+            color: #ff8c42;
         }
         
-        /* STYLES GÉNÉRAUX AMÉLIORÉS */
+        /* SECTION 7 DIAPORAMAS */
+        .diaporamas-section {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+        
         .section-title {
-            color: #005cbf;
             text-align: center;
-            margin: 3rem 0 2rem 0;
-            font-size: 2.2rem;
+            font-size: 2.5rem;
+            color: #1a2634;
+            margin-bottom: 3rem;
             position: relative;
-            padding-bottom: 10px;
         }
         
         .section-title::after {
             content: '';
             position: absolute;
-            bottom: 0;
+            bottom: -10px;
             left: 50%;
             transform: translateX(-50%);
             width: 100px;
-            height: 3px;
-            background: #ff6b00;
+            height: 4px;
+            background: #ff8c42;
         }
         
-        .highlight-box {
-            background: linear-gradient(135deg, #005cbf, #0088ff);
-            color: white;
-            padding: 1.5rem;
-            border-radius: 10px;
-            margin: 2rem 0;
-            text-align: center;
-        }
-        
-        .cta-button {
-            display: inline-block;
-            background: #ff6b00;
-            color: white;
-            padding: 12px 30px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            margin-top: 1rem;
-            transition: background 0.3s ease, transform 0.3s ease;
-        }
-        
-        .cta-button:hover {
-            background: #e55a00;
-            transform: translateY(-3px);
-        }
-        
-        .info-cards {
+        .cards-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
-            margin: 2rem 0;
         }
         
-        .info-card {
+        .card {
             background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .card-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        
+        .card-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            display: flex;
+            align-items: flex-end;
+            padding: 1.5rem;
+        }
+        
+        .card-title {
+            color: white;
+            font-size: 1.8rem;
+            font-weight: 600;
+        }
+        
+        .card-content {
+            padding: 1.5rem;
+        }
+        
+        .card-content p {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+        
+        .card-link {
+            color: #ff8c42;
+            font-weight: 600;
+            text-decoration: none;
+        }
+        
+        /* SECTION LOGOS CLUBS */
+        .clubs-section {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+        
+        .clubs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .club-item {
             text-align: center;
-            border-top: 5px solid #005cbf;
         }
         
-        .info-card h3 {
-            color: #005cbf;
-            margin-bottom: 1rem;
+        .club-logo {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 1rem;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 4px solid #ff8c42;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
         }
         
-        .info-card i {
-            font-size: 2.5rem;
-            color: #ff6b00;
-            margin-bottom: 1rem;
+        .club-logo:hover {
+            transform: scale(1.1);
         }
         
-        /* RESPONSIVE */
-        @media (max-width: 768px) {
-            .hero-title {
-                font-size: 2.5rem;
-            }
-            
-            .hero-subtitle {
-                font-size: 1.2rem;
-            }
-            
-            .hero-section {
-                height: 50vh;
-                min-height: 400px;
-            }
-            
-            .carousel-item {
-                width: 250px;
-                height: 350px;
-            }
-            
-            .carousel-container {
-                padding: 0 40px;
-            }
-            
-            .carousel-title {
-                font-size: 2rem;
-            }
-            
-            .section-title {
-                font-size: 1.8rem;
-            }
+        .club-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
         
-        @media (max-width: 480px) {
-            .hero-title {
-                font-size: 2rem;
-            }
-            
-            .carousel-item {
-                width: 200px;
-                height: 300px;
-            }
-            
-            .carousel-container {
-                padding: 0 20px;
-            }
-            
-            .info-cards {
-                grid-template-columns: 1fr;
-            }
+        .club-name {
+            font-weight: 600;
+            color: #1a2634;
+        }
+        
+        /* FOOTER */
+        footer {
+            background: #1a2634;
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            margin-top: 4rem;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        .footer-links a:hover {
+            color: #ff8c42;
+        }
+        
+        .copyright {
+            color: #aaa;
+            font-size: 0.9rem;
         }
     </style>
 </head>
 <body>
-    <!-- HEADER ET NAVIGATION -->
-    <header>
-        <div class="header-content">
-            <h1><i class="fas fa-futbol"></i> Village Ajar - Ajar-foot</h1>
-            <p>L'esprit d'équipe, le cœur du village</p>
+    <!-- GRAND DIAPORAMA -->
+    <div class="hero">
+        <div class="hero-slider">
+            <div class="hero-slide active" style="background-image: url('images/hero/histoire.jpg');">
+                <div class="hero-content">
+                    <h1>Bienvenue à <span class="highlight">Ajar</span></h1>
+                    <p>Un village, une histoire, une légende depuis 1983</p>
+                    <a href="histoire/index.html" class="hero-btn">Découvrir l'histoire</a>
+                </div>
+            </div>
+            
+            <div class="hero-slide" style="background-image: url('images/hero/football.jpg');">
+                <div class="hero-content">
+                    <h1>⚽ <span class="highlight">Ajar-foot</span></h1>
+                    <p>L'équipe majeure du village, fierté de toute une communauté</p>
+                    <a href="equipe-majeure/index.html" class="hero-btn">Voir l'équipe</a>
+                </div>
+            </div>
+            
+            <div class="hero-slide" style="background-image: url('images/hero/clubs.jpg');">
+                <div class="hero-content">
+                    <h1>🏆 <span class="highlight">8 clubs</span></h1>
+                    <p>Un championnat, une passion</p>
+                    <a href="clubs-championnat/index.html" class="hero-btn">Découvrir les clubs</a>
+                </div>
+            </div>
+            
+            <div class="hero-slide" style="background-image: url('images/hero/ecole.jpg');">
+                <div class="hero-content">
+                    <h1>📚 <span class="highlight">15 pionniers</span></h1>
+                    <p>Les premiers écoliers d'Ajar en 1983</p>
+                    <a href="histoire/index.html#ecole" class="hero-btn">Lire leur histoire</a>
+                </div>
+            </div>
+            
+            <div class="hero-slide" style="background-image: url('images/hero/associations.jpg');">
+                <div class="hero-content">
+                    <h1>🤝 <span class="highlight">Associations</span></h1>
+                    <p>Femmes, jeunes, culture... La vie du village</p>
+                    <a href="associations/index.html" class="hero-btn">Découvrir</a>
+                </div>
+            </div>
+            
+            <div class="hero-slide" style="background-image: url('images/hero/village.jpg');">
+                <div class="hero-content">
+                    <h1>🏘️ <span class="highlight">Notre village</span></h1>
+                    <p>École, dispensaire, maison des jeunes</p>
+                    <a href="village/index.html" class="hero-btn">Explorer</a>
+                </div>
+            </div>
+            
+            <div class="hero-slide" style="background-image: url('images/hero/temoins.jpg');">
+                <div class="hero-content">
+                    <h1>🎤 <span class="highlight">Témoignages</span></h1>
+                    <p>La parole aux anciens : Ladji Boubou, Diallo Tandia...</p>
+                    <a href="temoignages/index.html" class="hero-btn">Écouter</a>
+                </div>
+            </div>
         </div>
-    </header>
+        
+        <div class="hero-indicators">
+            <span class="hero-indicator active"></span>
+            <span class="hero-indicator"></span>
+            <span class="hero-indicator"></span>
+            <span class="hero-indicator"></span>
+            <span class="hero-indicator"></span>
+            <span class="hero-indicator"></span>
+            <span class="hero-indicator"></span>
+        </div>
+    </div>
     
+    <!-- NAVIGATION -->
     <nav>
-        <a href="index.html"><i class="fas fa-home"></i> Accueil</a>
-        <a href="clubs/index.html"><i class="fas fa-users"></i> Clubs</a>
-        <a href="actualites/index.html"><i class="fas fa-newspaper"></i> Actualités</a>
-        <a href="galerie.html"><i class="fas fa-images"></i> Galerie</a>
-        <a href="a-propos.html"><i class="fas fa-info-circle"></i> À propos</a>
-        <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+        <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="histoire/index.html">Histoire</a></li>
+            <li><a href="equipe-majeure/index.html">Équipe</a></li>
+            <li><a href="clubs-championnat/index.html">Clubs</a></li>
+            <li><a href="joueurs/index.html">Joueurs</a></li>
+            <li><a href="associations/index.html">Associations</a></li>
+            <li><a href="village/index.html">Village</a></li>
+            <li><a href="temoignages/index.html">Témoignages</a></li>
+            <li><a href="galerie/index.html">Galerie</a></li>
+        </ul>
     </nav>
     
-    <!-- GRANDE PHOTO DU TERRAIN DE FOOT -->
-    <section class="hero-section">
-        <img src="images/grande/terrain-foot.jpg" alt="Terrain de football du Village Ajar" class="hero-image" 
-             onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1575361204480-aadea25e6e68?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80'">
-        <div class="hero-overlay">
-            <h1 class="hero-title">Notre Terrain, Notre Fierté</h1>
-            <p class="hero-subtitle">
-                Le stade municipal d'Ajar, cœur battant du club Ajar-foot depuis 1980. 
-                Lieu d'entraînement, de compétition et de rassemblement pour toute la communauté.
-            </p>
-            <a href="terrain-foot.html" class="cta-button">Découvrir l'histoire du terrain →</a>
+    <!-- SECTION 7 DIAPORAMAS -->
+    <section class="diaporamas-section">
+        <h2 class="section-title">Explorez Ajar en 7 chapitres</h2>
+        
+        <div class="cards-grid">
+            <a href="histoire/index.html#origines" class="card">
+                <div class="card-image" style="background-image: url('images/diaporamas/histoire/origines.jpg');">
+                    <div class="card-overlay">
+                        <h3 class="card-title">Les Origines</h3>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <p>1983-1989 : Le premier match, l'association Fedde, les pionniers</p>
+                    <span class="card-link">Lire →</span>
+                </div>
+            </a>
+            
+            <a href="histoire/index.html#ecole" class="card">
+                <div class="card-image" style="background-image: url('images/diaporamas/histoire/ecole.jpg');">
+                    <div class="card-overlay">
+                        <h3 class="card-title">L'École des Pionniers</h3>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <p>Les 15 premiers écoliers, Yaye Goumbe Soumare, Taba Drame...</p>
+                    <span class="card-link">Lire →</span>
+                </div>
+            </a>
+            
+            <a href="histoire/index.html#generation1" class="card">
+                <div class="card-image" style="background-image: url('images/diaporamas/histoire/generation1.jpg');">
+                    <div class="card-overlay">
+                        <h3 class="card-title">La Première Génération</h3>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <p>1994-1998 : Diallo Tandia, Harouna Sankhare, premier tournoi</p>
+                    <span class="card-link">Lire →</span>
+                </div>
+            </a>
+            
+            <a href="histoire/index.html#generation2" class="card">
+                <div class="card-image" style="background-image: url('images/diaporamas/histoire/age-dor.jpg');">
+                    <div class="card-overlay">
+                        <h3 class="card-title">L'Âge d'Or</h3>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <p>2000-2010 : Les tournois à Nouakchott, l'expansion</p>
+                    <span class="card-link">Lire →</span>
+                </div>
+            </a>
+            
+            <a href="histoire/index.html#inter-arena" class="card">
+                <div class="card-image" style="background-image: url('images/diaporamas/histoire/ere-moderne.jpg');">
+                    <div class="card-overlay">
+                        <h3 class="card-title">L'Ère Moderne</h3>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <p>2017-2022 : Inter Arena, Sadio Diawara, Hamidou Kelly</p>
+                    <span class="card-link">Lire →</span>
+                </div>
+            </a>
+            
+            <a href="histoire/index.html#championnat" class="card">
+                <div class="card-image" style="background-image: url('images/diaporamas/histoire/championnat.jpg');">
+                    <div class="card-overlay">
+                        <h3 class="card-title">Le Championnat</h3>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <p>2015-2026 : 8 clubs, Walé, Dango, Lion d'Ajar...</p>
+                    <span class="card-link">Lire →</span>
+                </div>
+            </a>
+            
+            <a href="histoire/index.html#heritage" class="card">
+                <div class="card-image" style="background-image: url('images/diaporamas/histoire/heritage.jpg');">
+                    <div class="card-overlay">
+                        <h3 class="card-title">L'Héritage</h3>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <p>Dispensaire, école, maison des jeunes, l'avenir</p>
+                    <span class="card-link">Lire →</span>
+                </div>
+            </a>
         </div>
     </section>
     
-    <!-- CARROUSEL D'IMAGES -->
-    <section class="carousel-section">
-        <h2 class="carousel-title"><i class="fas fa-camera"></i> La Vie à Ajar en Images</h2>
+    <!-- SECTION LOGOS DES CLUBS -->
+    <section class="clubs-section">
+        <h2 class="section-title">Les Clubs du Championnat</h2>
         
-        <div class="carousel-container">
-            <button class="carousel-btn prev" onclick="scrollCarousel(-1)">
-                <i class="fas fa-chevron-left"></i>
-            </button>
-            
-            <div class="carousel" id="imageCarousel">
-                <!-- Photo 1 - Terrain -->
-                <div class="carousel-item" onclick="window.location.href='terrain-foot.html'">
-                    <img src="images/grande/terrain-foot.jpg" alt="Terrain de football Ajar" class="carousel-image">
-                    <div class="carousel-caption">
-                        <h3>Notre Terrain</h3>
-                        <p>Cœur du club depuis 1995</p>
-                    </div>
+        <div class="clubs-grid">
+            <div class="club-item">
+                <div class="club-logo">
+                    <img src="images/logos/clubs/dango.jpg" alt="FC Dango">
                 </div>
-                
-                <!-- Photo 2 - Les anciens -->
-                <div class="carousel-item" onclick="window.location.href='anciens.html'">
-                    <img src="images/slider/anciens.jpg" alt="Les anciens du club" class="carousel-image">
-                    <div class="carousel-caption">
-                        <h3>Les Anciens</h3>
-                        <p>Mémoire vivante d'Ajar-foot</p>
-                    </div>
-                </div>
-                
-                <!-- Photo 3 - Logo -->
-                <div class="carousel-item" onclick="window.location.href='logo.html'">
-                    <img src="images/logos/logo.jpg" alt="Logo Ajar-foot" class="carousel-image">
-                    <div class="carousel-caption">
-                        <h3>Notre Logo</h3>
-                        <p>Symbole de notre identité</p>
-                    </div>
-                </div>
-                
-                <!-- Photo 4 - Image 1 -->
-                <div class="carousel-item" onclick="window.location.href='galerie.html#image1'">
-                    <img src="images/slider/image1.jpg" alt="Vie du village" class="carousel-image">
-                    <div class="carousel-caption">
-                        <h3>Vie Communautaire</h3>
-                        <p>Moments partagés</p>
-                    </div>
-                </div>
-                
-                <!-- Photo 5 - Image 2 -->
-                <div class="carousel-item" onclick="window.location.href='galerie.html#image2'">
-                    <img src="images/slider/image2.jpg" alt="Événements" class="carousel-image">
-                    <div class="carousel-caption">
-                        <h3>Événements</h3>
-                        <p>Rassemblements et fêtes</p>
-                    </div>
-                </div>
-                
-                <!-- Photo 6 - Image 3 -->
-                <div class="carousel-item" onclick="window.location.href='galerie.html#image3'">
-                    <img src="images/slider/image3.jpg" alt="Jeunes du village" class="carousel-image">
-                    <div class="carousel-caption">
-                        <h3>Jeunesse</h3>
-                        <p>L'avenir d'Ajar</p>
-                    </div>
-                </div>
-                
-                <!-- Photo 7 - Image 4 -->
-                <div class="carousel-item" onclick="window.location.href='galerie.html#image4'">
-                    <img src="images/slider/image4.jpg" alt="Activités" class="carousel-image">
-                    <div class="carousel-caption">
-                        <h3>Activités</h3>
-                        <p>Sport et culture</p>
-                    </div>
-                </div>
+                <div class="club-name">FC Dango</div>
             </div>
             
-            <button class="carousel-btn next" onclick="scrollCarousel(1)">
-                <i class="fas fa-chevron-right"></i>
-            </button>
+            <div class="club-item">
+                <div class="club-logo">
+                    <img src="images/logos/clubs/kawral.jpg" alt="FC Kawral">
+                </div>
+                <div class="club-name">FC Kawral</div>
+            </div>
+            
+            <div class="club-item">
+                <div class="club-logo">
+                    <img src="images/logos/clubs/nassr.jpg" alt="FC Nassr">
+                </div>
+                <div class="club-name">FC Nassr</div>
+            </div>
+            
+            <div class="club-item">
+                <div class="club-logo">
+                    <img src="images/logos/clubs/soumpou.jpg" alt="FC Soumpou">
+                </div>
+                <div class="club-name">FC Soumpou</div>
+            </div>
+            
+            <div class="club-item">
+                <div class="club-logo">
+                    <img src="images/logos/clubs/wale.jpg" alt="FC Walé">
+                </div>
+                <div class="club-name">FC Walé</div>
+            </div>
+            
+            <div class="club-item">
+                <div class="club-logo">
+                    <img src="images/logos/clubs/lion-ajar.jpg" alt="Lion d'Ajar">
+                </div>
+                <div class="club-name">Lion d'Ajar</div>
+            </div>
         </div>
         
-        <div class="carousel-indicators" id="carouselIndicators">
-            <!-- Les indicateurs seront générés par JavaScript -->
+        <div style="text-align: center; margin-top: 2rem;">
+            <a href="clubs-championnat/index.html" class="hero-btn" style="background: #1a2634;">Voir tous les clubs →</a>
         </div>
     </section>
     
-    <!-- CONTENU PRINCIPAL -->
-    <main>
-        <section>
-            <h2 class="section-title">Bienvenue au Village Ajar</h2>
-            
-            <div class="info-cards">
-                <div class="info-card">
-                    <i class="fas fa-futbol"></i>
-                    <h3>Club Ajar-foot</h3>
-                    <p>Fondé en 1995, notre club de football est la fierté du village. Entraînements les mardis et jeudis.</p>
-                </div>
-                
-                <div class="info-card">
-                    <i class="fas fa-users"></i>
-                    <h3>Communauté Unie</h3>
-                    <p>Plus de 1000 habitants soudés autour des valeurs de solidarité et d'entraide.</p>
-                </div>
-                
-                <div class="info-card">
-                    <i class="fas fa-calendar-alt"></i>
-                    <h3>Événements Réguliers</h3>
-                    <p>Tournois, festivals culturels, assemblées et activités pour tous les âges.</p>
-                </div>
-            </div>
-            
-            <div class="highlight-box">
-                <h3><i class="fas fa-star"></i> Un Village Dynamique</h3>
-                <p>Entre traditions préservées et projets innovants, Ajar cultive l'esprit communautaire et le développement pour tous.</p>
-            </div>
-        </section>
-        
-        <section>
-            <h2 class="section-title"><i class="fas fa-calendar-alt"></i> Prochains Événements</h2>
-            
-            <div class="info-cards">
-                <div class="info-card" style="border-top-color: #ff6b00;">
-                    <i class="fas fa-users"></i>
-                    <h3>10 Février 2026</h3>
-                    <p><strong>Assemblée générale Ajar-foot</strong></p>
-                    <p>Salle communale - 18h00</p>
-                    <p>Présentation de la saison 2026-2027</p>
-                </div>
-                
-                <div class="info-card" style="border-top-color: #005cbf;">
-                    <i class="fas fa-futbol"></i>
-                    <h3>14 Février 2026</h3>
-                    <p><strong>Match amical</strong></p>
-                    <p>Ajar-foot vs Village voisin</p>
-                    <p>Stade municipal - 15h00</p>
-                    <p>Entrée libre</p>
-                </div>
-                
-                <div class="info-card" style="border-top-color: #28a745;">
-                    <i class="fas fa-seedling"></i>
-                    <h3>DU 09 AU 12 FEVRIER 2023</h3>
-                    <p><strong>ASSAINISSEMENT</strong></p>
-                    <p>ACCUEIL DES DÉLÉGATIONS</p>
-                    <p>MARATHON</p>
-                    <p>MATCH DE GALA</p>
-                </div>
-            </div>
-        </section>
-        
-        <section>
-            <h2 class="section-title"><i class="fas fa-info-circle"></i> Informations Pratiques</h2>
-            
-            <div style="max-width: 800px; margin: 0 auto; padding: 2rem; background: white; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
-                <h3 style="color: #005cbf; margin-bottom: 1rem;"><i class="fas fa-map-marker-alt"></i> Nous Trouver</h3>
-                <p>Le Village Ajar est situé au cœur de notre belle région, accessible depuis la route nationale.</p>
-                
-                <h3 style="color: #005cbf; margin: 1.5rem 0 1rem 0;"><i class="fas fa-phone"></i> Contacts</h3>
-                <p><strong>Président Ajar-foot :</strong> Mohamed Diop - XX XXX XX XX</p>
-                <p><strong>Mairie :</strong> XX XXX XX XX</p>
-                <p><strong>Urgences :</strong> XX XXX XX XX</p>
-                
-                <h3 style="color: #005cbf; margin: 1.5rem 0 1rem 0;"><i class="fas fa-envelope"></i> Emails</h3>
-                <p><strong>Général :</strong> contact@ajar-foot.online</p>
-                <p><strong>Club de foot :</strong> ajarfoot@ajar-foot.online</p>
-                <p><strong>Événements :</strong> evenements@ajar-foot.online</p>
-            </div>
-        </section>
-    </main>
-    
+    <!-- PIED DE PAGE -->
     <footer>
-        <div style="max-width: 1200px; margin: 0 auto; padding: 2rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
-            <div>
-                <h3 style="color: #ff6b00;"><i class="fas fa-futbol"></i> Village Ajar</h3>
-                <p>Communauté unie, avenir partagé</p>
-                <p>Depuis 1995, construisons ensemble</p>
-            </div>
-            
-            <div>
-                <h3 style="color: #ff6b00;"><i class="fas fa-map-marker-alt"></i> Nous Situer</h3>
-                <p>Village Ajar</p>
-                <p>Région de Guidimakha</p>
-                <p>Mauritanie</p>
-            </div>
-            
-            <div>
-                <h3 style="color: #ff6b00;"><i class="fas fa-link"></i> Liens Rapides</h3>
-                <p><a href="clubs/index.html" style="color: white;"><i class="fas fa-chevron-right"></i> Clubs & Associations</a></p>
-                <p><a href="actualites/index.html" style="color: white;"><i class="fas fa-chevron-right"></i> Actualités</a></p>
-                <p><a href="galerie.html" style="color: white;"><i class="fas fa-chevron-right"></i> Galerie photos</a></p>
-                <p><a href="contact.html" style="color: white;"><i class="fas fa-chevron-right"></i> Contactez-nous</a></p>
-            </div>
-            
-            <div>
-                <h3 style="color: #ff6b00;"><i class="fas fa-share-alt"></i> Partager</h3>
-                <p>Diffusez notre site autour de vous !</p>
-                <p>Partagez les actualités du village</p>
-                <p>Impliquez-vous dans la vie communautaire</p>
-            </div>
+        <div class="footer-links">
+            <a href="index.html">Accueil</a>
+            <a href="histoire/index.html">Histoire</a>
+            <a href="equipe-majeure/index.html">Équipe</a>
+            <a href="clubs-championnat/index.html">Clubs</a>
+            <a href="contact.html">Contact</a>
         </div>
-        
-        <div style="text-align: center; padding: 2rem; border-top: 1px solid rgba(255,255,255,0.1); background: rgba(0,0,0,0.2);">
+        <div class="copyright">
             <p>&copy; 2026 Village Ajar - Tous droits réservés</p>
-            <p>Site réalisé avec ❤️ par la communauté d'Ajar</p>
-            <p><a href="index.html" style="color: #ff6b00; text-decoration: none;"><i class="fas fa-arrow-up"></i> Retour en haut</a></p>
         </div>
     </footer>
     
     <script>
-        // CARROUSEL AUTOMATIQUE ET INTERACTIF
-        document.addEventListener('DOMContentLoaded', function() {
-            const carousel = document.getElementById('imageCarousel');
-            const items = carousel.querySelectorAll('.carousel-item');
-            const indicatorsContainer = document.getElementById('carouselIndicators');
-            let currentIndex = 0;
-            let autoScrollInterval;
-            
-            // Crée les indicateurs
-            items.forEach((_, index) => {
-                const indicator = document.createElement('div');
-                indicator.className = 'indicator' + (index === 0 ? ' active' : '');
-                indicator.addEventListener('click', () => scrollToIndex(index));
-                indicatorsContainer.appendChild(indicator);
-            });
-            
-            // Fonction pour défiler le carrousel
-            function scrollCarousel(direction) {
-                const itemWidth = items[0].offsetWidth + 20;
-                currentIndex = (currentIndex + direction + items.length) % items.length;
-                carousel.scrollTo({
-                    left: currentIndex * itemWidth,
-                    behavior: 'smooth'
-                });
-                updateIndicators();
-                resetAutoScroll();
-            }
-            
-            // Fonction pour aller à un index spécifique
-            function scrollToIndex(index) {
-                const itemWidth = items[0].offsetWidth + 20;
-                currentIndex = index;
-                carousel.scrollTo({
-                    left: index * itemWidth,
-                    behavior: 'smooth'
-                });
-                updateIndicators();
-                resetAutoScroll();
-            }
-            
-            // Met à jour les indicateurs actifs
-            function updateIndicators() {
-                document.querySelectorAll('.indicator').forEach((indicator, index) => {
-                    indicator.classList.toggle('active', index === currentIndex);
-                });
-            }
-            
-            // Défilement automatique
-            function startAutoScroll() {
-                autoScrollInterval = setInterval(() => {
-                    scrollCarousel(1);
-                }, 5000); // Change toutes les 5 secondes
-            }
-            
-            // Réinitialise le défilement automatique
-            function resetAutoScroll() {
-                clearInterval(autoScrollInterval);
-                startAutoScroll();
-            }
-            
-            // Détecte le défilement manuel
-            carousel.addEventListener('scroll', () => {
-                const itemWidth = items[0].offsetWidth + 20;
-                const newIndex = Math.round(carousel.scrollLeft / itemWidth);
-                if (newIndex !== currentIndex) {
-                    currentIndex = newIndex;
-                    updateIndicators();
-                    resetAutoScroll();
-                }
-            });
-            
-            // Pause au survol
-            carousel.addEventListener('mouseenter', () => {
-                clearInterval(autoScrollInterval);
-            });
-            
-            carousel.addEventListener('mouseleave', () => {
-                startAutoScroll();
-            });
-            
-            // Démarrer le défilement automatique
-            startAutoScroll();
-            
-            // Initialiser la position
-            scrollToIndex(0);
-            
-            // Expose la fonction globalement pour les boutons
-            window.scrollCarousel = scrollCarousel;
-        });
+        // GRAND DIAPORAMA
+        let slides = document.querySelectorAll('.hero-slide');
+        let indicators = document.querySelectorAll('.hero-indicator');
+        let currentSlide = 0;
         
-        // Animation d'apparition des sections
-        document.addEventListener('DOMContentLoaded', function() {
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            };
+        function showSlide(index) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            indicators.forEach(ind => ind.classList.remove('active'));
             
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                    }
-                });
-            }, observerOptions);
-            
-            // Observe les sections
-            document.querySelectorAll('section').forEach(section => {
-                section.style.opacity = '0';
-                section.style.transform = 'translateY(20px)';
-                section.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-                observer.observe(section);
-            });
+            slides[index].classList.add('active');
+            indicators[index].classList.add('active');
+            currentSlide = index;
+        }
+        
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+        
+        // Défilement automatique toutes les 5 secondes
+        setInterval(nextSlide, 5000);
+        
+        // Clique sur les indicateurs
+        indicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', () => showSlide(index));
         });
     </script>
 </body>

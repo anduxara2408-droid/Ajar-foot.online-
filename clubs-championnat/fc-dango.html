@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FC Dango - Histoire et Joueurs</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* HERO SECTION AVEC COULEURS DU CLUB */
+        .hero {
+            height: 60vh;
+            background: linear-gradient(135deg, #1a5f7a, #0a2f3a);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+        
+        .hero::before {
+            content: "⚽";
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            font-size: 300px;
+            opacity: 0.1;
+            transform: rotate(15deg);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            padding: 2rem;
+        }
+        
+        .hero-logo {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 2rem;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 5px solid #ff8c42;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        
+        .hero-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 0.5rem;
+            color: #ff8c42;
+        }
+        
+        .hero .slogan {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            font-style: italic;
+        }
+        
+        /* NAVIGATION */
+        nav {
+            background: #1a2634;
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: #ff8c42;
+        }
+        
+        /* CONTENEUR PRINCIPAL */
+        .container {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+        
+        /* SECTION HISTOIRE */
+        .histoire-section {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            color: #1a2634;
+            margin-bottom: 2rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100px;
+            height: 4px;
+            background: #ff8c42;
+        }
+        
+        .histoire-content {
+            font-size: 1.1rem;
+            color: #444;
+        }
+        
+        .histoire-content p {
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+        
+        .highlight {
+            color: #ff8c42;
+            font-weight: 600;
+        }
+        
+        .date-importante {
+            display: inline-block;
+            background: #1a5f7a;
+            color: white;
+            padding: 0.3rem 1rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            margin-right: 1rem;
+        }
+        
+        .stats-club {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+            text-align: center;
+        }
+        
+        .stat-club-item {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 15px;
+        }
+        
+        .stat-club-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #ff8c42;
+        }
+        
+        .stat-club-label {
+            font-size: 1rem;
+            color: #666;
+        }
+        
+        /* SECTION PALMARÈS */
+        .palmares-club {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .palmares-club h3 {
+            color: #1a2634;
+            margin-bottom: 1rem;
+        }
+        
+        .palmares-club ul {
+            list-style: none;
+        }
+        
+        .palmares-club li {
+            padding: 0.8rem 0;
+            border-bottom: 1px dashed #ff8c42;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .palmares-club i {
+            color: #ff8c42;
+            width: 30px;
+            font-size: 1.3rem;
+        }
+        
+        /* SECTION JOUEURS */
+        .joueurs-section {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .joueurs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .joueur-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            border: 1px solid #eee;
+        }
+        
+        .joueur-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(255,140,66,0.2);
+        }
+        
+        .joueur-photo {
+            height: 250px;
+            background: #f0f0f0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .joueur-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .joueur-photo-placeholder {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #1a5f7a, #0a2f3a);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 5rem;
+        }
+        
+        .joueur-info {
+            padding: 1.5rem;
+        }
+        
+        .joueur-nom {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1a2634;
+            margin-bottom: 0.3rem;
+        }
+        
+        .joueur-poste {
+            color: #ff8c42;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+        
+        .joueur-details {
+            display: flex;
+            justify-content: space-between;
+            margin: 1rem 0;
+            padding: 1rem 0;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .joueur-detail-item {
+            text-align: center;
+        }
+        
+        .joueur-detail-label {
+            font-size: 0.8rem;
+            color: #999;
+        }
+        
+        .joueur-detail-value {
+            font-weight: 700;
+            color: #1a2634;
+        }
+        
+        .joueur-numero {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #ff8c42;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+        }
+        
+        .btn {
+            display: inline-block;
+            background: #1a2634;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-weight: 500;
+        }
+        
+        .btn:hover {
+            background: #ff8c42;
+            transform: translateY(-3px);
+        }
+        
+        .btn-orange {
+            background: #ff8c42;
+        }
+        
+        .back-btn {
+            display: inline-block;
+            background: #1a2634;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            margin: 2rem 0;
+            transition: background 0.3s;
+        }
+        
+        .back-btn:hover {
+            background: #ff8c42;
+        }
+        
+        footer {
+            background: #1a2634;
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            margin-top: 4rem;
+        }
+        
+        footer a {
+            color: #ff8c42;
+            text-decoration: none;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .histoire-section, .joueurs-section {
+                padding: 1.5rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HERO SECTION -->
+    <div class="hero">
+        <div class="hero-content">
+            <div class="hero-logo">
+                <img src="../images/logos/clubs/dango.jpg" alt="FC Dango">
+            </div>
+            <h1>FC Dango</h1>
+            <p class="slogan">"Premier champion, première légende"</p>
+        </div>
+    </div>
+    
+    <!-- NAVIGATION -->
+    <nav>
+        <ul>
+            <li><a href="../index.html">Accueil</a></li>
+            <li><a href="../histoire/index.html">Histoire</a></li>
+            <li><a href="index.html">Clubs</a></li>
+            <li><a href="../equipe-majeure/index.html">Équipe</a></li>
+            <li><a href="../joueurs/index.html">Joueurs</a></li>
+            <li><a href="#joueurs">Effectif</a></li>
+        </ul>
+    </nav>
+    
+    <div class="container">
+        <!-- SECTION HISTOIRE -->
+        <section class="histoire-section">
+            <h2 class="section-title"><i class="fas fa-book-open"></i> L'Histoire du FC Dango</h2>
+            
+            <div class="stats-club">
+                <div class="stat-club-item">
+                    <div class="stat-club-number">2015</div>
+                    <div class="stat-club-label">Année de fondation</div>
+                </div>
+                <div class="stat-club-item">
+                    <div class="stat-club-number">1</div>
+                    <div class="stat-club-label">Titre de champion</div>
+                </div>
+                <div class="stat-club-item">
+                    <div class="stat-club-number">1</div>
+                    <div class="stat-club-label">Super Coupe</div>
+                </div>
+                <div class="stat-club-item">
+                    <div class="stat-club-number">2017</div>
+                    <div class="stat-club-label">Premier titre</div>
+                </div>
+            </div>
+            
+            <div class="histoire-content">
+                <p><span class="highlight">Le FC Dango</span> est l'un des clubs fondateurs du championnat d'Ajar, créé en <strong>2015</strong> lors de la première vague de structuration du football villageois. Dès sa création, le club s'est distingué par son jeu collectif et sa discipline, des qualités qui lui permettront rapidement de marquer l'histoire.</p>
+                
+                <p>L'année <span class="highlight">2017</span> restera à jamais gravée dans les mémoires. Cette saison-là, le FC Dango a réalisé l'exploit de remporter le <strong>premier titre de champion officiel de l'histoire d'Ajar</strong>. Une consécration qui venait récompenser des années de travail et d'investissement. L'équipe, menée par un groupe de joueurs talentueux et un staff dévoué, a su faire preuve de régularité tout au long de la saison pour décrocher ce trophée historique.</p>
+                
+                <p>Mais le FC Dango ne s'est pas arrêté là. La même année, le club a participé à la <strong>première édition de la Super Coupe d'Ajar</strong>, opposant le champion au vainqueur de la coupe. Dans une finale mémorable contre <strong>Kelifado</strong>, les deux équipes n'ont pu se départager dans le temps réglementaire. C'est finalement aux <strong>tirs au but</strong> que le FC Dango a arraché la victoire, ajoutant ainsi une deuxième ligne à son palmarès et devenant le <strong>premier club à remporter la Super Coupe</strong>.</p>
+                
+                <div class="palmares-club">
+                    <h3><i class="fas fa-trophy"></i> Palmarès du FC Dango</h3>
+                    <ul>
+                        <li><i class="fas fa-trophy"></i> <strong>Champion d'Ajar 2017</strong> (1er titre de l'histoire)</li>
+                        <li><i class="fas fa-trophy"></i> <strong>Vainqueur de la Super Coupe d'Ajar</strong> (première édition)</li>
+                        <li><i class="fas fa-star"></i> Finaliste de la Coupe d'Ajar (2018)</li>
+                        <li><i class="fas fa-medal"></i> Demi-finaliste à plusieurs reprises</li>
+                    </ul>
+                </div>
+                
+                <p>Au fil des années, le FC Dango a su maintenir sa place parmi les meilleurs clubs du championnat. Bien que d'autres équipes aient émergé et remporté des titres, le club reste une référence et un modèle pour les jeunes générations. Son statut de <strong>premier champion</strong> lui confère une place particulière dans l'histoire du football ajarois.</p>
+                
+                <p>Aujourd'hui, le FC Dango continue de faire battre le cœur de ses supporters. Le club mise sur la formation des jeunes et la transmission des valeurs qui ont fait sa force : <strong>travail, discipline et esprit d'équipe</strong>. L'objectif est clair : reconquérir le titre et ajouter de nouvelles lignes à un palmarès déjà prestigieux.</p>
+            </div>
+        </section>
+        
+        <!-- SECTION JOUEURS -->
+        <section id="joueurs" class="joueurs-section">
+            <h2 class="section-title"><i class="fas fa-users"></i> Effectif du FC Dango 2026</h2>
+            
+            <div class="joueurs-grid">
+                <!-- Joueur 1 -->
+                <div class="joueur-card">
+                    <div class="joueur-photo">
+                        <div class="joueur-photo-placeholder">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="joueur-numero">10</div>
+                    </div>
+                    <div class="joueur-info">
+                        <h3 class="joueur-nom">Mamadou Diakité</h3>
+                        <div class="joueur-poste">Milieu offensif</div>
+                        <div class="joueur-details">
+                            <div class="joueur-detail-item">
+                                <div class="joueur-detail-label">Âge</div>
+                                <div class="joueur-detail-value">27 ans</div>
+                            </div>
+                            <div class="joueur-detail-item">
+                                <div class="joueur-detail-label">Taille</div>
+                                <div class="joueur-detail-value">1,82 m</div>
+                            </div>
+                            <div class="joueur-detail-item">
+                                <div class="joueur-detail-label">Matchs</div>
+                                <div class="joueur-detail-value">47</div>
+                            </div>
+                        </div>
+                        <div class="joueur-details">
+                            <div class="joueur-detail-item">
+                                <div class="joueur-detail-label">Buts</div>
+                                <div class="joueur-detail-value">12</div>
+                            </div>
+                            <div class="joueur-detail-item">
+                                <div class="joueur-detail-label">Passes</div>
+                                <div class="joueur-detail-value">8</div>
+                            </div>
+                            <div class="joueur-detail-item">
+                                <div class="joueur-detail-label">Club depuis</div>
+                                <div class="joueur-detail-value">2019</div>
+                            </div>
+                        </div>
+                        <div style="text-align: center; margin-top: 1rem;">
+                            <span class="btn btn-orange" style="padding: 0.5rem 1rem;">Voir profil</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Joueur 2 -->
+                <div class="joueur-card">
+                    <div class="joueur-photo">
+                        <div class="joueur-photo-placeholder">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="joueur-numero">7</div>
+                    </div>
+                    <div class="joueur-info">
+                        <h3 class="joueur-nom">Ibrahima Sall</h3>
+                        <div class="joueur-poste">Attaquant</div>
+                        <div class="joueur-details">
+                            <div class="joueur-detail-item">
+                                <div class="joueur-detail-label">Âge</div>
+                                <div class="joueur-detail-value">24 ans</div>
+                            </div>
+                            <div class="joueur-detail-item">
+                                <div class="joueur-detail-label">Taille</div>
+                                <div class="joueur-detail-value">1,78 m</div>
+                            </div>
+                            <div class="joueur-detail-item">
+                                <div class="joueur-detail-label">Matchs</div>
+                                <div class="joueur-detail-value">35</div>
+                            </div>
+                        </div>
+                        <div class="joueur-details">
+                            <div class="joueur-detail-item">
+                                <div class="joueur-detail-label">Buts</div>
+                                <div class="joueur-detail-value">15</div>
+                            </div>
+                            <div class="joueur-detail-item">
+                                <div class="joueur-detail-label">Passes</div>
+                                <div class="joueur-detail-value">6</div>
+                            </div>
+                            <div class="joueur-detail-item">
+                                <div class="joueur-detail-label">Club depuis</div>
+                                <div class="joueur-detail-value">2020</div>
+                            </div>
+                        </div>
+                        <div style="text-align: center; margin-top: 1rem;">
+                            <span class="btn btn-orange" style="padding: 0.5rem 1rem;">Voir profil</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Joueur 3 -->
+                <div class="joueur-card">
+                    <div class="joueur-photo">
+                        <div class="joueur-photo-placeholder">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="joueur-numero">5</div>
+                    </div>
+                    <div class="joueur-info">
+                        <h3 class="joueur-nom">Ousmane Diallo</h3>
+                        <div class="joueur-poste">Défenseur central</div>
+                        <div class="joueur-details">
+                            <div class="joueur-detail-item">
+                                <div class="joueur-detail-label">Âge</div>
+                                <div class="joueur-detail-value">29 ans</div>
+                            </div>
+                            <div class="joueur-detail-item">
+                                <div class="joueur-detail-label">Taille</div>
+                                <div class="joueur-detail-value">1,85 m</div>
+                            </div>
+                            <div class="joueur-detail-item">
+                                <div class="joueur-detail-label">Matchs</div>
+                                <div class="joueur-detail-value">62</div>
+                            </div>
+                        </div>
+                        <div class="joueur-details">
+                            <div class="joueur-detail-item">
+                                <div class="joueur-detail-label">Buts</div>
+                                <div class="joueur-detail-value">3</div>
+                            </div>
+                            <div class="joueur-detail-item">
+                                <div class="joueur-detail-label">Passes</div>
+                                <div class="joueur-detail-value">2</div>
+                            </div>
+                            <div class="joueur-detail-item">
+                                <div class="joueur-detail-label">Club depuis</div>
+                                <div class="joueur-detail-value">2017</div>
+                            </div>
+                        </div>
+                        <div style="text-align: center; margin-top: 1rem;">
+                            <span class="btn btn-orange" style="padding: 0.5rem 1rem;">Voir profil</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Joueur 4 -->
+                <div class="joueur-card">
+                    <div class="joueur-photo">
+                        <div class="joueur-photo-placeholder">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="joueur-numero">1</div>
+                    </div>
+                    <div class="joueur-info">
+                        <h3 class="joueur-nom">Moussa Camara</h3>
+                        <div class="joueur-poste">Gardien de but</div>
+                        <div class="joueur-details">
+                            <div class="joueur-detail-item">
+                                <div class="joueur-detail-label">Âge</div>
+                                <div class="joueur-detail-value">26 ans</div>
+                            </div>
+                            <div class="joueur-detail-item">
+                                <div class="joueur-detail-label">Taille</div>
+                                <div class="joueur-detail-value">1,88 m</div>
+                            </div>
+                            <div class="joueur-detail-item">
+                                <div class="joueur-detail-label">Matchs</div>
+                                <div class="joueur-detail-value">41</div>
+                            </div>
+                        </div>
+                        <div class="joueur-details">
+                            <div class="joueur-detail-item">
+                                <div class="joueur-detail-label">Arrêts</div>
+                                <div class="joueur-detail-value">89</div>
+                            </div>
+                            <div class="joueur-detail-item">
+                                <div class="joueur-detail-label">Clean sheets</div>
+                                <div class="joueur-detail-value">12</div>
+                            </div>
+                            <div class="joueur-detail-item">
+                                <div class="joueur-detail-label">Club depuis</div>
+                                <div class="joueur-detail-value">2018</div>
+                            </div>
+                        </div>
+                        <div style="text-align: center; margin-top: 1rem;">
+                            <span class="btn btn-orange" style="padding: 0.5rem 1rem;">Voir profil</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="#" class="btn">Voir tout l'effectif</a>
+            </div>
+        </section>
+        
+        <!-- BOUTON RETOUR -->
+        <div style="text-align: center; margin: 3rem 0;">
+            <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Retour aux clubs</a>
+            <a href="../index.html" class="back-btn" style="background: #ff8c42; margin-left: 1rem;">Accueil</a>
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; 2026 Village Ajar - Tous droits réservés</p>
+        <p><a href="../index.html">Retour à l'accueil</a> | <a href="index.html">Tous les clubs</a></p>
+    </footer>
+    
+    <script>
+        // Animation au scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.style.background = '#1a2634';
+            } else {
+                nav.style.background = '#2c3e50';
+            }
+        });
+    </script>
+</body>
+</html>
