@@ -178,6 +178,11 @@
             cursor: pointer;
             background-size: cover;
             background-position: center;
+            transition: transform 0.3s;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
         }
         
         .card::before {
@@ -204,6 +209,11 @@
             font-size: 1.5rem;
             margin-bottom: 0.5rem;
             color: #ff8c42;
+        }
+        
+        .card p {
+            font-size: 0.9rem;
+            opacity: 0.9;
         }
         
         /* SECTION CLUBS */
@@ -316,6 +326,9 @@
             .clubs-grid {
                 grid-template-columns: repeat(4, 1fr);
             }
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -343,8 +356,6 @@
                         <img src="images/logos/clubs/soumpou.jpg" style="width: 50px; height: 50px; border-radius: 50%; border: 2px solid #ff8c42;">
                         <img src="images/logos/clubs/lion-ajar.jpg" style="width: 50px; height: 50px; border-radius: 50%; border: 2px solid #ff8c42;">
                         <img src="images/logos/clubs/kelifado.jpg" style="width: 50px; height: 50px; border-radius: 50%; border: 2px solid #ff8c42;">
-                        <img src="images/logos/clubs/kawral.jpg" style="width: 50px; height: 50px; border-radius: 50%; border: 2px solid #ff8c42;">
-                        <img src="images/logos/clubs/nassr.jpg" style="width: 50px; height: 50px; border-radius: 50%; border: 2px solid #ff8c42;">
                     </div>
                     <a href="clubs-championnat/index.html" class="hero-btn">Voir tous les clubs</a>
                 </div>
@@ -355,7 +366,6 @@
                 <div class="hero-content">
                     <h1><span class="highlight">15 Pionniers</span></h1>
                     <p>Les premiers écoliers d'Ajar en 1983</p>
-                    <p style="font-size: 1rem;">Yaye Goumbe Soumare, notre député, était parmi eux</p>
                     <a href="histoire/index.html#ecole" class="hero-btn">Découvrir</a>
                 </div>
             </div>
@@ -365,11 +375,6 @@
                 <div class="hero-content">
                     <h1><span class="highlight">Culture & Traditions</span></h1>
                     <p>Tamtam, dimmu, et la richesse culturelle d'Ajar</p>
-                    <div style="display: flex; justify-content: center; gap: 0.5rem;">
-                        <img src="images/hero/tamtam.jpg" style="width: 60px; height: 60px; border-radius: 10px;">
-                        <img src="images/hero/tamtam1.jpg" style="width: 60px; height: 60px; border-radius: 10px;">
-                        <img src="images/hero/dimmu.jpg" style="width: 60px; height: 60px; border-radius: 10px;">
-                    </div>
                     <a href="associations/index.html" class="hero-btn">Découvrir</a>
                 </div>
             </div>
@@ -378,7 +383,7 @@
             <div class="hero-slide" style="background-image: url('images/hero/village-bg.jpg');">
                 <div class="hero-content">
                     <h1><span class="highlight">Notre Village</span></h1>
-                    <p>Forage (2007), infrastructures, et vie communautaire</p>
+                    <p>Forage, infrastructures, et vie communautaire</p>
                     <a href="village/index.html" class="hero-btn">Explorer</a>
                 </div>
             </div>
@@ -416,11 +421,12 @@
         </ul>
     </nav>
     
-    <!-- SECTION HISTOIRE - 7 CHAPITRES -->
+    <!-- SECTION HISTOIRE - 7 CHAPITRES AVEC LES BONNES PHOTOS -->
     <section class="histoire">
         <h2 class="section-title">L'<span>Histoire</span> d'Ajar en 7 chapitres</h2>
         
         <div class="cards-grid">
+            <!-- Carte 1 - Les Origines -->
             <div class="card" style="background-image: url('images/histoire/origines.jpg');" onclick="location.href='histoire/index.html#origines'">
                 <div class="card-content">
                     <h3>Les Origines</h3>
@@ -428,6 +434,7 @@
                 </div>
             </div>
             
+            <!-- Carte 2 - L'École des Pionniers -->
             <div class="card" style="background-image: url('images/histoire/ecole.jpg');" onclick="location.href='histoire/index.html#ecole'">
                 <div class="card-content">
                     <h3>L'École des Pionniers</h3>
@@ -435,6 +442,7 @@
                 </div>
             </div>
             
+            <!-- Carte 3 - 1ère Génération (AVEC premiere generation.jpeg) -->
             <div class="card" style="background-image: url('images/histoire/generation1.jpg');" onclick="location.href='histoire/index.html#generation1'">
                 <div class="card-content">
                     <h3>1ère Génération</h3>
@@ -442,6 +450,7 @@
                 </div>
             </div>
             
+            <!-- Carte 4 - L'Âge d'Or -->
             <div class="card" style="background-image: url('images/histoire/age-dor.jpg');" onclick="location.href='histoire/index.html#generation2'">
                 <div class="card-content">
                     <h3>L'Âge d'Or</h3>
@@ -449,6 +458,7 @@
                 </div>
             </div>
             
+            <!-- Carte 5 - Inter Arena (AVEC champion.jpeg) -->
             <div class="card" style="background-image: url('images/histoire/inter-arena.jpg');" onclick="location.href='histoire/index.html#inter-arena'">
                 <div class="card-content">
                     <h3>Inter Arena</h3>
@@ -456,6 +466,7 @@
                 </div>
             </div>
             
+            <!-- Carte 6 - Le Championnat -->
             <div class="card" style="background-image: url('images/histoire/championnat.jpg');" onclick="location.href='histoire/index.html#championnat'">
                 <div class="card-content">
                     <h3>Le Championnat</h3>
@@ -463,6 +474,7 @@
                 </div>
             </div>
             
+            <!-- Carte 7 - L'Héritage -->
             <div class="card" style="background-image: url('images/histoire/heritage.jpg');" onclick="location.href='histoire/index.html#heritage'">
                 <div class="card-content">
                     <h3>L'Héritage</h3>
@@ -482,12 +494,11 @@
                 <div class="club-nom">FC Dango</div>
                 <div class="club-titres">1 titre</div>
             </div>
-<div class="club-item">
-    <div class="club-logo"><img src="images/logos/clubs/wale.jpg" alt="FC Walé"></div>
-    <div class="club-nom">FC Walé</div>
-    <div class="club-titres">3 titres</div>
-</div>
-
+            <div class="club-item">
+                <div class="club-logo"><img src="images/logos/clubs/wale.jpg" alt="FC Walé"></div>
+                <div class="club-nom">FC Walé</div>
+                <div class="club-titres">3 titres</div>
+            </div>
             <div class="club-item">
                 <div class="club-logo"><img src="images/logos/clubs/soumpou.jpg" alt="FC Soumpou"></div>
                 <div class="club-nom">FC Soumpou</div>
