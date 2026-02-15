@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Village Ajar - Football, Histoire & Traditions</title>
+    <title>Village Ajar - Histoire, Football & Traditions</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -17,13 +17,13 @@
         
         body {
             font-family: 'Poppins', sans-serif;
-            background: #f5f5f5;
-            color: #333;
+            background: #0a0a0a;
+            color: white;
         }
         
-        /* GRAND DIAPORAMA EN HAUT */
+        /* GRAND DIAPORAMA */
         .hero {
-            height: 80vh;
+            height: 100vh;
             position: relative;
             overflow: hidden;
         }
@@ -31,7 +31,6 @@
         .hero-slider {
             width: 100%;
             height: 100%;
-            position: relative;
         }
         
         .hero-slide {
@@ -43,7 +42,7 @@
             background-size: cover;
             background-position: center;
             opacity: 0;
-            transition: opacity 1.5s ease;
+            transition: opacity 1.5s;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -56,7 +55,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(135deg, rgba(0,0,0,0.7), rgba(0,0,0,0.3));
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7));
         }
         
         .hero-slide.active {
@@ -67,45 +66,35 @@
             position: relative;
             z-index: 2;
             text-align: center;
-            color: white;
             max-width: 900px;
             padding: 2rem;
         }
         
         .hero-content h1 {
             font-size: 4rem;
-            font-weight: 700;
             margin-bottom: 1rem;
-            text-shadow: 2px 2px 15px rgba(0,0,0,0.5);
         }
         
         .hero-content .highlight {
             color: #ff8c42;
-        }
-        
-        .hero-content p {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
+            font-size: 5rem;
+            display: block;
         }
         
         .hero-btn {
-            background: #ff8c42;
+            background: transparent;
+            border: 3px solid #ff8c42;
             color: white;
-            border: none;
-            padding: 1rem 2.5rem;
-            font-size: 1.1rem;
+            padding: 1rem 2rem;
             border-radius: 50px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s ease;
             text-decoration: none;
             display: inline-block;
+            margin-top: 1rem;
+            transition: 0.3s;
         }
         
         .hero-btn:hover {
-            background: #e67300;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(255,140,66,0.4);
+            background: #ff8c42;
         }
         
         .hero-indicators {
@@ -123,7 +112,6 @@
             height: 4px;
             background: rgba(255,255,255,0.3);
             cursor: pointer;
-            transition: all 0.3s ease;
         }
         
         .hero-indicator.active {
@@ -137,32 +125,29 @@
             padding: 1rem;
             position: sticky;
             top: 0;
-            z-index: 1000;
+            z-index: 100;
         }
         
         nav ul {
-            list-style: none;
             display: flex;
             justify-content: center;
-            flex-wrap: wrap;
+            list-style: none;
             gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
+            flex-wrap: wrap;
         }
         
         nav ul li a {
             color: white;
             text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
+            transition: 0.3s;
         }
         
         nav ul li a:hover {
             color: #ff8c42;
         }
         
-        /* SECTION 7 DIAPORAMAS */
-        .diaporamas-section {
+        /* SECTION HISTOIRE */
+        .histoire {
             max-width: 1200px;
             margin: 4rem auto;
             padding: 0 2rem;
@@ -171,20 +156,12 @@
         .section-title {
             text-align: center;
             font-size: 2.5rem;
-            color: #1a2634;
             margin-bottom: 3rem;
-            position: relative;
+            color: white;
         }
         
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 4px;
-            background: #ff8c42;
+        .section-title span {
+            color: #ff8c42;
         }
         
         .cards-grid {
@@ -194,60 +171,42 @@
         }
         
         .card {
-            background: white;
-            border-radius: 20px;
+            height: 300px;
+            border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-            text-decoration: none;
-            color: inherit;
-        }
-        
-        .card:hover {
-            transform: translateY(-10px);
-        }
-        
-        .card-image {
-            height: 200px;
+            position: relative;
+            cursor: pointer;
             background-size: cover;
             background-position: center;
-            position: relative;
         }
         
-        .card-overlay {
+        .card::before {
+            content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
-            display: flex;
-            align-items: flex-end;
-            padding: 1.5rem;
-        }
-        
-        .card-title {
-            color: white;
-            font-size: 1.8rem;
-            font-weight: 600;
+            background: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.3));
         }
         
         .card-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
             padding: 1.5rem;
+            color: white;
+            z-index: 2;
         }
         
-        .card-content p {
-            color: #666;
-            margin-bottom: 1rem;
-        }
-        
-        .card-link {
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
             color: #ff8c42;
-            font-weight: 600;
-            text-decoration: none;
         }
         
-        /* SECTION LOGOS CLUBS */
+        /* SECTION CLUBS */
         .clubs-section {
             max-width: 1200px;
             margin: 4rem auto;
@@ -256,28 +215,27 @@
         
         .clubs-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
             gap: 2rem;
-            margin-top: 2rem;
-        }
-        
-        .club-item {
             text-align: center;
         }
         
-        .club-logo {
-            width: 120px;
-            height: 120px;
-            margin: 0 auto 1rem;
-            border-radius: 50%;
-            overflow: hidden;
-            border: 4px solid #ff8c42;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            transition: transform 0.3s ease;
+        .club-item {
+            transition: 0.3s;
         }
         
-        .club-logo:hover {
-            transform: scale(1.1);
+        .club-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .club-logo {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 0.5rem;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid #ff8c42;
+            transition: 0.3s;
         }
         
         .club-logo img {
@@ -286,18 +244,49 @@
             object-fit: cover;
         }
         
-        .club-name {
+        .club-nom {
             font-weight: 600;
-            color: #1a2634;
+            font-size: 0.9rem;
+        }
+        
+        .club-titres {
+            color: #ff8c42;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        /* SECTION TERRAIN */
+        .terrain {
+            height: 500px;
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            margin: 4rem 0;
+        }
+        
+        .terrain-content {
+            max-width: 800px;
+            padding: 2rem;
+            background: rgba(0,0,0,0.7);
+            border-radius: 15px;
+        }
+        
+        .terrain-content h2 {
+            font-size: 3rem;
+            color: #ff8c42;
+            margin-bottom: 1rem;
         }
         
         /* FOOTER */
         footer {
             background: #1a2634;
-            color: white;
             padding: 3rem 2rem;
             text-align: center;
-            margin-top: 4rem;
+            color: white;
         }
         
         .footer-links {
@@ -317,9 +306,16 @@
             color: #ff8c42;
         }
         
-        .copyright {
-            color: #aaa;
-            font-size: 0.9rem;
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            .hero-content .highlight {
+                font-size: 3rem;
+            }
+            .clubs-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
         }
     </style>
 </head>
@@ -327,58 +323,71 @@
     <!-- GRAND DIAPORAMA -->
     <div class="hero">
         <div class="hero-slider">
-            <div class="hero-slide active" style="background-image: url('images/hero/histoire.jpg');">
+            <!-- Slide 1 - Bienvenue -->
+            <div class="hero-slide active" style="background-image: url('images/hero/bienvenue.jpg');">
                 <div class="hero-content">
                     <h1>Bienvenue à <span class="highlight">Ajar</span></h1>
                     <p>Un village, une histoire, une légende depuis 1983</p>
-                    <a href="histoire/index.html" class="hero-btn">Découvrir l'histoire</a>
+                    <a href="histoire/index.html" class="hero-btn">Découvrir notre histoire</a>
                 </div>
             </div>
             
-            <div class="hero-slide" style="background-image: url('images/hero/football.jpg');">
+            <!-- Slide 2 - Clubs -->
+            <div class="hero-slide" style="background-image: url('images/hero/clubs-bg.jpg');">
                 <div class="hero-content">
-                    <h1>⚽ <span class="highlight">Ajar-foot</span></h1>
-                    <p>L'équipe majeure du village, fierté de toute une communauté</p>
-                    <a href="equipe-majeure/index.html" class="hero-btn">Voir l'équipe</a>
-                </div>
-            </div>
-            
-            <div class="hero-slide" style="background-image: url('images/hero/clubs.jpg');">
-                <div class="hero-content">
-                    <h1>🏆 <span class="highlight">8 clubs</span></h1>
+                    <h1><span class="highlight">9 Clubs</span></h1>
                     <p>Un championnat, une passion</p>
-                    <a href="clubs-championnat/index.html" class="hero-btn">Découvrir les clubs</a>
+                    <div style="display: flex; justify-content: center; gap: 0.5rem; margin: 1rem 0; flex-wrap: wrap;">
+                        <img src="images/logos/clubs/dango.jpg" style="width: 50px; height: 50px; border-radius: 50%; border: 2px solid #ff8c42;">
+                        <img src="images/logos/clubs/wale.jpg" style="width: 50px; height: 50px; border-radius: 50%; border: 2px solid #ff8c42;">
+                        <img src="images/logos/clubs/soumpou.jpg" style="width: 50px; height: 50px; border-radius: 50%; border: 2px solid #ff8c42;">
+                        <img src="images/logos/clubs/lion-ajar.jpg" style="width: 50px; height: 50px; border-radius: 50%; border: 2px solid #ff8c42;">
+                        <img src="images/logos/clubs/kelifado.jpg" style="width: 50px; height: 50px; border-radius: 50%; border: 2px solid #ff8c42;">
+                        <img src="images/logos/clubs/kawral.jpg" style="width: 50px; height: 50px; border-radius: 50%; border: 2px solid #ff8c42;">
+                        <img src="images/logos/clubs/nassr.jpg" style="width: 50px; height: 50px; border-radius: 50%; border: 2px solid #ff8c42;">
+                    </div>
+                    <a href="clubs-championnat/index.html" class="hero-btn">Voir tous les clubs</a>
                 </div>
             </div>
             
-            <div class="hero-slide" style="background-image: url('images/hero/ecole.jpg');">
+            <!-- Slide 3 - École -->
+            <div class="hero-slide" style="background-image: url('images/hero/ecole-bg.jpg');">
                 <div class="hero-content">
-                    <h1>📚 <span class="highlight">15 pionniers</span></h1>
+                    <h1><span class="highlight">15 Pionniers</span></h1>
                     <p>Les premiers écoliers d'Ajar en 1983</p>
-                    <a href="histoire/index.html#ecole" class="hero-btn">Lire leur histoire</a>
+                    <p style="font-size: 1rem;">Yaye Goumbe Soumare, notre député, était parmi eux</p>
+                    <a href="histoire/index.html#ecole" class="hero-btn">Découvrir</a>
                 </div>
             </div>
             
-            <div class="hero-slide" style="background-image: url('images/hero/associations.jpg');">
+            <!-- Slide 4 - Culture -->
+            <div class="hero-slide" style="background-image: url('images/hero/associations-bg.jpg');">
                 <div class="hero-content">
-                    <h1>🤝 <span class="highlight">Associations</span></h1>
-                    <p>Femmes, jeunes, culture... La vie du village</p>
+                    <h1><span class="highlight">Culture & Traditions</span></h1>
+                    <p>Tamtam, dimmu, et la richesse culturelle d'Ajar</p>
+                    <div style="display: flex; justify-content: center; gap: 0.5rem;">
+                        <img src="images/hero/tamtam.jpg" style="width: 60px; height: 60px; border-radius: 10px;">
+                        <img src="images/hero/tamtam1.jpg" style="width: 60px; height: 60px; border-radius: 10px;">
+                        <img src="images/hero/dimmu.jpg" style="width: 60px; height: 60px; border-radius: 10px;">
+                    </div>
                     <a href="associations/index.html" class="hero-btn">Découvrir</a>
                 </div>
             </div>
             
-            <div class="hero-slide" style="background-image: url('images/hero/village.jpg');">
+            <!-- Slide 5 - Village -->
+            <div class="hero-slide" style="background-image: url('images/hero/village-bg.jpg');">
                 <div class="hero-content">
-                    <h1>🏘️ <span class="highlight">Notre village</span></h1>
-                    <p>École, dispensaire, maison des jeunes</p>
+                    <h1><span class="highlight">Notre Village</span></h1>
+                    <p>Forage (2007), infrastructures, et vie communautaire</p>
                     <a href="village/index.html" class="hero-btn">Explorer</a>
                 </div>
             </div>
             
-            <div class="hero-slide" style="background-image: url('images/hero/temoins.jpg');">
+            <!-- Slide 6 - Témoignages -->
+            <div class="hero-slide" style="background-image: url('images/hero/temoins-bg.jpg');">
                 <div class="hero-content">
-                    <h1>🎤 <span class="highlight">Témoignages</span></h1>
-                    <p>La parole aux anciens : Ladji Boubou, Diallo Tandia...</p>
+                    <h1><span class="highlight">Témoignages</span></h1>
+                    <p>Ladji Boubou Diabira, Diallo Tandia, et les anciens</p>
                     <a href="temoignages/index.html" class="hero-btn">Écouter</a>
                 </div>
             </div>
@@ -386,7 +395,6 @@
         
         <div class="hero-indicators">
             <span class="hero-indicator active"></span>
-            <span class="hero-indicator"></span>
             <span class="hero-indicator"></span>
             <span class="hero-indicator"></span>
             <span class="hero-indicator"></span>
@@ -400,9 +408,7 @@
         <ul>
             <li><a href="index.html">Accueil</a></li>
             <li><a href="histoire/index.html">Histoire</a></li>
-            <li><a href="equipe-majeure/index.html">Équipe</a></li>
             <li><a href="clubs-championnat/index.html">Clubs</a></li>
-            <li><a href="joueurs/index.html">Joueurs</a></li>
             <li><a href="associations/index.html">Associations</a></li>
             <li><a href="village/index.html">Village</a></li>
             <li><a href="temoignages/index.html">Témoignages</a></li>
@@ -410,188 +416,160 @@
         </ul>
     </nav>
     
-    <!-- SECTION 7 DIAPORAMAS -->
-    <section class="diaporamas-section">
-        <h2 class="section-title">Explorez Ajar en 7 chapitres</h2>
+    <!-- SECTION HISTOIRE - 7 CHAPITRES -->
+    <section class="histoire">
+        <h2 class="section-title">L'<span>Histoire</span> d'Ajar en 7 chapitres</h2>
         
         <div class="cards-grid">
-            <a href="histoire/index.html#origines" class="card">
-                <div class="card-image" style="background-image: url('images/diaporamas/histoire/origines.jpg');">
-                    <div class="card-overlay">
-                        <h3 class="card-title">Les Origines</h3>
-                    </div>
-                </div>
+            <div class="card" style="background-image: url('images/histoire/origines.jpg');" onclick="location.href='histoire/index.html#origines'">
                 <div class="card-content">
-                    <p>1983-1989 : Le premier match, l'association Fedde, les pionniers</p>
-                    <span class="card-link">Lire →</span>
+                    <h3>Les Origines</h3>
+                    <p>1983-1989 : Premier match Ajar-Tachott, association Fedde</p>
                 </div>
-            </a>
+            </div>
             
-            <a href="histoire/index.html#ecole" class="card">
-                <div class="card-image" style="background-image: url('images/diaporamas/histoire/ecole.jpg');">
-                    <div class="card-overlay">
-                        <h3 class="card-title">L'École des Pionniers</h3>
-                    </div>
-                </div>
+            <div class="card" style="background-image: url('images/histoire/ecole.jpg');" onclick="location.href='histoire/index.html#ecole'">
                 <div class="card-content">
-                    <p>Les 15 premiers écoliers, Yaye Goumbe Soumare, Taba Drame...</p>
-                    <span class="card-link">Lire →</span>
+                    <h3>L'École des Pionniers</h3>
+                    <p>15 premiers écoliers, Yaye Goumbe Soumare, Taba Drame</p>
                 </div>
-            </a>
+            </div>
             
-            <a href="histoire/index.html#generation1" class="card">
-                <div class="card-image" style="background-image: url('images/diaporamas/histoire/generation1.jpg');">
-                    <div class="card-overlay">
-                        <h3 class="card-title">La Première Génération</h3>
-                    </div>
-                </div>
+            <div class="card" style="background-image: url('images/histoire/generation1.jpg');" onclick="location.href='histoire/index.html#generation1'">
                 <div class="card-content">
-                    <p>1994-1998 : Diallo Tandia, Harouna Sankhare, premier tournoi</p>
-                    <span class="card-link">Lire →</span>
+                    <h3>1ère Génération</h3>
+                    <p>1994-1998 : Diallo Tandia, premier tournoi Guidimakha</p>
                 </div>
-            </a>
+            </div>
             
-            <a href="histoire/index.html#generation2" class="card">
-                <div class="card-image" style="background-image: url('images/diaporamas/histoire/age-dor.jpg');">
-                    <div class="card-overlay">
-                        <h3 class="card-title">L'Âge d'Or</h3>
-                    </div>
-                </div>
+            <div class="card" style="background-image: url('images/histoire/age-dor.jpg');" onclick="location.href='histoire/index.html#generation2'">
                 <div class="card-content">
-                    <p>2000-2010 : Les tournois à Nouakchott, l'expansion</p>
-                    <span class="card-link">Lire →</span>
+                    <h3>L'Âge d'Or</h3>
+                    <p>2000-2010 : Tournois à Nouakchott, expansion</p>
                 </div>
-            </a>
+            </div>
             
-            <a href="histoire/index.html#inter-arena" class="card">
-                <div class="card-image" style="background-image: url('images/diaporamas/histoire/ere-moderne.jpg');">
-                    <div class="card-overlay">
-                        <h3 class="card-title">L'Ère Moderne</h3>
-                    </div>
-                </div>
+            <div class="card" style="background-image: url('images/histoire/inter-arena.jpg');" onclick="location.href='histoire/index.html#inter-arena'">
                 <div class="card-content">
-                    <p>2017-2022 : Inter Arena, Sadio Diawara, Hamidou Kelly</p>
-                    <span class="card-link">Lire →</span>
+                    <h3>Inter Arena</h3>
+                    <p>2017-2022 : Sadio Diawara, Hamidou Kelly, premier trophée</p>
                 </div>
-            </a>
+            </div>
             
-            <a href="histoire/index.html#championnat" class="card">
-                <div class="card-image" style="background-image: url('images/diaporamas/histoire/championnat.jpg');">
-                    <div class="card-overlay">
-                        <h3 class="card-title">Le Championnat</h3>
-                    </div>
-                </div>
+            <div class="card" style="background-image: url('images/histoire/championnat.jpg');" onclick="location.href='histoire/index.html#championnat'">
                 <div class="card-content">
-                    <p>2015-2026 : 8 clubs, Walé, Dango, Lion d'Ajar...</p>
-                    <span class="card-link">Lire →</span>
+                    <h3>Le Championnat</h3>
+                    <p>9 clubs, Walé 3 titres, Dango, Soumpou, Kelifado, Lion d'Ajar</p>
                 </div>
-            </a>
+            </div>
             
-            <a href="histoire/index.html#heritage" class="card">
-                <div class="card-image" style="background-image: url('images/diaporamas/histoire/heritage.jpg');">
-                    <div class="card-overlay">
-                        <h3 class="card-title">L'Héritage</h3>
-                    </div>
-                </div>
+            <div class="card" style="background-image: url('images/histoire/heritage.jpg');" onclick="location.href='histoire/index.html#heritage'">
                 <div class="card-content">
-                    <p>Dispensaire, école, maison des jeunes, l'avenir</p>
-                    <span class="card-link">Lire →</span>
+                    <h3>L'Héritage</h3>
+                    <p>Forage, dispensaire, maison des jeunes, délégations</p>
                 </div>
-            </a>
+            </div>
         </div>
     </section>
     
-    <!-- SECTION LOGOS DES CLUBS -->
+    <!-- SECTION CLUBS -->
     <section class="clubs-section">
-        <h2 class="section-title">Les Clubs du Championnat</h2>
+        <h2 class="section-title">Les <span>Clubs</span> du Championnat</h2>
         
         <div class="clubs-grid">
             <div class="club-item">
-                <div class="club-logo">
-                    <img src="images/logos/clubs/dango.jpg" alt="FC Dango">
-                </div>
-                <div class="club-name">FC Dango</div>
+                <div class="club-logo"><img src="images/logos/clubs/dango.jpg" alt="FC Dango"></div>
+                <div class="club-nom">FC Dango</div>
+                <div class="club-titres">1 titre</div>
             </div>
-            
+<div class="club-item">
+    <div class="club-logo"><img src="images/logos/clubs/wale.jpg" alt="FC Walé"></div>
+    <div class="club-nom">FC Walé</div>
+    <div class="club-titres">3 titres</div>
+</div>
+
             <div class="club-item">
-                <div class="club-logo">
-                    <img src="images/logos/clubs/kawral.jpg" alt="FC Kawral">
-                </div>
-                <div class="club-name">FC Kawral</div>
+                <div class="club-logo"><img src="images/logos/clubs/soumpou.jpg" alt="FC Soumpou"></div>
+                <div class="club-nom">FC Soumpou</div>
+                <div class="club-titres">1 titre</div>
             </div>
-            
             <div class="club-item">
-                <div class="club-logo">
-                    <img src="images/logos/clubs/nassr.jpg" alt="FC Nassr">
-                </div>
-                <div class="club-name">FC Nassr</div>
+                <div class="club-logo"><img src="images/logos/clubs/lion-ajar.jpg" alt="Lion d'Ajar"></div>
+                <div class="club-nom">Lion d'Ajar</div>
+                <div class="club-titres">1 titre</div>
             </div>
-            
             <div class="club-item">
-                <div class="club-logo">
-                    <img src="images/logos/clubs/soumpou.jpg" alt="FC Soumpou">
-                </div>
-                <div class="club-name">FC Soumpou</div>
+                <div class="club-logo"><img src="images/logos/clubs/kelifado.jpg" alt="Kelifado"></div>
+                <div class="club-nom">Kelifado</div>
+                <div class="club-titres">1 titre</div>
             </div>
-            
             <div class="club-item">
-                <div class="club-logo">
-                    <img src="images/logos/clubs/wale.jpg" alt="FC Walé">
-                </div>
-                <div class="club-name">FC Walé</div>
+                <div class="club-logo"><img src="images/logos/clubs/kawral.jpg" alt="FC Kawral"></div>
+                <div class="club-nom">FC Kawral</div>
             </div>
-            
             <div class="club-item">
-                <div class="club-logo">
-                    <img src="images/logos/clubs/lion-ajar.jpg" alt="Lion d'Ajar">
-                </div>
-                <div class="club-name">Lion d'Ajar</div>
+                <div class="club-logo"><img src="images/logos/clubs/nassr.jpg" alt="FC Nassr"></div>
+                <div class="club-nom">FC Nassr</div>
+            </div>
+            <div class="club-item">
+                <div class="club-logo"><img src="images/logos/clubs/sadio-kalloga.jpg" alt="Sadio Kalloga" onerror="this.src='https://via.placeholder.com/100?text=SK'"></div>
+                <div class="club-nom">Sadio Kalloga</div>
+            </div>
+            <div class="club-item">
+                <div class="club-logo"><img src="images/logos/clubs/mody-ndiaye.jpg" alt="Mody Ndiaye" onerror="this.src='https://via.placeholder.com/100?text=MN'"></div>
+                <div class="club-nom">Mody Ndiaye</div>
             </div>
         </div>
         
         <div style="text-align: center; margin-top: 2rem;">
-            <a href="clubs-championnat/index.html" class="hero-btn" style="background: #1a2634;">Voir tous les clubs →</a>
+            <a href="clubs-championnat/index.html" class="hero-btn" style="background:#ff8c42; border:none;">Tous les clubs →</a>
         </div>
     </section>
     
-    <!-- PIED DE PAGE -->
+    <!-- SECTION TERRAIN -->
+    <section class="terrain" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('images/terrain/terrain-foot.jpg');">
+        <div class="terrain-content">
+            <h2>Le Terrain d'Ajar</h2>
+            <p style="margin-bottom: 1.5rem;">Depuis 1983, ce terrain a vu défiler des générations de joueurs. Des premiers matchs contre Tachott aux exploits du FC Walé (3 titres), il est le cœur battant du football ajarois.</p>
+            <a href="histoire/index.html#terrain" class="hero-btn">Découvrir son histoire</a>
+        </div>
+    </section>
+    
+    <!-- FOOTER -->
     <footer>
         <div class="footer-links">
             <a href="index.html">Accueil</a>
             <a href="histoire/index.html">Histoire</a>
-            <a href="equipe-majeure/index.html">Équipe</a>
             <a href="clubs-championnat/index.html">Clubs</a>
+            <a href="associations/index.html">Associations</a>
+            <a href="village/index.html">Village</a>
+            <a href="temoignages/index.html">Témoignages</a>
             <a href="contact.html">Contact</a>
         </div>
-        <div class="copyright">
-            <p>&copy; 2026 Village Ajar - Tous droits réservés</p>
-        </div>
+        <p>&copy; 2026 Village Ajar - Tous droits réservés</p>
+        <p><a href="#" style="color:#ff8c42;">Mentions légales</a></p>
     </footer>
     
     <script>
-        // GRAND DIAPORAMA
         let slides = document.querySelectorAll('.hero-slide');
         let indicators = document.querySelectorAll('.hero-indicator');
-        let currentSlide = 0;
+        let current = 0;
         
         function showSlide(index) {
-            slides.forEach(slide => slide.classList.remove('active'));
-            indicators.forEach(ind => ind.classList.remove('active'));
-            
+            slides.forEach(s => s.classList.remove('active'));
+            indicators.forEach(i => i.classList.remove('active'));
             slides[index].classList.add('active');
             indicators[index].classList.add('active');
-            currentSlide = index;
+            current = index;
         }
         
         function nextSlide() {
-            currentSlide = (currentSlide + 1) % slides.length;
-            showSlide(currentSlide);
+            current = (current + 1) % slides.length;
+            showSlide(current);
         }
         
-        // Défilement automatique toutes les 5 secondes
         setInterval(nextSlide, 5000);
         
-        // Clique sur les indicateurs
         indicators.forEach((indicator, index) => {
             indicator.addEventListener('click', () => showSlide(index));
         });

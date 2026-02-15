@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FC Walé - Histoire, Palmarès et Effectif</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* HERO SECTION */
+        .hero {
+            height: 70vh;
+            background: linear-gradient(135deg, #ff8c42, #e67300);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+        
+        .hero::before {
+            content: "🏆";
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            font-size: 300px;
+            opacity: 0.1;
+            transform: rotate(15deg);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            padding: 2rem;
+        }
+        
+        .hero-logo {
+            width: 180px;
+            height: 180px;
+            margin: 0 auto 2rem;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 5px solid white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        
+        .hero-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+        }
+        
+        .hero .slogan {
+            font-size: 1.5rem;
+            opacity: 0.9;
+            font-style: italic;
+        }
+        
+        /* NAVIGATION */
+        nav {
+            background: #1a2634;
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: #ff8c42;
+        }
+        
+        /* CONTENEUR PRINCIPAL */
+        .container {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            color: #1a2634;
+            margin: 3rem 0 2rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100px;
+            height: 4px;
+            background: #ff8c42;
+        }
+        
+        /* STATISTIQUES */
+        .stats-club {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+        
+        .stat-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #ff8c42;
+            line-height: 1;
+        }
+        
+        .stat-label {
+            font-size: 1rem;
+            color: #666;
+            margin-top: 0.5rem;
+        }
+        
+        /* PHOTOS DU CLUB */
+        .photos-club {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .photo-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .photo-card img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+        }
+        
+        .photo-caption {
+            padding: 1.5rem;
+            text-align: center;
+            font-weight: 600;
+            color: #1a2634;
+            font-size: 1.2rem;
+            background: #f8f9fa;
+        }
+        
+        /* SECTION HISTOIRE */
+        .histoire-section {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .histoire-content {
+            font-size: 1.1rem;
+            color: #444;
+        }
+        
+        .histoire-content p {
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+        
+        .histoire-content strong {
+            color: #ff8c42;
+        }
+        
+        .highlight-box {
+            background: #fff3e0;
+            border-left: 5px solid #ff8c42;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 10px;
+            font-style: italic;
+        }
+        
+        /* PALMARÈS */
+        .palmares-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .palmares-item {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .palmares-annee {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #ff8c42;
+        }
+        
+        .palmares-titre {
+            font-size: 1.1rem;
+            color: #666;
+            margin-top: 0.5rem;
+        }
+        
+        /* SECTION JOUEURS - NOUVEAU DESIGN */
+        .joueurs-section {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .poste-groupe {
+            margin-bottom: 3rem;
+        }
+        
+        .poste-titre {
+            font-size: 1.8rem;
+            color: #1a2634;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #ff8c42;
+        }
+        
+        .joueurs-liste {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+        
+        .joueur-item {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-left: 4px solid #ff8c42;
+        }
+        
+        .joueur-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255,140,66,0.3);
+        }
+        
+        .joueur-initiales {
+            width: 50px;
+            height: 50px;
+            background: #ff8c42;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .joueur-infos {
+            flex: 1;
+        }
+        
+        .joueur-infos h4 {
+            font-size: 1rem;
+            margin-bottom: 0.2rem;
+            color: #1a2634;
+        }
+        
+        .joueur-infos p {
+            font-size: 0.8rem;
+            color: #ff8c42;
+            font-weight: 600;
+        }
+        
+        /* BOUTONS */
+        .btn {
+            display: inline-block;
+            background: #1a2634;
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+        
+        .btn:hover {
+            background: #ff8c42;
+            transform: translateY(-3px);
+        }
+        
+        .btn-orange {
+            background: #ff8c42;
+        }
+        
+        .back-btn {
+            display: inline-block;
+            background: #1a2634;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            margin: 2rem 0.5rem;
+            transition: background 0.3s;
+        }
+        
+        .back-btn:hover {
+            background: #ff8c42;
+        }
+        
+        footer {
+            background: #1a2634;
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            margin-top: 4rem;
+        }
+        
+        footer a {
+            color: #ff8c42;
+            text-decoration: none;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero .slogan {
+                font-size: 1.2rem;
+            }
+            
+            .photos-club {
+                grid-template-columns: 1fr;
+            }
+            
+            .histoire-section {
+                padding: 1.5rem;
+            }
+            
+            .joueurs-section {
+                padding: 1.5rem;
+            }
+            
+            .joueurs-liste {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HERO SECTION -->
+    <div class="hero">
+        <div class="hero-content">
+            <div class="hero-logo">
+                <img src="../images/logos/clubs/wale.jpg" alt="FC Walé">
+            </div>
+            <h1>FC Walé</h1>
+            <p class="slogan">"3 fois champions, une histoire de passion"</p>
+        </div>
+    </div>
+    
+    <!-- NAVIGATION -->
+    <nav>
+        <ul>
+            <li><a href="../index.html">Accueil</a></li>
+            <li><a href="../histoire/index.html">Histoire</a></li>
+            <li><a href="index.html">Clubs</a></li>
+            <li><a href="#histoire">Histoire du club</a></li>
+            <li><a href="#joueurs">Effectif</a></li>
+        </ul>
+    </nav>
+    
+    <div class="container">
+        <!-- STATISTIQUES CLUB -->
+        <div class="stats-club">
+            <div class="stat-item">
+                <div class="stat-number">2015</div>
+                <div class="stat-label">Année de fondation</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">3</div>
+                <div class="stat-label">Titres de champion</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">2018</div>
+                <div class="stat-label">Premier titre</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">28</div>
+                <div class="stat-label">Joueurs</div>
+            </div>
+        </div>
+        
+        <!-- PHOTOS DU CLUB -->
+        <h2 class="section-title">📸 Galerie du FC Walé</h2>
+        <div class="photos-club">
+            <div class="photo-card">
+                <img src="../images/clubs/wale/equipe-wale.jpg" alt="Équipe FC Walé">
+                <div class="photo-caption">⚽ L'équipe du FC Walé</div>
+            </div>
+            
+            <div class="photo-card">
+                <img src="../images/clubs/wale/pape-demba.jpg" alt="Pape Demba Soumare">
+                <div class="photo-caption">👤 Pape Demba Soumare - Président fondateur</div>
+            </div>
+        </div>
+        
+        <!-- SECTION HISTOIRE -->
+        <section id="histoire" class="histoire-section">
+            <h2 class="section-title">📖 L'Histoire du FC Walé</h2>
+            
+            <div class="histoire-content">
+                <div class="highlight-box">
+                    <p style="font-size: 1.2rem; font-weight: 600;">"Un soir, tout a commencé au terrain d'Ajar..."</p>
+                </div>
+                
+                <p>Tout commence un soir, après l'entraînement au terrain d'Ajar. Les jeunes du village venaient de terminer leur séance lorsque <strong>Samba Sanghare</strong> arriva directement de chez lui. Avant sa venue, un tirage au sort avait déjà eu lieu pour la création des premières équipes du championnat : <strong>Kelifado, Walé, Dango et Soumpou</strong> venaient d'être créés.</p>
+                
+                <p>Samba Sanghare annonça alors la nouvelle et proposa qu'une personne se porte volontaire pour être responsable de chaque équipe. C'est à ce moment que <strong>Pape Demba Soumare</strong> se présenta comme volontaire. Mais pour que tout soit démocratique, on procéda à un nouveau tirage au sort où tous les noms des 4 équipes furent mélangés. Pape Demba tira le nom de <strong>Walé</strong>, et c'est ainsi qu'il devint le premier président de ce club qui allait marquer l'histoire du championnat.</p>
+                
+                <h3 style="margin: 2rem 0 1rem; color: #ff8c42;">🏆 Les premières années (2016-2017)</h3>
+                
+                <p>Pour sa première participation en <strong>2016</strong>, le championnat ne put aller à son terme. Une bagarre éclata en demi-finale entre Kelifado et Walé, alors que Walé menait <strong>1 but à 0</strong>. Le match fut arrêté et le championnat abandonné.</p>
+                
+                <p>L'année suivante, en <strong>2017</strong>, Walé atteignit la finale mais s'inclina face à Dango sur le score de <strong>1 but à 0</strong>. Dango remportait ainsi le premier championnat officiel.</p>
+                
+                <h3 style="margin: 2rem 0 1rem; color: #ff8c42;">🏆 L'ère des titres (2018-2019)</h3>
+                
+                <p>En <strong>2018</strong>, la revanche fut totale. Walé retrouva Dango en finale et cette fois, ce fut la victoire sur le score de <strong>2 buts à 1</strong>. Le club remportait son <strong>premier titre de champion</strong> ! L'année suivante, en <strong>2019</strong>, Walé récidiva et conserva son titre, confirmant sa domination.</p>
+                
+                <div class="palmares-grid">
+                    <div class="palmares-item">
+                        <div class="palmares-annee">2018</div>
+                        <div class="palmares-titre">Champion</div>
+                    </div>
+                    <div class="palmares-item">
+                        <div class="palmares-annee">2019</div>
+                        <div class="palmares-titre">Champion</div>
+                    </div>
+                    <div class="palmares-item">
+                        <div class="palmares-annee">2020</div>
+                        <div class="palmares-titre">Non disputé</div>
+                    </div>
+                </div>
+                
+                <h3 style="margin: 2rem 0 1rem; color: #ff8c42;">🏆 Le changement d'ère (2021-2022)</h3>
+                
+                <p>En <strong>2020</strong>, aucun championnat ne fut disputé en raison de la pandémie. On organisa seulement des matchs de sélection.</p>
+                
+                <p>En <strong>2021</strong>, <strong>Pape Demba Soumare</strong> quitta ses fonctions et <strong>Bouthié Daffa</strong> prit les rênes de l'équipe. Cette année-là, ce fut Kelifado qui remporta le trophée.</p>
+                
+                <p>En <strong>2022</strong>, toujours sous la direction de Bouthié Daffa, Walé visait le titre mais ce fut <strong>FC Soumpou</strong> qui créa la surprise en remportant le championnat.</p>
+                
+                <h3 style="margin: 2rem 0 1rem; color: #ff8c42;">🏆 Le retour au sommet (2023)</h3>
+                
+                <p>En <strong>2023</strong>, un nouveau duo prit les commandes : <strong>Djallel</strong> devint l'entraîneur principal, avec <strong>Bouthié Daffa</strong> comme adjoint. Cette saison fut celle du renouveau. Walé retrouva les sommets et remporta le championnat sur le score de <strong>1 but à 0</strong> en finale, décrochant ainsi son <strong>troisième titre</strong>.</p>
+                
+                <h3 style="margin: 2rem 0 1rem; color: #ff8c42;">🏆 Les années récentes (2024-2025)</h3>
+                
+                <p>En <strong>2024</strong>, Walé ne participa pas au championnat par manque de joueurs. Les joueurs du club furent répartis entre les autres équipes. Cette année-là, <strong>Lion d'Ajar</strong> remporta son premier titre en battant Soumpou en finale.</p>
+                
+                <p>En <strong>2025</strong>, Walé fut de nouveau absent pour les mêmes raisons. Mais l'histoire du club reste gravée : <strong>3 titres de champion</strong>, une marque qui n'a été dépassée par aucun autre club.</p>
+                
+                <div class="highlight-box">
+                    <p style="font-weight: 600;">Aujourd'hui, le FC Walé se prépare pour 2026 avec l'ambition de reconquérir son titre et d'ajouter une nouvelle ligne à son riche palmarès.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- PALMARÈS COMPLET -->
+        <section style="margin: 3rem 0;">
+            <h2 class="section-title">🏆 Palmarès du FC Walé</h2>
+            
+            <div class="palmares-grid" style="grid-template-columns: repeat(4, 1fr);">
+                <div class="palmares-item">
+                    <div class="palmares-annee">2018</div>
+                    <div class="palmares-titre">Champion</div>
+                </div>
+                <div class="palmares-item">
+                    <div class="palmares-annee">2019</div>
+                    <div class="palmares-titre">Champion</div>
+                </div>
+                <div class="palmares-item">
+                    <div class="palmares-annee">2023</div>
+                    <div class="palmares-titre">Champion</div>
+                </div>
+                <div class="palmares-item">
+                    <div class="palmares-annee">2017</div>
+                    <div class="palmares-titre">Finaliste</div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- SECTION JOUEURS - NOUVEAU DESIGN -->
+        <section id="joueurs" class="joueurs-section">
+            <h2 class="section-title">👥 Effectif du FC Walé 2026</h2>
+            
+            <!-- Entraîneurs -->
+            <div class="poste-groupe">
+                <h3 class="poste-titre"><i class="fas fa-whistle"></i> Staff technique</h3>
+                <div class="joueurs-liste">
+                    <div class="joueur-item">
+                        <div class="joueur-initiales">DJ</div>
+                        <div class="joueur-infos">
+                            <h4>Djallel</h4>
+                            <p>Entraîneur principal</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Gardiens -->
+            <div class="poste-groupe">
+                <h3 class="poste-titre"><i class="fas fa-gloves"></i> Gardiens de but</h3>
+                <div class="joueurs-liste">
+                    <div class="joueur-item">
+                        <div class="joueur-initiales">HS</div>
+                        <div class="joueur-infos">
+                            <h4>Hamed Sy</h4>
+                            <p>Gardien</p>
+                        </div>
+                    </div>
+                    <div class="joueur-item">
+                        <div class="joueur-initiales">CD</div>
+                        <div class="joueur-infos">
+                            <h4>Cire Daffa</h4>
+                            <p>Gardien</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Défenseurs -->
+            <div class="poste-groupe">
+                <h3 class="poste-titre"><i class="fas fa-shield"></i> Défenseurs</h3>
+                <div class="joueurs-liste">
+                    <div class="joueur-item">
+                        <div class="joueur-initiales">ZC</div>
+                        <div class="joueur-infos">
+                            <h4>Zackaria Camara</h4>
+                            <p>Défenseur central</p>
+                        </div>
+                    </div>
+                    <div class="joueur-item">
+                        <div class="joueur-initiales">MT</div>
+                        <div class="joueur-infos">
+                            <h4>Mody Tandia</h4>
+                            <p>Défenseur</p>
+                        </div>
+                    </div>
+                    <div class="joueur-item">
+                        <div class="joueur-initiales">BS</div>
+                        <div class="joueur-infos">
+                            <h4>Bechir Sy</h4>
+                            <p>Défenseur</p>
+                        </div>
+                    </div>
+                    <div class="joueur-item">
+                        <div class="joueur-initiales">MZD</div>
+                        <div class="joueur-infos">
+                            <h4>Moussa Zackaria Diallo</h4>
+                            <p>Défenseur</p>
+                        </div>
+                    </div>
+                    <div class="joueur-item">
+                        <div class="joueur-initiales">SD</div>
+                        <div class="joueur-infos">
+                            <h4>Sammabé Daffa</h4>
+                            <p>Défenseur</p>
+                        </div>
+                    </div>
+                    <div class="joueur-item">
+                        <div class="joueur-initiales">ID</div>
+                        <div class="joueur-infos">
+                            <h4>Issa Diarra</h4>
+                            <p>Défenseur</p>
+                        </div>
+                    </div>
+                    <div class="joueur-item">
+                        <div class="joueur-initiales">JD</div>
+                        <div class="joueur-infos">
+                            <h4>Djeremouna Daffa</h4>
+                            <p>Défenseur</p>
+                        </div>
+                    </div>
+                    <div class="joueur-item">
+                        <div class="joueur-initiales">BO</div>
+                        <div class="joueur-infos">
+                            <h4>Bou</h4>
+                            <p>Défenseur</p>
+                        </div>
+                    </div>
+                    <div class="joueur-item">
+                        <div class="joueur-initiales">DT</div>
+                        <div class="joueur-infos">
+                            <h4>Diaguily Tandia</h4>
+                            <p>Défenseur</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Milieux -->
+            <div class="poste-groupe">
+                <h3 class="poste-titre"><i class="fas fa-futbol"></i> Milieux de terrain</h3>
+                <div class="joueurs-liste">
+                    <div class="joueur-item">
+                        <div class="joueur-initiales">DB</div>
+                        <div class="joueur-infos">
+                            <h4>Djibso</h4>
+                            <p>Milieu</p>
+                        </div>
+                    </div>
+                    <div class="joueur-item">
+                        <div class="joueur-initiales">DT</div>
+                        <div class="joueur-infos">
+                            <h4>Demba Tandia</h4>
+                            <p>Milieu</p>
+                        </div>
+                    </div>
+                    <div class="joueur-item">
+                        <div class="joueur-initiales">BT</div>
+                        <div class="joueur-infos">
+                            <h4>Bilaly Tandia</h4>
+                            <p>Milieu</p>
+                        </div>
+                    </div>
+                    <div class="joueur-item">
+                        <div class="joueur-initiales">MK</div>
+                        <div class="joueur-infos">
+                            <h4>Mek'hallé</h4>
+                            <p>Milieu</p>
+                        </div>
+                    </div>
+                    <div class="joueur-item">
+                        <div class="joueur-initiales">MD</div>
+                        <div class="joueur-infos">
+                            <h4>Moussa Daffa</h4>
+                            <p>Milieu</p>
+                        </div>
+                    </div>
+                    <div class="joueur-item">
+                        <div class="joueur-initiales">HD</div>
+                        <div class="joueur-infos">
+                            <h4>Harouna Daffa</h4>
+                            <p>Milieu</p>
+                        </div>
+                    </div>
+                    <div class="joueur-item">
+                        <div class="joueur-initiales">DD</div>
+                        <div class="joueur-infos">
+                            <h4>Diadie Diallo</h4>
+                            <p>Milieu</p>
+                        </div>
+                    </div>
+                    <div class="joueur-item">
+                        <div class="joueur-initiales">MI</div>
+                        <div class="joueur-infos">
+                            <h4>Mido</h4>
+                            <p>Milieu</p>
+                        </div>
+                    </div>
+                    <div class="joueur-item">
+                        <div class="joueur-initiales">HZ</div>
+                        <div class="joueur-infos">
+                            <h4>Hamzo</h4>
+                            <p>Milieu</p>
+                        </div>
+                    </div>
+                    <div class="joueur-item">
+                        <div class="joueur-initiales">SO</div>
+                        <div class="joueur-infos">
+                            <h4>Soulemane</h4>
+                            <p>Milieu</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Attaquants -->
+            <div class="poste-groupe">
+                <h3 class="poste-titre"><i class="fas fa-bullseye"></i> Attaquants</h3>
+                <div class="joueurs-liste">
+                    <div class="joueur-item">
+                        <div class="joueur-initiales">NG</div>
+                        <div class="joueur-infos">
+                            <h4>Nguiya</h4>
+                            <p>Attaquant</p>
+                        </div>
+                    </div>
+                    <div class="joueur-item">
+                        <div class="joueur-initiales">MoT</div>
+                        <div class="joueur-infos">
+                            <h4>Momo Tandia</h4>
+                            <p>Attaquant</p>
+                        </div>
+                    </div>
+                    <div class="joueur-item">
+                        <div class="joueur-initiales">ZD</div>
+                        <div class="joueur-infos">
+                            <h4>Zackaria Daffa</h4>
+                            <p>Attaquant</p>
+                        </div>
+                    </div>
+                    <div class="joueur-item">
+                        <div class="joueur-initiales">FS</div>
+                        <div class="joueur-infos">
+                            <h4>Fodé Soumare</h4>
+                            <p>Attaquant</p>
+                        </div>
+                    </div>
+                    <div class="joueur-item">
+                        <div class="joueur-initiales">NE</div>
+                        <div class="joueur-infos">
+                            <h4>Neymar</h4>
+                            <p>Attaquant</p>
+                        </div>
+                    </div>
+                    <div class="joueur-item">
+                        <div class="joueur-initiales">BY</div>
+                        <div class="joueur-infos">
+                            <h4>Bilaly Yatera</h4>
+                            <p>Attaquant</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 2rem;">
+                <p style="color: #666; font-style: italic;">* 28 joueurs composent l'effectif 2026 du FC Walé</p>
+            </div>
+        </section>
+        
+        <!-- BOUTONS DE RETOUR -->
+        <div style="text-align: center; margin: 3rem 0;">
+            <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Retour aux clubs</a>
+            <a href="../index.html" class="back-btn btn-orange">Accueil</a>
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; 2026 Village Ajar - Tous droits réservés</p>
+        <p><a href="../index.html">Retour à l'accueil</a> | <a href="index.html">Tous les clubs</a></p>
+    </footer>
+</body>
+</html>
