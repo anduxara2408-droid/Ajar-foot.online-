@@ -25,8 +25,7 @@
         /* HERO SECTION */
         .hero {
             height: 60vh;
-            background-size: cover;
-            background-position: center;
+            background: linear-gradient(135deg, #1a5f7a, #0a2f3a);
             position: relative;
             overflow: hidden;
             display: flex;
@@ -44,17 +43,6 @@
             font-size: 300px;
             opacity: 0.1;
             transform: rotate(15deg);
-        }
-        
-        .hero::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7));
-            z-index: 1;
         }
         
         .hero-content {
@@ -382,8 +370,8 @@
     </style>
 </head>
 <body>
-    <!-- HERO SECTION AVEC LA BONNE PHOTO -->
-    <div class="hero" style="background-image: url('../images/associations/adal-bg.jpg');">
+    <!-- HERO SECTION (sans image de fond, juste la couleur) -->
+    <div class="hero">
         <div class="hero-content">
             <h1><i class="fas fa-hand-holding-heart"></i> Associations d'Ajar</h1>
             <p>Le dynamisme associatif au cœur du village</p>
@@ -403,7 +391,7 @@
     </nav>
     
     <div class="container">
-        <!-- SECTION ADAL -->
+        <!-- SECTION ADAL AVEC LE LOGO adal.jpeg -->
         <section>
             <h2 class="section-title">ADAL - Association pour le Développement d'Ajar</h2>
             
@@ -615,10 +603,10 @@
                     <img src="../images/associations/vainqueur.jpg" alt="Vainqueur tournoi">
                 </div>
                 <div class="gallery-item">
-                    <img src="../images/associations/adal-bg.jpg" alt="ADAL - Activités">
+                    <img src="../images/associations/adal-logo.jpg" alt="Logo ADAL">
                 </div>
                 <div class="gallery-item">
-                    <img src="../images/associations/adal1.jpg" alt="ADAL - Caravane" onerror="this.style.display='none'">
+                    <img src="../images/associations/adal1.jpg" alt="ADAL - Activités" onerror="this.style.display='none'">
                 </div>
                 <div class="gallery-item">
                     <img src="../images/associations/jeunesse1.jpg" alt="Jeunesse d'Ajar" onerror="this.style.display='none'">
