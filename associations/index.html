@@ -25,7 +25,8 @@
         /* HERO SECTION */
         .hero {
             height: 60vh;
-            background: linear-gradient(135deg, #1a5f7a, #0a2f3a);
+            background-size: cover;
+            background-position: center;
             position: relative;
             overflow: hidden;
             display: flex;
@@ -43,6 +44,17 @@
             font-size: 300px;
             opacity: 0.1;
             transform: rotate(15deg);
+        }
+        
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7));
+            z-index: 1;
         }
         
         .hero-content {
@@ -301,6 +313,18 @@
             font-size: 1.5rem;
         }
         
+        .info-box {
+            background: #f8f9fa;
+            border-left: 4px solid #ff8c42;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 10px;
+        }
+        
+        .info-box p {
+            margin: 0.5rem 0;
+        }
+        
         footer {
             background: #1a2634;
             color: white;
@@ -358,7 +382,8 @@
     </style>
 </head>
 <body>
-    <div class="hero">
+    <!-- HERO SECTION AVEC LA BONNE PHOTO -->
+    <div class="hero" style="background-image: url('../images/associations/adal-bg.jpg');">
         <div class="hero-content">
             <h1><i class="fas fa-hand-holding-heart"></i> Associations d'Ajar</h1>
             <p>Le dynamisme associatif au cœur du village</p>
@@ -393,7 +418,7 @@
                         <h3 class="association-name">ADAL</h3>
                         <div class="association-meta">Association pour le Développement d'Ajar Ladji</div>
                         
-                        <div style="margin: 1rem 0; padding: 1rem; background: #f8f9fa; border-radius: 10px;">
+                        <div class="info-box">
                             <p><strong>📅 Création :</strong> 2021</p>
                             <p><strong>📜 Récépissé n°:</strong> FA 010000242301202305689 du 24/01/2023</p>
                             <p><strong>👤 Président :</strong> Moussa Boubou Sy</p>
@@ -590,13 +615,13 @@
                     <img src="../images/associations/vainqueur.jpg" alt="Vainqueur tournoi">
                 </div>
                 <div class="gallery-item">
-                    <img src="../images/associations/adal1.jpg" alt="ADAL - Activités">
+                    <img src="../images/associations/adal-bg.jpg" alt="ADAL - Activités">
                 </div>
                 <div class="gallery-item">
-                    <img src="../images/associations/adal2.jpg" alt="ADAL - Caravane">
+                    <img src="../images/associations/adal1.jpg" alt="ADAL - Caravane" onerror="this.style.display='none'">
                 </div>
                 <div class="gallery-item">
-                    <img src="../images/associations/jeunesse1.jpg" alt="Jeunesse d'Ajar">
+                    <img src="../images/associations/jeunesse1.jpg" alt="Jeunesse d'Ajar" onerror="this.style.display='none'">
                 </div>
             </div>
         </section>
