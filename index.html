@@ -293,6 +293,33 @@
             color: white;
         }
         
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            text-align: left;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h3 {
+            color: #ff8c42;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        .footer-section p {
+            margin-bottom: 0.5rem;
+            color: #ccc;
+        }
+        
+        .footer-section i {
+            color: #ff8c42;
+            width: 25px;
+            margin-right: 0.5rem;
+        }
+        
         .footer-links {
             display: flex;
             justify-content: center;
@@ -310,6 +337,13 @@
             color: #ff8c42;
         }
         
+        .copyright {
+            border-top: 1px solid #333;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            color: #aaa;
+        }
+        
         @media (max-width: 768px) {
             .hero-content h1 {
                 font-size: 2.5rem;
@@ -322,6 +356,10 @@
             }
             .cards-grid {
                 grid-template-columns: 1fr;
+            }
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
             }
         }
     </style>
@@ -403,6 +441,7 @@
             <li><a href="associations/index.html">Associations</a></li>
             <li><a href="village/index.html">Village</a></li>
             <li><a href="temoignages/index.html">Témoignages</a></li>
+            <li><a href="contact.html">Contact</a></li>
         </ul>
     </nav>
     
@@ -424,7 +463,6 @@
                 </div>
             </div>
             
-            <!-- Carte 1ère Génération avec premiere generation.jpeg -->
             <div class="card" style="background-image: url('images/histoire/generation1-new.jpg');" onclick="location.href='histoire/index.html#generation1'">
                 <div class="card-content">
                     <h3>1ère Génération</h3>
@@ -439,7 +477,6 @@
                 </div>
             </div>
             
-            <!-- Carte Inter Arena avec champion.jpeg -->
             <div class="card" style="background-image: url('images/histoire/inter-arena-new.jpg');" onclick="location.href='histoire/index.html#inter-arena'">
                 <div class="card-content">
                     <h3>Inter Arena</h3>
@@ -447,7 +484,6 @@
                 </div>
             </div>
             
-            <!-- Carte Le Championnat avec terrain d'ajar.jpeg -->
             <div class="card" style="background-image: url('images/histoire/championnat-new.jpg');" onclick="location.href='histoire/index.html#championnat'">
                 <div class="card-content">
                     <h3>Le Championnat</h3>
@@ -525,6 +561,35 @@
     </section>
     
     <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3><i class="fas fa-futbol"></i> Village Ajar</h3>
+                <p>Site officiel du village Ajar. Toute l'histoire, le football et la vie associative de notre communauté.</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3><i class="fas fa-envelope"></i> Contact</h3>
+                <p><i class="fas fa-envelope"></i> administration@ajar-foot.online</p>
+                <p><i class="fas fa-envelope"></i> contact@ajar-foot.online</p>
+                <p><i class="fas fa-handshake"></i> partenariat@ajar-foot.online</p>
+                <p><i class="fas fa-phone"></i> +222 XX XX XX XX</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3><i class="fas fa-map-marker-alt"></i> Adresse</h3>
+                <p>Village Ajar</p>
+                <p>Guidimakha, Mauritanie</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3><i class="fas fa-link"></i> Liens rapides</h3>
+                <p><a href="histoire/index.html" style="color: #ccc; text-decoration: none;">Histoire</a></p>
+                <p><a href="clubs-championnat/index.html" style="color: #ccc; text-decoration: none;">Clubs</a></p>
+                <p><a href="associations/index.html" style="color: #ccc; text-decoration: none;">Associations</a></p>
+                <p><a href="temoignages/index.html" style="color: #ccc; text-decoration: none;">Témoignages</a></p>
+            </div>
+        </div>
+        
         <div class="footer-links">
             <a href="index.html">Accueil</a>
             <a href="histoire/index.html">Histoire</a>
@@ -532,9 +597,14 @@
             <a href="associations/index.html">Associations</a>
             <a href="village/index.html">Village</a>
             <a href="temoignages/index.html">Témoignages</a>
+            <a href="contact.html">Contact</a>
         </div>
-        <p>&copy; 2026 Village Ajar - Tous droits réservés</p>
-        <p><a href="#" style="color:#ff8c42;">Mentions légales</a></p>
+        
+        <div class="copyright">
+            <p>&copy; 2026 Village Ajar - Tous droits réservés</p>
+            <p>Email: contact@ajar-foot.online | Tel: +222 XX XX XX XX</p>
+            <p><a href="#" style="color:#ff8c42;">Mentions légales</a></p>
+        </div>
     </footer>
     
     <script>
