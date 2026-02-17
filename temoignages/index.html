@@ -3,7 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Témoignages des Anciens - Village Ajar</title>
+    <title>Témoignages - Village Ajar</title>
+    
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4708549060535093"
+         crossorigin="anonymous"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -15,6 +23,7 @@
         body {
             font-family: 'Poppins', sans-serif;
             background: #f5f5f5;
+            color: #333;
         }
         
         header {
@@ -30,10 +39,34 @@
             color: #ff8c42;
         }
         
+        nav {
+            background: #2c3e50;
+            padding: 1rem;
+            text-align: center;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1rem;
+            padding: 0.5rem 1rem;
+        }
+        
         .container {
             max-width: 1000px;
             margin: 3rem auto;
             padding: 0 2rem;
+        }
+        
+        /* Annonce AdSense */
+        .ads-container {
+            text-align: center;
+            margin: 2rem auto;
+            max-width: 728px;
+            background: #fff;
+            border-radius: 10px;
+            padding: 1rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
         
         .temoignage-card {
@@ -55,33 +88,31 @@
             line-height: 1.8;
         }
         
-        .read-more {
-            display: inline-block;
-            background: #ff8c42;
-            color: white;
-            padding: 0.8rem 1.5rem;
-            border-radius: 50px;
-            text-decoration: none;
-            margin-top: 1rem;
-        }
-        
         .back-btn {
             display: inline-block;
-            margin: 2rem 0;
             background: #1a2634;
             color: white;
             padding: 1rem 2rem;
             border-radius: 50px;
             text-decoration: none;
+            margin: 2rem 0;
         }
         
-        .note {
-            font-style: italic;
-            color: #666;
-            margin-top: 2rem;
-            padding: 1rem;
-            background: #fff3e0;
-            border-radius: 10px;
+        .back-btn:hover {
+            background: #ff8c42;
+        }
+        
+        footer {
+            background: #1a2634;
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            margin-top: 4rem;
+        }
+        
+        footer a {
+            color: #ff8c42;
+            text-decoration: none;
         }
     </style>
 </head>
@@ -91,24 +122,50 @@
         <p>La mémoire vivante d'Ajar</p>
     </header>
     
+    <nav>
+        <a href="../index.html">Accueil</a>
+        <a href="../histoire/index.html">Histoire</a>
+        <a href="../clubs-championnat/index.html">Clubs</a>
+        <a href="../associations/index.html">Associations</a>
+        <a href="../village/index.html">Village</a>
+        <a href="index.html">Témoignages</a>
+        <a href="../contact.html">Contact</a>
+    </nav>
+    
     <div class="container">
+        <!-- Annonce AdSense -->
+        <div class="ads-container">
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-4708549060535093"
+                 data-ad-slot="1234567890"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+        
         <div class="temoignage-card">
             <h2>Ladji Boubou Diabira</h2>
             <p>Pionnier du football à Ajar, membre fondateur de l'association Fedde en 1983. Il raconte les premiers pas du football, l'organisation du premier match contre Tachott, et la création du tournoi Guidimakha.</p>
-            <a href="ladji-boubou.html" class="read-more">Lire son témoignage complet →</a>
+            <p><em>"Le tournoi du Guidimakha a commencé en 1983-1984 et Ajar est le premier village à l'avoir organisé. À l'époque, les villages ne faisaient pas de football. Il n'y avait que Ajar et quelques rares villages qui pratiquaient ce sport."</em></p>
         </div>
         
         <div class="temoignage-card">
             <h2>Diallo Tandia</h2>
             <p>Ancien joueur et entraîneur, il a intégré l'équipe en 1996. Il témoigne de la génération 94-98, des matchs contre Ouloumbony, Agoinitt, et de la première participation au tournoi Guidimakha en 1998.</p>
-            <a href="diallo-tandia.html" class="read-more">Lire son témoignage complet →</a>
+            <p><em>"Je me souviens de la première rencontre de l'équipe d'Ajar en 1983. Ce match s'est terminé par 2 buts à zéro en faveur d'Ajar. Le premier but a été marqué par Vieux Diabira et le deuxième par Ladji Boubou Diabira."</em></p>
         </div>
         
-        <div class="note">
-            <i class="fas fa-info-circle"></i> Note : Les témoignages des jeunes joueurs comme Demba Granké sont disponibles dans la section "Joueurs" et "Équipe actuelle".
+        <div style="text-align: center;">
+            <a href="../index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Retour à l'accueil</a>
         </div>
-        
-        <a href="../index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Retour à l'accueil</a>
     </div>
+    
+    <footer>
+        <p>&copy; 2026 Village Ajar - Tous droits réservés</p>
+        <p><a href="../index.html">Accueil</a> | <a href="../contact.html">Contact</a></p>
+    </footer>
 </body>
 </html>

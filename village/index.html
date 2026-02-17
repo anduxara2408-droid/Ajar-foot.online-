@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Le Village Ajar - Histoire et Patrimoine</title>
+    
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4708549060535093"
+         crossorigin="anonymous"></script>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -14,13 +19,14 @@
             padding: 0;
             box-sizing: border-box;
         }
+        
         body {
             font-family: 'Poppins', sans-serif;
             background: #f5f5f5;
             color: #333;
             line-height: 1.6;
         }
-        /* Hero */
+        
         .hero {
             height: 60vh;
             background: linear-gradient(135deg, #2a5f2a, #1d3b1d);
@@ -32,6 +38,7 @@
             text-align: center;
             color: white;
         }
+        
         .hero::before {
             content: "🌳";
             position: absolute;
@@ -41,22 +48,25 @@
             opacity: 0.1;
             transform: rotate(15deg);
         }
+        
         .hero-content {
             position: relative;
             z-index: 2;
             max-width: 900px;
             padding: 2rem;
         }
+        
         .hero h1 {
             font-size: 4rem;
             margin-bottom: 1rem;
             color: #ff8c42;
         }
+        
         .hero p {
             font-size: 1.3rem;
             opacity: 0.9;
         }
-        /* Navigation */
+        
         nav {
             background: #1a2634;
             padding: 1rem;
@@ -64,6 +74,7 @@
             top: 0;
             z-index: 1000;
         }
+        
         nav ul {
             list-style: none;
             display: flex;
@@ -73,20 +84,24 @@
             max-width: 1200px;
             margin: 0 auto;
         }
+        
         nav ul li a {
             color: white;
             text-decoration: none;
             font-weight: 500;
             transition: color 0.3s;
         }
+        
         nav ul li a:hover {
             color: #ff8c42;
         }
+        
         .container {
             max-width: 1100px;
             margin: 3rem auto;
             padding: 0 2rem;
         }
+        
         .section-title {
             font-size: 2.5rem;
             color: #1a2634;
@@ -94,6 +109,7 @@
             position: relative;
             padding-bottom: 1rem;
         }
+        
         .section-title::after {
             content: '';
             position: absolute;
@@ -103,6 +119,18 @@
             height: 4px;
             background: #ff8c42;
         }
+        
+        /* Annonce AdSense */
+        .ads-container {
+            text-align: center;
+            margin: 2rem auto;
+            max-width: 728px;
+            background: #fff;
+            border-radius: 10px;
+            padding: 1rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
         .card {
             background: white;
             border-radius: 20px;
@@ -110,14 +138,12 @@
             margin-bottom: 2rem;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
-        .card p {
-            margin-bottom: 1.5rem;
-            text-align: justify;
-        }
+        
         .highlight {
             color: #ff8c42;
             font-weight: 600;
         }
+        
         .quote {
             font-style: italic;
             background: #f0f7e6;
@@ -126,12 +152,14 @@
             margin: 2rem 0;
             border-radius: 0 10px 10px 0;
         }
+        
         .lieux-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
             margin: 2rem 0;
         }
+        
         .lieu-item {
             background: #f8f9fa;
             border-radius: 15px;
@@ -139,44 +167,34 @@
             box-shadow: 0 5px 20px rgba(0,0,0,0.1);
             transition: transform 0.3s;
         }
+        
         .lieu-item:hover {
             transform: translateY(-10px);
         }
+        
         .lieu-image {
-            height: 220px;
+            height: 200px;
             background-size: cover;
             background-position: center;
         }
+        
         .lieu-content {
             padding: 1.5rem;
         }
-        .lieu-content h3 {
-            color: #1a2634;
-            margin-bottom: 0.5rem;
-        }
-        .lieu-content p {
-            color: #555;
-        }
-        .btn {
-            display: inline-block;
+        
+        footer {
             background: #1a2634;
             color: white;
-            padding: 0.8rem 2rem;
-            border-radius: 50px;
+            padding: 3rem 2rem;
+            text-align: center;
+            margin-top: 4rem;
+        }
+        
+        footer a {
+            color: #ff8c42;
             text-decoration: none;
-            transition: all 0.3s;
-            border: none;
-            cursor: pointer;
-            font-weight: 500;
-            margin-top: 1rem;
         }
-        .btn:hover {
-            background: #ff8c42;
-            transform: translateY(-3px);
-        }
-        .btn-orange {
-            background: #ff8c42;
-        }
+        
         .back-btn {
             display: inline-block;
             background: #1a2634;
@@ -186,27 +204,9 @@
             text-decoration: none;
             margin: 2rem 0;
         }
+        
         .back-btn:hover {
             background: #ff8c42;
-        }
-        footer {
-            background: #1a2634;
-            color: white;
-            padding: 3rem 2rem;
-            text-align: center;
-            margin-top: 4rem;
-        }
-        footer a {
-            color: #ff8c42;
-            text-decoration: none;
-        }
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            .section-title {
-                font-size: 2rem;
-            }
         }
     </style>
 </head>
@@ -231,96 +231,71 @@
     </nav>
     
     <div class="container">
-        <!-- INTRODUCTION -->
-        <div class="card">
-            <h2 class="section-title">Bienvenue à Ajar</h2>
-            <p>Niché dans la région du <span class="highlight">Guidimakha</span>, en Mauritanie, le village d'Ajar est bien plus qu'un simple point sur la carte. C'est un lieu chargé d'histoire, de traditions et de vie communautaire. Les Diabira en sont les gardiens depuis des générations, et chaque recoin du village raconte une part de cette épopée.</p>
+        <!-- Annonce AdSense -->
+        <div class="ads-container">
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-4708549060535093"
+                 data-ad-slot="1234567890"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
         </div>
         
-        <!-- ORIGINES ET FONDATION -->
         <div class="card">
             <h2 class="section-title">🌱 Origines et fondation</h2>
-            <p>L'histoire d'Ajar commence aux alentours des années <span class="highlight">1909-1910</span>. À cette époque, les habitants de <strong>Diaguilly</strong> quittaient leur village pour venir cultiver les terres fertiles de ce qui allait devenir Ajar. En soninké, on dit <em>"Debe xooxonté"</em> pour évoquer ce déplacement : l'origine d'un peuple qui s'installe sur une nouvelle terre. C'est ainsi que naquit le village, d'abord comme un campement de culture, puis comme un lieu de vie permanent.</p>
-            <p>Le nom même du village, en soninké <strong>"Assaré"</strong>, fait référence à cette naissance. Il évoque l'idée de racines, de fondation. Les premiers à poser leurs pieds sur cette terre furent les <strong>Diabira</strong>, et en particulier <strong>Ladji Hamady Diabira</strong>, considéré comme le patriarche fondateur. Sa venue marque le début d'une lignée qui allait guider le village pendant plus d'un siècle.</p>
+            <p>L'histoire d'Ajar commence aux alentours des années <span class="highlight">1909-1910</span>. À cette époque, les habitants de <strong>Diaguilly</strong> quittaient leur village pour venir cultiver les terres fertiles de ce qui allait devenir Ajar. En soninké, on dit <em>"Debe xooxonté"</em> pour évoquer ce déplacement.</p>
+            <p>Le nom du village, en soninké <strong>"Assaré"</strong>, fait référence à cette naissance. Les premiers habitants furent les <strong>Diabira</strong>, avec <strong>Ladji Hamady Diabira</strong> comme patriarche fondateur.</p>
         </div>
         
-        <!-- LES CHEFS DU VILLAGE -->
         <div class="card">
-            <h2 class="section-title">👑 La maison des Diabira et les chefs du village</h2>
-            <p>Depuis ses origines, Ajar est intimement lié à la famille <strong>Diabira</strong>. La chefferie s'est transmise au sein de cette maison, perpétuant une tradition de sagesse et de gouvernance. Après Ladji Hamady Diabira, plusieurs chefs se sont succédé, chacun apportant sa pierre à l'édifice communal.</p>
-            <p>Jusqu'au <span class="highlight">16 juillet 2025</span>, le chef du village était <strong>Siakha Ladji Diabira</strong>, un homme respecté de tous, dont le décès a plongé la communauté dans le deuil. Son règne a été marqué par la préservation des traditions et l'ouverture vers la modernité. Aujourd'hui, la succession se prépare, et c'est <strong>Ladji Boubou Diabira</strong> qui devrait prochainement endosser la responsabilité de chef, poursuivant ainsi l'œuvre de ses ancêtres.</p>
-            <div class="quote">
-                "La chefferie chez les Diabira n'est pas un pouvoir, c'est un service rendu à la communauté." – Un ancien du village.
-            </div>
+            <h2 class="section-title">👑 La maison des Diabira</h2>
+            <p>Depuis ses origines, Ajar est lié à la famille <strong>Diabira</strong>. Jusqu'au <span class="highlight">16 juillet 2025</span>, le chef du village était <strong>Siakha Ladji Diabira</strong>. Sa succession est préparée, et <strong>Ladji Boubou Diabira</strong> devrait prochainement endosser cette responsabilité.</p>
         </div>
         
-        <!-- L'EAU ET L'HIVÉRENAGE -->
-        <div class="card">
-            <h2 class="section-title">💧 L'eau, source de vie</h2>
-            <div style="display: flex; gap: 2rem; flex-wrap: wrap; align-items: center;">
-                <div style="flex: 1; min-width: 250px;">
-                    <img src="../images/village/hiver.jpg" alt="Hivernage à Ajar" style="width: 100%; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.2);">
-                </div>
-                <div style="flex: 2;">
-                    <p>L'<span class="highlight">hivernage</span> est une période cruciale au village. Les pluies transforment le paysage : les champs de <strong>Nioumel</strong> et <strong>Raghé</strong> verdissent, et toute la communauté se mobilise pour les travaux agricoles. C'est un temps de labeur intense mais aussi de solidarité et d'espoir pour les récoltes à venir.</p>
-                    <p>Les mares temporaires se remplissent, l'air se rafraîchit, et la nature reprend ses droits. Les enfants jouent sous les premières pluies, et les anciens observent le ciel pour prédire la saison. L'hivernage est le poumon vert d'Ajar, celui qui nourrit les corps et les âmes.</p>
-                </div>
-            </div>
-        </div>
-        
-        <!-- LES LIEUX EMBLÉMATIQUES AVEC PHOTOS -->
         <h2 class="section-title">🗺️ Lieux emblématiques</h2>
         <div class="lieux-grid">
             <div class="lieu-item">
                 <div class="lieu-image" style="background-image: url('../images/village/guiden-xoole.jpg');"></div>
                 <div class="lieu-content">
                     <h3>Guiden xoolé</h3>
-                    <p>Le marigot sacré, source de vie et lieu de rassemblement. C'est autour de ses eaux que les premières communautés se sont sédentarisées. Pendant l'hivernage, il se remplit et attire oiseaux et animaux.</p>
+                    <p>Le marigot sacré, source de vie et lieu de rassemblement.</p>
                 </div>
             </div>
             <div class="lieu-item">
                 <div class="lieu-image" style="background-image: url('../images/village/xambal-laghe.jpg');"></div>
                 <div class="lieu-content">
                     <h3>Xambal laghé (Kambal)</h3>
-                    <p>Zone humide et fertile, appelée aujourd'hui <em>Kambal</em> par les Peulhs. C'est le berceau agricole où Ajar a commencé à s'installer. Cette plaine verdoyante est le poumon agricole du village.</p>
+                    <p>Zone humide et fertile, berceau agricole d'Ajar.</p>
                 </div>
             </div>
             <div class="lieu-item">
                 <div class="lieu-image" style="background-image: url('../images/village/nioumel.jpg');"></div>
                 <div class="lieu-content">
                     <h3>Nioumel</h3>
-                    <p>Champ légendaire, témoin des récoltes et du labeur des générations passées. Pendant l'hivernage, il se couvre de mil et de sorgho, offrant une vue magnifique. Les anciens racontent que ce champ a nourri le village pendant des décennies.</p>
+                    <p>Champ légendaire, témoin des récoltes ancestrales.</p>
                 </div>
             </div>
             <div class="lieu-item">
                 <div class="lieu-image" style="background-image: url('../images/village/raghe.jpg');"></div>
                 <div class="lieu-content">
                     <h3>Raghé</h3>
-                    <p>Autre champ historique, symbole de l'expansion agricole d'Ajar. Ses limites ont été fixées par les anciens et sont encore respectées aujourd'hui. Les récoltes de Raghé sont réputées pour leur qualité.</p>
+                    <p>Champ historique, symbole de l'expansion agricole.</p>
                 </div>
             </div>
             <div class="lieu-item">
                 <div class="lieu-image" style="background-image: url('../images/village/xar-xoore.jpg');"></div>
                 <div class="lieu-content">
                     <h3>Xar xooré</h3>
-                    <p>La grande forêt qui borde le village. Son nom évoque le "grand fleuve" (Xar) et la forêt dense. Elle abrite une faune et une flore précieuses, et reste un lieu de promenade et de cueillette. Les herbes médicinales et les fruits sauvages y sont abondants.</p>
+                    <p>La grande forêt qui borde le village, riche en ressources.</p>
                 </div>
             </div>
         </div>
-        <p style="margin: 1rem 0;">Ces lieux ne sont pas que des noms sur une carte : ils sont la mémoire vivante d'Ajar, chantés par les griots, respectés par tous.</p>
         
-        <!-- LA VIE AUJOURD'HUI -->
-        <div class="card">
-            <h2 class="section-title">🌾 Ajar aujourd'hui</h2>
-            <p>Le village continue de vivre au rythme des saisons, des cultures (mil, sorgho, arachide) et de l'élevage. Les jeunes partent parfois vers les villes, mais reviennent toujours pour les grandes occasions. La solidarité entre habitants reste le ciment de la communauté.</p>
-            <p>Le forage, réalisé en 2007 grâce à la délégation de Ladji Boubou Diabira et ses amis européens, a changé la vie des villageois en apportant l'eau potable à tous. L'école, le dispensaire, la maison des jeunes sont autant de preuves du dynamisme d'Ajar.</p>
-            <p>Aujourd'hui, alors que la passation de la chefferie se profile, le village regarde vers l'avenir avec confiance, fort de son histoire et de ses valeurs.</p>
-        </div>
-        
-        <!-- BOUTONS DE RETOUR -->
-        <div style="text-align: center; margin: 3rem 0;">
+        <div style="text-align: center;">
             <a href="../index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Retour à l'accueil</a>
-            <a href="../histoire/index.html" class="back-btn" style="background:#ff8c42;">Explorer l'histoire</a>
         </div>
     </div>
     

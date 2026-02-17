@@ -3,7 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Les 9 Clubs du Championnat d'Ajar</title>
+    <title>Les Clubs du Championnat d'Ajar</title>
+    
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4708549060535093"
+         crossorigin="anonymous"></script>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -21,130 +26,68 @@
             color: #333;
         }
         
-        /* EN-TÊTE */
         header {
             background: linear-gradient(135deg, #1a2634, #2a3a4a);
             color: white;
-            padding: 4rem 2rem;
+            padding: 3rem;
             text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        header::before {
-            content: "⚽";
-            position: absolute;
-            top: -50px;
-            right: -50px;
-            font-size: 300px;
-            opacity: 0.1;
-            transform: rotate(15deg);
         }
         
         header h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
+            font-size: 2.5rem;
             color: #ff8c42;
         }
         
-        header p {
-            font-size: 1.3rem;
-            opacity: 0.9;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        /* NAVIGATION */
         nav {
             background: #2c3e50;
             padding: 1rem;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            text-align: center;
         }
         
-        nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        nav ul li a {
+        nav a {
             color: white;
             text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-            padding: 0.5rem 0;
+            margin: 0 1rem;
         }
         
-        nav ul li a:hover {
-            color: #ff8c42;
-        }
-        
-        /* CONTENEUR PRINCIPAL */
         .container {
-            max-width: 1300px;
-            margin: 3rem auto;
+            max-width: 1200px;
+            margin: 2rem auto;
             padding: 0 2rem;
         }
         
-        .section-title {
+        /* Annonce AdSense */
+        .ads-container {
             text-align: center;
-            font-size: 2.5rem;
-            color: #1a2634;
-            margin: 3rem 0 2rem;
-            position: relative;
+            margin: 2rem auto;
+            max-width: 728px;
+            background: #fff;
+            border-radius: 10px;
+            padding: 1rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
         
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 4px;
-            background: #ff8c42;
-        }
-        
-        /* GRILLE DES CLUBS */
         .clubs-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
-            margin: 2rem 0;
         }
         
         .club-card {
             background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
+            border-radius: 10px;
+            padding: 1.5rem;
             text-align: center;
-            padding: 2rem;
-            border: 1px solid #eee;
-        }
-        
-        .club-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(255,140,66,0.2);
-            border-color: #ff8c42;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
         
         .club-logo {
-            width: 150px;
-            height: 150px;
-            margin: 0 auto 1.5rem;
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 1rem;
             border-radius: 50%;
             overflow: hidden;
-            border: 4px solid #ff8c42;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            border: 3px solid #ff8c42;
         }
         
         .club-logo img {
@@ -153,210 +96,30 @@
             object-fit: cover;
         }
         
-        .club-placeholder {
-            width: 150px;
-            height: 150px;
-            margin: 0 auto 1.5rem;
-            border-radius: 50%;
-            background: #ff8c42;
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            font-weight: bold;
-            border: 4px solid #1a2634;
-        }
-        
         .club-name {
-            font-size: 2rem;
-            font-weight: 700;
+            font-size: 1.5rem;
+            margin: 0.5rem 0;
             color: #1a2634;
-            margin-bottom: 0.5rem;
-        }
-        
-        .club-annee {
-            color: #ff8c42;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
-        }
-        
-        .club-palmares {
-            background: #f8f9fa;
-            padding: 1.2rem;
-            border-radius: 10px;
-            margin: 1.2rem 0;
-            text-align: left;
-        }
-        
-        .club-palmares h4 {
-            color: #1a2634;
-            margin-bottom: 0.5rem;
-            font-size: 1.1rem;
-            text-align: center;
-        }
-        
-        .club-palmares ul {
-            list-style: none;
-        }
-        
-        .club-palmares li {
-            padding: 0.3rem 0;
-            border-bottom: 1px dashed #ff8c42;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .club-palmares li i {
-            color: #ff8c42;
-            width: 20px;
-        }
-        
-        .badge {
-            display: inline-block;
-            background: #ff8c42;
-            color: white;
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            margin-left: 0.5rem;
         }
         
         .btn {
             display: inline-block;
-            background: #1a2634;
+            background: #ff8c42;
             color: white;
-            padding: 0.8rem 2rem;
-            border-radius: 50px;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
             text-decoration: none;
             margin-top: 1rem;
-            transition: all 0.3s;
-            border: none;
-            cursor: pointer;
-            font-weight: 500;
-        }
-        
-        .btn:hover {
-            background: #ff8c42;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(255,140,66,0.3);
-        }
-        
-        .btn-orange {
-            background: #ff8c42;
-        }
-        
-        .btn-orange:hover {
-            background: #e67300;
-        }
-        
-        /* TABLEAU DU PALMARÈS */
-        .palmares-section {
-            background: white;
-            border-radius: 20px;
-            padding: 2rem;
-            margin: 3rem 0;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-        
-        .palmares-tabs {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin: 2rem 0;
-            flex-wrap: wrap;
-        }
-        
-        .tab-btn {
-            background: #f0f0f0;
-            border: none;
-            padding: 0.8rem 2rem;
-            border-radius: 50px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        
-        .tab-btn.active {
-            background: #ff8c42;
-            color: white;
-        }
-        
-        .tab-content {
-            display: none;
-        }
-        
-        .tab-content.active {
-            display: block;
-        }
-        
-        .palmares-list {
-            list-style: none;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-        
-        .palmares-list li {
-            padding: 1rem;
-            border-bottom: 1px solid #eee;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .palmares-list .annee {
-            font-weight: 700;
-            color: #ff8c42;
-            font-size: 1.2rem;
-        }
-        
-        .palmares-list .champion {
-            font-weight: 600;
-        }
-        
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin: 3rem 0;
-            text-align: center;
-        }
-        
-        .stat-item {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-        }
-        
-        .stat-number {
-            font-size: 3rem;
-            font-weight: 700;
-            color: #ff8c42;
-            line-height: 1;
-        }
-        
-        .stat-label {
-            font-size: 1rem;
-            color: #666;
         }
         
         .back-btn {
             display: inline-block;
+            margin: 2rem 0;
             background: #1a2634;
             color: white;
-            padding: 1rem 2rem;
-            border-radius: 50px;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
             text-decoration: none;
-            margin: 2rem 0;
-            transition: background 0.3s;
-        }
-        
-        .back-btn:hover {
-            background: #ff8c42;
         }
         
         footer {
@@ -371,344 +134,143 @@
             color: #ff8c42;
             text-decoration: none;
         }
-        
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin: 2rem 0;
-            flex-wrap: wrap;
-        }
-        
-        .footer-links a {
-            color: white;
-            text-decoration: none;
-        }
-        
-        .footer-links a:hover {
-            color: #ff8c42;
-        }
-        
-        /* RESPONSIVE */
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 2.2rem;
-            }
-            
-            .clubs-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .club-card {
-                padding: 1.5rem;
-            }
-            
-            .section-title {
-                font-size: 2rem;
-            }
-        }
     </style>
 </head>
 <body>
     <header>
-        <h1><i class="fas fa-trophy"></i> Les Clubs du Championnat d'Ajar</h1>
-        <p>9 clubs pour une seule passion : le football à Ajar • Depuis 2015</p>
+        <h1>🏆 Les Clubs du Championnat d'Ajar</h1>
+        <p>9 clubs pour une seule passion</p>
     </header>
     
     <nav>
-        <ul>
-            <li><a href="../index.html"><i class="fas fa-home"></i> Accueil</a></li>
-            <li><a href="../histoire/index.html"><i class="fas fa-book-open"></i> Histoire</a></li>
-            <li><a href="index.html"><i class="fas fa-trophy"></i> Clubs</a></li>
-            <li><a href="../equipe-majeure/index.html"><i class="fas fa-futbol"></i> Équipe</a></li>
-            <li><a href="../joueurs/index.html"><i class="fas fa-user"></i> Joueurs</a></li>
-            <li><a href="../contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
-        </ul>
+        <a href="../index.html">Accueil</a>
+        <a href="../histoire/index.html">Histoire</a>
+        <a href="index.html">Clubs</a>
+        <a href="../associations/index.html">Associations</a>
+        <a href="../village/index.html">Village</a>
+        <a href="../contact.html">Contact</a>
     </nav>
     
     <div class="container">
-<!-- STATISTIQUES GÉNÉRALES -->
-<div class="stats-grid">
-    <div class="stat-item">
-        <div class="stat-number">9</div>
-        <div class="stat-label">Clubs</div>
-    </div>
-    <div class="stat-item">
-        <div class="stat-number">2015</div>
-        <div class="stat-label">Première édition</div>
-    </div>
-    <div class="stat-item">
-        <div class="stat-number">9</div>
-        <div class="stat-label">Championnats disputés</div>
-    </div>
-    <div class="stat-item">
-        <div class="stat-number">5</div>
-        <div class="stat-label">Clubs champions</div>
-    </div>
-</div>
-        
-        <h2 class="section-title">⚽ Les 9 Clubs du Championnat</h2>
-        
-<div class="clubs-grid">
-    <!-- CLUB 1 : FC Dango -->
-    <div class="club-card">
-        <div class="club-logo">
-            <img src="../images/logos/clubs/dango.jpg" alt="FC Dango">
-        </div>
-        <h3 class="club-name">FC Dango</h3>
-        <div class="club-annee"><i class="far fa-calendar-alt"></i> Fondé en 2015</div>
-        
-        <div class="club-palmares">
-            <h4><i class="fas fa-medal"></i> Palmarès</h4>
-            <ul>
-                <li><i class="fas fa-trophy"></i> <strong>Champion 2017</strong> <span class="badge">1 titre</span></li>
-                <li><i class="fas fa-trophy"></i> <strong>Super Coupe d'Ajar</strong> <span class="badge">1 titre</span></li>
-                <li><i class="fas fa-star"></i> Vainqueur de la première Super Coupe</li>
-            </ul>
+        <!-- Annonce AdSense -->
+        <div class="ads-container">
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-4708549060535093"
+                 data-ad-slot="1234567890"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
         </div>
         
-        <a href="fc-dango.html" class="btn">Voir la page du club</a>
-    </div>
-    
-<!-- CLUB 2 : FC Walé -->
-<div class="club-card">
-    <div class="club-logo">
-        <img src="../images/logos/clubs/wale.jpg" alt="FC Walé">
-    </div>
-    <h3 class="club-name">FC Walé</h3>
-    <div class="club-annee"><i class="far fa-calendar-alt"></i> Fondé en 2015</div>
-    
-    <div class="club-palmares">
-        <h4><i class="fas fa-medal"></i> Palmarès</h4>
-        <ul>
-            <li><i class="fas fa-trophy"></i> <strong>Champion 2018</strong></li>
-            <li><i class="fas fa-trophy"></i> <strong>Champion 2019</strong></li>
-            <li><i class="fas fa-trophy"></i> <strong>Champion 2023</strong> <span class="badge">3 titres</span></li>
-            <li><i class="fas fa-medal"></i> <strong>Finaliste 2017</strong></li>
-        </ul>
-    </div>
-    
-    <a href="fc-wale.html" class="btn">Voir la page du club</a>
-</div>
-    
-    <!-- CLUB 3 : FC Soumpou -->
-    <div class="club-card">
-        <div class="club-logo">
-            <img src="../images/logos/clubs/soumpou.jpg" alt="FC Soumpou">
-        </div>
-        <h3 class="club-name">FC Soumpou</h3>
-        <div class="club-annee"><i class="far fa-calendar-alt"></i> Fondé en 2015</div>
-        
-        <div class="club-palmares">
-            <h4><i class="fas fa-medal"></i> Palmarès</h4>
-            <ul>
-                <li><i class="fas fa-trophy"></i> <strong>Champion 2022</strong> <span class="badge">1 titre</span></li>
-            </ul>
-        </div>
-        
-        <a href="fc-soumpou.html" class="btn">Voir la page du club</a>
-    </div>
-    
-    <!-- CLUB 4 : Lion d'Ajar -->
-    <div class="club-card">
-        <div class="club-logo">
-            <img src="../images/logos/clubs/lion-ajar.jpg" alt="Lion d'Ajar">
-        </div>
-        <h3 class="club-name">Lion d'Ajar</h3>
-        <div class="club-annee"><i class="far fa-calendar-alt"></i> Fondé en 2016</div>
-        
-        <div class="club-palmares">
-            <h4><i class="fas fa-medal"></i> Palmarès</h4>
-            <ul>
-                <li><i class="fas fa-trophy"></i> <strong>Champion 2024</strong> <span class="badge">1 titre</span></li>
-            </ul>
-        </div>
-        
-        <a href="lion-ajar.html" class="btn">Voir la page du club</a>
-    </div>
-    
-    <!-- CLUB 5 : Kelifado -->
-    <div class="club-card">
-        <div class="club-logo">
-            <img src="../images/logos/clubs/kelifado.jpg" alt="Kelifado">
-        </div>
-        <h3 class="club-name">Kelifado</h3>
-        <div class="club-annee"><i class="far fa-calendar-alt"></i> Fondé en 2015</div>
-        
-        <div class="club-palmares">
-            <h4><i class="fas fa-medal"></i> Palmarès</h4>
-            <ul>
-                <li><i class="fas fa-trophy"></i> <strong>Champion 2021</strong> <span class="badge">1 titre</span></li>
-                <li><i class="fas fa-medal"></i> <strong>Finaliste Super Coupe</strong></li>
-            </ul>
-        </div>
-        
-        <a href="kelifado.html" class="btn">Voir la page du club</a>
-    </div>
-    
-    <!-- CLUB 6 : FC Kawral -->
-    <div class="club-card">
-        <div class="club-logo">
-            <img src="../images/logos/clubs/kawral.jpg" alt="FC Kawral">
-        </div>
-        <h3 class="club-name">FC Kawral</h3>
-        <div class="club-annee"><i class="far fa-calendar-alt"></i> Fondé en 2015</div>
-        
-        <div class="club-palmares">
-            <h4><i class="fas fa-medal"></i> Palmarès</h4>
-            <ul>
-                <li><i class="fas fa-minus"></i> En attente de premier titre</li>
-            </ul>
-        </div>
-        
-        <a href="fc-kawral.html" class="btn">Voir la page du club</a>
-    </div>
-    
-    <!-- CLUB 7 : FC Nassr -->
-    <div class="club-card">
-        <div class="club-logo">
-            <img src="../images/logos/clubs/nassr.jpg" alt="FC Nassr">
-        </div>
-        <h3 class="club-name">FC Nassr</h3>
-        <div class="club-annee"><i class="far fa-calendar-alt"></i> Fondé en 2016</div>
-        
-        <div class="club-palmares">
-            <h4><i class="fas fa-medal"></i> Palmarès</h4>
-            <ul>
-                <li><i class="fas fa-minus"></i> En attente de premier titre</li>
-            </ul>
+        <div class="clubs-grid">
+            <!-- FC Dango -->
+            <div class="club-card">
+                <div class="club-logo">
+                    <img src="../images/logos/clubs/dango.jpg" alt="FC Dango">
+                </div>
+                <h3 class="club-name">FC Dango</h3>
+                <p>Fondé en 2015</p>
+                <p>🏆 Champion 2017</p>
+                <p>🏆 Super Coupe</p>
+                <a href="fc-dango.html" class="btn">Voir le club</a>
+            </div>
+            
+            <!-- FC Walé -->
+            <div class="club-card">
+                <div class="club-logo">
+                    <img src="../images/logos/clubs/wale.jpg" alt="FC Walé">
+                </div>
+                <h3 class="club-name">FC Walé</h3>
+                <p>Fondé en 2015</p>
+                <p>🏆🏆🏆 Champion 2018, 2019, 2023</p>
+                <a href="fc-wale.html" class="btn">Voir le club</a>
+            </div>
+            
+            <!-- FC Soumpou -->
+            <div class="club-card">
+                <div class="club-logo">
+                    <img src="../images/logos/clubs/soumpou.jpg" alt="FC Soumpou">
+                </div>
+                <h3 class="club-name">FC Soumpou</h3>
+                <p>Fondé en 2015</p>
+                <p>🏆 Champion 2022</p>
+                <a href="fc-soumpou.html" class="btn">Voir le club</a>
+            </div>
+            
+            <!-- Lion d'Ajar -->
+            <div class="club-card">
+                <div class="club-logo">
+                    <img src="../images/logos/clubs/lion-ajar.jpg" alt="Lion d'Ajar">
+                </div>
+                <h3 class="club-name">Lion d'Ajar</h3>
+                <p>Fondé en 2016</p>
+                <p>🏆 Champion 2024</p>
+                <a href="lion-ajar.html" class="btn">Voir le club</a>
+            </div>
+            
+            <!-- Kelifado -->
+            <div class="club-card">
+                <div class="club-logo">
+                    <img src="../images/logos/clubs/kelifado.jpg" alt="Kelifado">
+                </div>
+                <h3 class="club-name">Kelifado</h3>
+                <p>Fondé en 2015</p>
+                <p>🏆 Champion 2021</p>
+                <a href="kelifado.html" class="btn">Voir le club</a>
+            </div>
+            
+            <!-- FC Kawral -->
+            <div class="club-card">
+                <div class="club-logo">
+                    <img src="../images/logos/clubs/kawral.jpg" alt="FC Kawral">
+                </div>
+                <h3 class="club-name">FC Kawral</h3>
+                <p>Fondé en 2015</p>
+                <a href="fc-kawral.html" class="btn">Voir le club</a>
+            </div>
+            
+            <!-- FC Nassr -->
+            <div class="club-card">
+                <div class="club-logo">
+                    <img src="../images/logos/clubs/nassr.jpg" alt="FC Nassr">
+                </div>
+                <h3 class="club-name">FC Nassr</h3>
+                <p>Fondé en 2016</p>
+                <a href="fc-nassr.html" class="btn">Voir le club</a>
+            </div>
+            
+            <!-- Sadio Kalloga -->
+            <div class="club-card">
+                <div class="club-logo">
+                    <img src="../images/logos/clubs/sadio-kalloga.jpg" alt="Sadio Kalloga" onerror="this.src='https://via.placeholder.com/120?text=SK'">
+                </div>
+                <h3 class="club-name">Sadio Kalloga</h3>
+                <p>Club historique</p>
+                <a href="sadio-kalloga.html" class="btn">Voir le club</a>
+            </div>
+            
+            <!-- Mody Ndiaye -->
+            <div class="club-card">
+                <div class="club-logo">
+                    <img src="../images/logos/clubs/mody-ndiaye.jpg" alt="Mody Ndiaye" onerror="this.src='https://via.placeholder.com/120?text=MN'">
+                </div>
+                <h3 class="club-name">Mody Ndiaye</h3>
+                <p>Club historique</p>
+                <a href="mody-ndiaye.html" class="btn">Voir le club</a>
+            </div>
         </div>
         
-        <a href="fc-nassr.html" class="btn">Voir la page du club</a>
-    </div>
-    
-    <!-- CLUB 8 : Sadio Kalloga -->
-    <div class="club-card">
-        <div class="club-placeholder">SK</div>
-        <h3 class="club-name">Sadio Kalloga</h3>
-        <div class="club-annee"><i class="fas fa-history"></i> Club historique</div>
-        
-        <div class="club-palmares">
-            <h4><i class="fas fa-medal"></i> Palmarès</h4>
-            <ul>
-                <li><i class="fas fa-star"></i> Nommé en l'honneur d'un aîné</li>
-                <li><i class="fas fa-heart"></i> Club patrimonial</li>
-            </ul>
-        </div>
-        
-        <a href="sadio-kalloga.html" class="btn">Voir la page du club</a>
-    </div>
-    
-    <!-- CLUB 9 : Mody Ndiaye -->
-    <div class="club-card">
-        <div class="club-placeholder">MN</div>
-        <h3 class="club-name">Mody Ndiaye</h3>
-        <div class="club-annee"><i class="fas fa-history"></i> Club historique</div>
-        
-        <div class="club-palmares">
-            <h4><i class="fas fa-medal"></i> Palmarès</h4>
-            <ul>
-                <li><i class="fas fa-star"></i> Nommé en l'honneur d'un aîné</li>
-                <li><i class="fas fa-heart"></i> Club patrimonial</li>
-            </ul>
-        </div>
-        
-        <a href="mody-ndiaye.html" class="btn">Voir la page du club</a>
-    </div>
-</div>
-        
-<!-- PALMARÈS COMPLET -->
-<div class="palmares-section">
-    <h2 class="section-title">📜 Palmarès du Championnat d'Ajar</h2>
-    
-    <div class="palmares-tabs">
-        <button class="tab-btn active" onclick="showTab('championnat')">Championnat</button>
-        <button class="tab-btn" onclick="showTab('supercoupe')">Super Coupe</button>
-        <button class="tab-btn" onclick="showTab('bilan')">Bilan par club</button>
-    </div>
-    
-    <div id="championnat" class="tab-content active">
-        <ul class="palmares-list">
-            <li><span class="annee">2017</span> <span class="champion">🏆 FC Dango</span></li>
-            <li><span class="annee">2018</span> <span class="champion">🏆 FC Walé</span></li>
-            <li><span class="annee">2019</span> <span class="champion">🏆 FC Walé</span></li>
-            <li><span class="annee">2020</span> <span class="champion">⛔ Non disputé (pandémie)</span></li>
-            <li><span class="annee">2021</span> <span class="champion">🏆 Kelifado</span></li>
-            <li><span class="annee">2022</span> <span class="champion">🏆 FC Soumpou</span></li>
-            <li><span class="annee">2023</span> <span class="champion">🏆 FC Walé</span></li>
-            <li><span class="annee">2024</span> <span class="champion">🏆 Lion d'Ajar</span></li>
-            <li><span class="annee">2025</span> <span class="champion">⛔ Non terminé</span></li>
-            <li><span class="annee">2026</span> <span class="champion">⏳ En préparation</span></li>
-        </ul>
-    </div>
-    
-    <div id="supercoupe" class="tab-content">
-        <ul class="palmares-list">
-            <li><span class="annee">Première édition</span> <span class="champion">🏆 FC Dango</span></li>
-            <li><span class="annee">Finaliste</span> <span class="champion">🥈 Kelifado</span></li>
-            <li><span class="annee">Score</span> <span class="champion">Victoire de Dango aux tirs au but</span></li>
-        </ul>
-    </div>
-    
-    <div id="bilan" class="tab-content">
-        <ul class="palmares-list">
-            <li><span class="champion"><strong>FC Walé</strong></span> <span class="annee">3 titres (2018, 2019, 2023)</span></li>
-            <li><span class="champion"><strong>Kelifado</strong></span> <span class="annee">1 titre (2021) + 1 finale super coupe</span></li>
-            <li><span class="champion"><strong>FC Dango</strong></span> <span class="annee">1 titre (2017) + 1 super coupe</span></li>
-            <li><span class="champion"><strong>FC Soumpou</strong></span> <span class="annee">1 titre (2022)</span></li>
-            <li><span class="champion"><strong>Lion d'Ajar</strong></span> <span class="annee">1 titre (2024)</span></li>
-        </ul>
-    </div>
-</div>
-        
-        <!-- BOUTON RETOUR -->
         <div style="text-align: center;">
-            <a href="../index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Retour à l'accueil</a>
-            <a href="#" class="back-btn" style="background: #ff8c42; margin-left: 1rem;">🏆 Voir le classement</a>
+            <a href="../index.html" class="back-btn">← Retour à l'accueil</a>
         </div>
     </div>
     
     <footer>
-        <div class="footer-links">
-            <a href="../index.html">Accueil</a>
-            <a href="../histoire/index.html">Histoire</a>
-            <a href="index.html">Clubs</a>
-            <a href="../equipe-majeure/index.html">Équipe</a>
-            <a href="../contact.html">Contact</a>
-        </div>
         <p>&copy; 2026 Village Ajar - Tous droits réservés</p>
-        <p><a href="../index.html">Retour à l'accueil</a></p>
+        <p><a href="../index.html">Retour à l'accueil</a> | <a href="../contact.html">Contact</a></p>
     </footer>
-    
-    <script>
-        // Fonction pour les onglets
-        function showTab(tabName) {
-            // Cache tous les contenus
-            document.querySelectorAll('.tab-content').forEach(tab => {
-                tab.classList.remove('active');
-            });
-            
-            // Enlève la classe active de tous les boutons
-            document.querySelectorAll('.tab-btn').forEach(btn => {
-                btn.classList.remove('active');
-            });
-            
-            // Affiche le bon contenu
-            document.getElementById(tabName).classList.add('active');
-            
-            // Active le bouton cliqué
-            event.target.classList.add('active');
-        }
-        
-        // Animation au scroll
-        window.addEventListener('scroll', () => {
-            const nav = document.querySelector('nav');
-            if (window.scrollY > 100) {
-                nav.style.background = '#1a2634';
-            } else {
-                nav.style.background = '#2c3e50';
-            }
-        });
-    </script>
 </body>
 </html>

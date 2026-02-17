@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Associations d'Ajar - ADAL, Jeunesse et plus</title>
+    
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4708549060535093"
+         crossorigin="anonymous"></script>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -22,7 +27,6 @@
             line-height: 1.6;
         }
         
-        /* HERO SECTION */
         .hero {
             height: 60vh;
             background: linear-gradient(135deg, #1a5f7a, #0a2f3a);
@@ -63,7 +67,6 @@
             opacity: 0.9;
         }
         
-        /* NAVIGATION */
         nav {
             background: #1a2634;
             padding: 1rem;
@@ -93,7 +96,6 @@
             color: #ff8c42;
         }
         
-        /* CONTENEUR PRINCIPAL */
         .container {
             max-width: 1200px;
             margin: 3rem auto;
@@ -118,7 +120,17 @@
             background: #ff8c42;
         }
         
-        /* CARTES ASSOCIATIONS */
+        /* Annonce AdSense */
+        .ads-container {
+            text-align: center;
+            margin: 2rem auto;
+            max-width: 728px;
+            background: #fff;
+            border-radius: 10px;
+            padding: 1rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
         .associations-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -181,9 +193,12 @@
             margin-bottom: 1rem;
         }
         
-        .association-description {
-            color: #666;
-            margin-bottom: 1.5rem;
+        .info-box {
+            background: #f8f9fa;
+            border-left: 4px solid #ff8c42;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 10px;
         }
         
         .btn {
@@ -203,78 +218,6 @@
         
         .btn-orange {
             background: #ff8c42;
-        }
-        
-        /* TIMELINE */
-        .timeline {
-            position: relative;
-            margin: 3rem 0;
-            padding: 2rem 0;
-        }
-        
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 4px;
-            height: 100%;
-            background: #ff8c42;
-        }
-        
-        .timeline-item {
-            position: relative;
-            margin: 2rem 0;
-            display: flex;
-            justify-content: flex-start;
-        }
-        
-        .timeline-item:nth-child(even) {
-            justify-content: flex-end;
-        }
-        
-        .timeline-content {
-            width: 45%;
-            background: white;
-            padding: 1.5rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-        }
-        
-        .timeline-date {
-            display: inline-block;
-            background: #ff8c42;
-            color: white;
-            padding: 0.3rem 1rem;
-            border-radius: 50px;
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-        
-        /* GALERIE */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1rem;
-            margin: 2rem 0;
-        }
-        
-        .gallery-item {
-            height: 200px;
-            border-radius: 10px;
-            overflow: hidden;
-            cursor: pointer;
-            transition: transform 0.3s;
-        }
-        
-        .gallery-item:hover {
-            transform: scale(1.05);
-        }
-        
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
         }
         
         .match-card {
@@ -299,18 +242,6 @@
             align-items: center;
             gap: 2rem;
             font-size: 1.5rem;
-        }
-        
-        .info-box {
-            background: #f8f9fa;
-            border-left: 4px solid #ff8c42;
-            padding: 1.5rem;
-            margin: 2rem 0;
-            border-radius: 10px;
-        }
-        
-        .info-box p {
-            margin: 0.5rem 0;
         }
         
         footer {
@@ -339,38 +270,9 @@
         .back-btn:hover {
             background: #ff8c42;
         }
-        
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .timeline::before {
-                left: 30px;
-            }
-            
-            .timeline-item {
-                justify-content: flex-start;
-                margin-left: 50px;
-            }
-            
-            .timeline-item:nth-child(even) {
-                justify-content: flex-start;
-            }
-            
-            .timeline-content {
-                width: 100%;
-            }
-            
-            .match-teams {
-                flex-direction: column;
-                gap: 0.5rem;
-            }
-        }
     </style>
 </head>
 <body>
-    <!-- HERO SECTION -->
     <div class="hero">
         <div class="hero-content">
             <h1><i class="fas fa-hand-holding-heart"></i> Associations d'Ajar</h1>
@@ -391,13 +293,24 @@
     </nav>
     
     <div class="container">
-        <!-- SECTION ADAL - AVEC LA PHOTO adal.jpeg EN FOND -->
+        <!-- Annonce AdSense -->
+        <div class="ads-container">
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-4708549060535093"
+                 data-ad-slot="1234567890"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+        
         <section>
-            <h2 class="section-title">ADAL - Association des jeunes d'Ajar  pour le Développement d'Ajar Ladji</h2>
+            <h2 class="section-title">ADAL - Association pour le Développement d'Ajar</h2>
             
             <div class="associations-grid">
                 <div class="association-card">
-                    <!-- ICI LA MODIFICATION : remplacement de adal-bg.jpg par adal-logo.jpg -->
                     <div class="association-header" style="background-image: url('../images/associations/adal-logo.jpg');">
                         <div class="association-logo">
                             <img src="../images/associations/adal-logo.jpg" alt="Logo ADAL">
@@ -405,7 +318,7 @@
                     </div>
                     <div class="association-content">
                         <h3 class="association-name">ADAL</h3>
-                        <div class="association-meta">Association des jeunes d'Ajar  pour le Développement d'Ajar Ladji</div>
+                        <div class="association-meta">Association pour le Développement d'Ajar Ladji</div>
                         
                         <div class="info-box">
                             <p><strong>📅 Création :</strong> 2021</p>
@@ -413,128 +326,23 @@
                             <p><strong>👤 Président :</strong> Moussa Boubou Sy</p>
                             <p><strong>👤 Secrétaire Général :</strong> Ladji Bakary Diabira (Kisma Diabira)</p>
                             <p><strong>👤 Trésorier :</strong> Dambou Silly Diallo (Harouna Silly Diallo)</p>
-                            <p><strong>📍 Siège :</strong> Nouakchott</p>
-                            <p><strong>🌍 Couverture :</strong> Gorgol, Brakna, Guidimakha, Nouakchott</p>
                         </div>
                         
                         <p class="association-description">
-                            L'ADAL est née d'une vision de <strong>Diabe Soumare</strong>. À l'époque, il existait une autre association qui ne bougeait pas et n'avait pas de récépissé. Diabe Soumare a eu l'idée de créer cette nouvelle association et d'obtenir un récépissé officiel. L'ancienne association, où Moussa Sy avait succédé à Harouna Traoré comme président, ne fonctionnait pas. Ils ont donc naturellement rejoint ADAL, et Moussa Boubou Sy en est devenu le président.
+                            L'ADAL est née d'une vision de <strong>Diabe Soumare</strong>. L'association a obtenu son récépissé officiel en 2023. En 2025, <strong>Cheikhou Diabira</strong> rejoint ADAL et est nommé <strong>Président de la Commission Culturelle et Sportive</strong>, avec Daouda Diallo comme adjoint.
                         </p>
                         
-                        <a href="#adal-activites" class="btn btn-orange">Voir les activités</a>
+                        <a href="#tournoi" class="btn btn-orange">Voir les activités</a>
                     </div>
                 </div>
             </div>
         </section>
         
-        <!-- SECTION CARAVANE DE SANTÉ 2023 -->
-        <section id="adal-activites" style="margin-top: 3rem;">
-            <h2 class="section-title">Caravane de Santé 2023</h2>
-            
-            <div style="background: white; border-radius: 20px; padding: 2rem; margin: 2rem 0; box-shadow: 0 5px 20px rgba(0,0,0,0.1);">
-                <div style="display: flex; gap: 2rem; flex-wrap: wrap; align-items: center;">
-                    <div style="flex: 1; min-width: 300px;">
-                        <img src="../images/associations/caravane.jpg" alt="Caravane de santé ADAL" style="width: 100%; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.2);">
-                    </div>
-                    <div style="flex: 2;">
-                        <h3 style="color: #ff8c42; margin-bottom: 1rem;">Première caravane de santé à Ajar</h3>
-                        <p><strong>📅 Départ de Nouakchott :</strong> 18 mai 2023</p>
-                        <p><strong>📍 Arrivée à Ajar :</strong> 19 mai 2023</p>
-                        <p><strong>📆 Activités :</strong> 19 au 21 mai 2023</p>
-                        <p><strong>↩️ Retour :</strong> 22 mai 2023</p>
-                    </div>
-                </div>
-                
-                <div style="margin-top: 2rem;">
-                    <p>Pour la <strong>première fois</strong>, une caravane de santé a été organisée à Ajar. Pendant trois jours, les habitants ont bénéficié de :</p>
-                </div>
-                
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin: 2rem 0;">
-                    <div style="text-align: center;">
-                        <i class="fas fa-stethoscope" style="font-size: 3rem; color: #ff8c42;"></i>
-                        <h3>Consultations médicales</h3>
-                        <p>Soins et traitements pour tous</p>
-                    </div>
-                    <div style="text-align: center;">
-                        <i class="fas fa-futbol" style="font-size: 3rem; color: #ff8c42;"></i>
-                        <h3>Activités sportives</h3>
-                        <p>Tournois et animations</p>
-                    </div>
-                    <div style="text-align: center;">
-                        <i class="fas fa-palette" style="font-size: 3rem; color: #ff8c42;"></i>
-                        <h3>Activités culturelles</h3>
-                        <p>Animations pour tous les âges</p>
-                    </div>
-                </div>
-                
-                <img src="../images/associations/culture-adal.jpg" alt="Activités culturelles ADAL" style="width: 100%; max-height: 400px; object-fit: cover; border-radius: 15px; margin-top: 1rem;">
-            </div>
-        </section>
-        
-        <!-- SECTION ACTIVITÉS ADAL -->
-        <section style="margin-top: 3rem;">
-            <h2 class="section-title">Toutes les activités de l'ADAL</h2>
-            
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <span class="timeline-date">2021</span>
-                        <h3>Création d'ADAL</h3>
-                        <p>Diabe Soumare propose la création d'une nouvelle association avec récépissé. Moussa Boubou Sy devient président. L'ancienne association inactive est abandonnée au profit d'ADAL.</p>
-                    </div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <span class="timeline-date">24/01/2023</span>
-                        <h3>Obtention du récépissé</h3>
-                        <p>L'association ADAL obtient son récépissé définitif n° FA 010000242301202305689 du Ministère de l'Intérieur.</p>
-                    </div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <span class="timeline-date">18-22/05/2023</span>
-                        <h3>Première caravane de santé</h3>
-                        <p>Départ de Nouakchott le 18 mai, arrivée à Ajar le 19. Trois jours de consultations, sport et culture. Retour le 22 mai.</p>
-                    </div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <span class="timeline-date">2025</span>
-                        <h3>Arrivée de Cheikhou Diabira</h3>
-                        <p>Cheikhou Diabira rejoint ADAL en tant que membre et intègre le bureau. Il est nommé <strong>Président de la Commission Culturelle et Sportive</strong>, avec Daouda Diallo comme adjoint.</p>
-                    </div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <span class="timeline-date">21/02/2025</span>
-                        <h3>Organisation d'un tournoi à Couva</h3>
-                        <p>Sous l'impulsion de la nouvelle commission, un tournoi est organisé à Couva réunissant plusieurs équipes de sélection.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- SECTION TOURNOI 2025 -->
-        <section style="margin-top: 3rem;">
-            <h2 class="section-title">Tournoi de Couva - Février/Mai 2025</h2>
+        <section id="tournoi" style="margin-top: 3rem;">
+            <h2 class="section-title">Tournoi de Couva - 2025</h2>
             
             <div style="background: white; border-radius: 20px; padding: 2rem; box-shadow: 0 5px 20px rgba(0,0,0,0.1);">
-                <p>À partir du <strong>21 février 2025</strong>, la Commission Culturelle et Sportive d'ADAL, présidée par <strong>Cheikhou Diabira</strong> assisté de <strong>Daouda Diallo</strong>, a organisé un tournoi ambitieux à Couva réunissant plusieurs équipes :</p>
-                
-                <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; margin: 2rem 0;">
-                    <span style="background: #ff8c42; color: white; padding: 0.5rem 1rem; border-radius: 50px;">Djikke</span>
-                    <span style="background: #1a2634; color: white; padding: 0.5rem 1rem; border-radius: 50px;">Ivoire Foot</span>
-                    <span style="background: #ff8c42; color: white; padding: 0.5rem 1rem; border-radius: 50px;">Arc en ciel</span>
-                    <span style="background: #1a2634; color: white; padding: 0.5rem 1rem; border-radius: 50px;">O Kure Family</span>
-                    <span style="background: #ff8c42; color: white; padding: 0.5rem 1rem; border-radius: 50px;">Séville</span>
-                    <span style="background: #1a2634; color: white; padding: 0.5rem 1rem; border-radius: 50px;">FC Bagdad</span>
-                    <span style="background: #ff8c42; color: white; padding: 0.5rem 1rem; border-radius: 50px;">FC Izy</span>
-                    <span style="background: #1a2634; color: white; padding: 0.5rem 1rem; border-radius: 50px;">Balthazar</span>
-                </div>
+                <p>À partir du <strong>21 février 2025</strong>, la Commission Culturelle et Sportive d'ADAL a organisé un tournoi à Couva réunissant plusieurs équipes.</p>
                 
                 <div class="match-card">
                     <h3>🏆 Finale du tournoi</h3>
@@ -549,15 +357,9 @@
                     <p><strong>Stade Big Five - Couva</strong></p>
                     <p><strong>11 mai 2025</strong></p>
                 </div>
-                
-                <div style="margin-top: 2rem;">
-                    <img src="../images/associations/vainqueur.jpg" alt="FC Bagdad vainqueur" style="width: 100%; max-height: 400px; object-fit: cover; border-radius: 15px;">
-                    <p style="text-align: center; margin-top: 1rem; font-style: italic;">FC Bagdad, vainqueur du tournoi 2025</p>
-                </div>
             </div>
         </section>
         
-        <!-- SECTION ASSOCIATION DE LA JEUNESSE -->
         <section style="margin-top: 3rem;">
             <h2 class="section-title">Association de la Jeunesse d'Ajar</h2>
             
@@ -573,58 +375,21 @@
                         <div class="association-meta">Association des jeunes du village</div>
                         
                         <p class="association-description">
-                            L'Association de la Jeunesse d'Ajar regroupe les jeunes du village autour de projets communs : sport, culture, éducation et développement. Elle joue un rôle clé dans l'organisation des activités sportives, notamment le championnat, et dans la mobilisation des jeunes pour les travaux communautaires.
+                            L'Association de la Jeunesse d'Ajar regroupe les jeunes du village autour de projets communs : sport, culture, éducation et développement.
                         </p>
-                        
-                        <div style="margin-top: 1rem;">
-                            <p><i class="fas fa-star" style="color: #ff8c42;"></i> <strong>Rôle dans le championnat :</strong> Gestion des équipes, organisation des matchs</p>
-                            <p><i class="fas fa-star" style="color: #ff8c42;"></i> <strong>Activités :</strong> Tournois, événements culturels, travaux communautaires</p>
-                        </div>
-                        
-                        <a href="#" class="btn btn-orange" style="margin-top: 1rem;">Plus d'informations</a>
                     </div>
                 </div>
             </div>
-            
-            <p style="margin-top: 2rem; font-style: italic; color: #666;">* La date exacte de création de l'Association de la Jeunesse est en cours de recherche. Dès que nous aurons l'information, elle sera ajoutée.</p>
         </section>
         
-        <!-- SECTION GALERIE PHOTOS -->
-        <section style="margin-top: 3rem;">
-            <h2 class="section-title">Galerie des Associations</h2>
-            
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <img src="../images/associations/caravane.jpg" alt="Caravane de santé">
-                </div>
-                <div class="gallery-item">
-                    <img src="../images/associations/culture-adal.jpg" alt="Culture ADAL">
-                </div>
-                <div class="gallery-item">
-                    <img src="../images/associations/vainqueur.jpg" alt="Vainqueur tournoi">
-                </div>
-                <div class="gallery-item">
-                    <img src="../images/associations/adal-logo.jpg" alt="Logo ADAL">
-                </div>
-                <div class="gallery-item">
-                    <img src="../images/associations/adal1.jpg" alt="ADAL - Activités" onerror="this.style.display='none'">
-                </div>
-                <div class="gallery-item">
-                    <img src="../images/associations/jeunesse1.jpg" alt="Jeunesse d'Ajar" onerror="this.style.display='none'">
-                </div>
-            </div>
-        </section>
-        
-        <!-- BOUTONS DE RETOUR -->
         <div style="text-align: center; margin: 3rem 0;">
             <a href="../index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Retour à l'accueil</a>
-            <a href="../village/index.html" class="back-btn" style="background: #ff8c42; margin-left: 1rem;">Voir le village</a>
         </div>
     </div>
     
     <footer>
         <p>&copy; 2026 Village Ajar - Tous droits réservés</p>
-        <p><a href="../index.html">Retour à l'accueil</a> | <a href="../contact.html">Contact</a></p>
+        <p><a href="../index.html">Accueil</a> | <a href="../contact.html">Contact</a></p>
     </footer>
 </body>
 </html>
