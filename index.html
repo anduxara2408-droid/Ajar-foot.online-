@@ -3,11 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Village Ajar - Histoire, Football & Traditions</title>
+    
+    <!-- 🔴 META TAG GOOGLE SEARCH CONSOLE -->
+    <meta name="google-site-verification" content="G6LVCic9lMK_xT3cy33xUhfSSiam0y9tsvvfZ_ImQbo" />
+    
+    <!-- 🔴 TITRE OPTIMISÉ SEO -->
+    <title>Village Ajar - Histoire, Football & Traditions depuis 1983</title>
+    
+    <!-- 🔴 DESCRIPTION POUR GOOGLE -->
+    <meta name="description" content="Découvrez l'histoire du village Ajar, ses 9 clubs de football, ses 15 pionniers de 1983, et ses traditions culturelles tamtam et dimmu.">
+    
+    <!-- 🔴 GOOGLE ADSENSE -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4708549060535093" crossorigin="anonymous"></script>
+    
+    <!-- Fonts et icônes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
         * {
             margin: 0;
@@ -21,6 +35,7 @@
             color: white;
         }
         
+        /* GRAND DIAPORAMA */
         .hero {
             height: 100vh;
             position: relative;
@@ -111,6 +126,7 @@
             height: 4px;
             background: rgba(255,255,255,0.3);
             cursor: pointer;
+            transition: 0.3s;
         }
         
         .hero-indicator.active {
@@ -118,12 +134,14 @@
             width: 80px;
         }
         
+        /* NAVIGATION */
         nav {
             background: #1a2634;
             padding: 1rem;
             position: sticky;
             top: 0;
             z-index: 100;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
         }
         
         nav ul {
@@ -138,12 +156,25 @@
             color: white;
             text-decoration: none;
             transition: 0.3s;
+            font-weight: 500;
         }
         
         nav ul li a:hover {
             color: #ff8c42;
         }
         
+        /* ANNONCE ADSENSE */
+        .ads-container {
+            text-align: center;
+            margin: 2rem auto;
+            max-width: 728px;
+            background: #1a1a1a;
+            border-radius: 10px;
+            padding: 1rem;
+            min-height: 100px;
+        }
+        
+        /* SECTION HISTOIRE */
         .histoire {
             max-width: 1200px;
             margin: 4rem auto;
@@ -213,6 +244,7 @@
             opacity: 0.9;
         }
         
+        /* SECTION CLUBS */
         .clubs-section {
             max-width: 1200px;
             margin: 4rem auto;
@@ -261,6 +293,7 @@
             font-weight: 600;
         }
         
+        /* SECTION TERRAIN */
         .terrain {
             height: 500px;
             background-attachment: fixed;
@@ -278,6 +311,8 @@
             padding: 2rem;
             background: rgba(0,0,0,0.7);
             border-radius: 15px;
+            backdrop-filter: blur(5px);
+            border: 1px solid #ff8c42;
         }
         
         .terrain-content h2 {
@@ -286,38 +321,12 @@
             margin-bottom: 1rem;
         }
         
+        /* FOOTER */
         footer {
             background: #1a2634;
             padding: 3rem 2rem;
             text-align: center;
             color: white;
-        }
-        
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            text-align: left;
-            margin-bottom: 2rem;
-        }
-        
-        .footer-section h3 {
-            color: #ff8c42;
-            margin-bottom: 1rem;
-            font-size: 1.2rem;
-        }
-        
-        .footer-section p {
-            margin-bottom: 0.5rem;
-            color: #ccc;
-        }
-        
-        .footer-section i {
-            color: #ff8c42;
-            width: 25px;
-            margin-right: 0.5rem;
         }
         
         .footer-links {
@@ -331,6 +340,7 @@
         .footer-links a {
             color: white;
             text-decoration: none;
+            transition: 0.3s;
         }
         
         .footer-links a:hover {
@@ -338,10 +348,23 @@
         }
         
         .copyright {
+            margin-top: 2rem;
             border-top: 1px solid #333;
             padding-top: 2rem;
-            margin-top: 2rem;
+        }
+        
+        .copyright p {
+            margin: 0.5rem 0;
             color: #aaa;
+        }
+        
+        .copyright a {
+            color: #ff8c42;
+            text-decoration: none;
+        }
+        
+        .copyright a:hover {
+            text-decoration: underline;
         }
         
         @media (max-width: 768px) {
@@ -357,14 +380,28 @@
             .cards-grid {
                 grid-template-columns: 1fr;
             }
-            .footer-content {
-                grid-template-columns: 1fr;
-                text-align: center;
+            .footer-links {
+                flex-direction: column;
+                gap: 1rem;
             }
         }
     </style>
 </head>
 <body>
+    <!-- PREMIÈRE ANNONCE ADSENSE -->
+    <div class="ads-container">
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-4708549060535093"
+             data-ad-slot="1234567890"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+             console.log('📢 Annonce AdSense chargée sur ajar-foot.online');
+        </script>
+    </div>
+
     <div class="hero">
         <div class="hero-slider">
             <div class="hero-slide active" style="background-image: url('images/hero/bienvenue.jpg');">
@@ -380,11 +417,11 @@
                     <h1><span class="highlight">9 Clubs</span></h1>
                     <p>Un championnat, une passion</p>
                     <div style="display: flex; justify-content: center; gap: 0.5rem; margin: 1rem 0; flex-wrap: wrap;">
-                        <img src="images/logos/clubs/dango.jpg" style="width: 50px; height: 50px; border-radius: 50%; border: 2px solid #ff8c42;">
-                        <img src="images/logos/clubs/wale.jpg" style="width: 50px; height: 50px; border-radius: 50%; border: 2px solid #ff8c42;">
-                        <img src="images/logos/clubs/soumpou.jpg" style="width: 50px; height: 50px; border-radius: 50%; border: 2px solid #ff8c42;">
-                        <img src="images/logos/clubs/lion-ajar.jpg" style="width: 50px; height: 50px; border-radius: 50%; border: 2px solid #ff8c42;">
-                        <img src="images/logos/clubs/kelifado.jpg" style="width: 50px; height: 50px; border-radius: 50%; border: 2px solid #ff8c42;">
+                        <img src="images/logos/clubs/dango.jpg" style="width: 50px; height: 50px; border-radius: 50%; border: 2px solid #ff8c42;" alt="FC Dango" loading="lazy">
+                        <img src="images/logos/clubs/wale.jpg" style="width: 50px; height: 50px; border-radius: 50%; border: 2px solid #ff8c42;" alt="FC Walé" loading="lazy">
+                        <img src="images/logos/clubs/soumpou.jpg" style="width: 50px; height: 50px; border-radius: 50%; border: 2px solid #ff8c42;" alt="FC Soumpou" loading="lazy">
+                        <img src="images/logos/clubs/lion-ajar.jpg" style="width: 50px; height: 50px; border-radius: 50%; border: 2px solid #ff8c42;" alt="Lion d'Ajar" loading="lazy">
+                        <img src="images/logos/clubs/kelifado.jpg" style="width: 50px; height: 50px; border-radius: 50%; border: 2px solid #ff8c42;" alt="Kelifado" loading="lazy">
                     </div>
                     <a href="clubs-championnat/index.html" class="hero-btn">Voir tous les clubs</a>
                 </div>
@@ -444,6 +481,19 @@
             <li><a href="contact.html">Contact</a></li>
         </ul>
     </nav>
+    
+    <!-- Annonce AdSense #2 -->
+    <div class="ads-container">
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-4708549060535093"
+             data-ad-slot="1234567890"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
     
     <section class="histoire">
         <h2 class="section-title">L'<span>Histoire</span> d'Ajar en 7 chapitres</h2>
@@ -505,44 +555,44 @@
         
         <div class="clubs-grid">
             <div class="club-item">
-                <div class="club-logo"><img src="images/logos/clubs/dango.jpg" alt="FC Dango"></div>
+                <div class="club-logo"><img src="images/logos/clubs/dango.jpg" alt="FC Dango" loading="lazy"></div>
                 <div class="club-nom">FC Dango</div>
                 <div class="club-titres">1 titre</div>
             </div>
             <div class="club-item">
-                <div class="club-logo"><img src="images/logos/clubs/wale.jpg" alt="FC Walé"></div>
+                <div class="club-logo"><img src="images/logos/clubs/wale.jpg" alt="FC Walé" loading="lazy"></div>
                 <div class="club-nom">FC Walé</div>
                 <div class="club-titres">3 titres</div>
             </div>
             <div class="club-item">
-                <div class="club-logo"><img src="images/logos/clubs/soumpou.jpg" alt="FC Soumpou"></div>
+                <div class="club-logo"><img src="images/logos/clubs/soumpou.jpg" alt="FC Soumpou" loading="lazy"></div>
                 <div class="club-nom">FC Soumpou</div>
                 <div class="club-titres">1 titre</div>
             </div>
             <div class="club-item">
-                <div class="club-logo"><img src="images/logos/clubs/lion-ajar.jpg" alt="Lion d'Ajar"></div>
+                <div class="club-logo"><img src="images/logos/clubs/lion-ajar.jpg" alt="Lion d'Ajar" loading="lazy"></div>
                 <div class="club-nom">Lion d'Ajar</div>
                 <div class="club-titres">1 titre</div>
             </div>
             <div class="club-item">
-                <div class="club-logo"><img src="images/logos/clubs/kelifado.jpg" alt="Kelifado"></div>
+                <div class="club-logo"><img src="images/logos/clubs/kelifado.jpg" alt="Kelifado" loading="lazy"></div>
                 <div class="club-nom">Kelifado</div>
                 <div class="club-titres">1 titre</div>
             </div>
             <div class="club-item">
-                <div class="club-logo"><img src="images/logos/clubs/kawral.jpg" alt="FC Kawral"></div>
+                <div class="club-logo"><img src="images/logos/clubs/kawral.jpg" alt="FC Kawral" loading="lazy"></div>
                 <div class="club-nom">FC Kawral</div>
             </div>
             <div class="club-item">
-                <div class="club-logo"><img src="images/logos/clubs/nassr.jpg" alt="FC Nassr"></div>
+                <div class="club-logo"><img src="images/logos/clubs/nassr.jpg" alt="FC Nassr" loading="lazy"></div>
                 <div class="club-nom">FC Nassr</div>
             </div>
             <div class="club-item">
-                <div class="club-logo"><img src="images/logos/clubs/sadio-kalloga.jpg" alt="Sadio Kalloga" onerror="this.src='https://via.placeholder.com/100?text=SK'"></div>
+                <div class="club-logo"><img src="images/logos/clubs/sadio-kalloga.jpg" alt="Sadio Kalloga" onerror="this.src='https://via.placeholder.com/100?text=SK'" loading="lazy"></div>
                 <div class="club-nom">Sadio Kalloga</div>
             </div>
             <div class="club-item">
-                <div class="club-logo"><img src="images/logos/clubs/mody-ndiaye.jpg" alt="Mody Ndiaye" onerror="this.src='https://via.placeholder.com/100?text=MN'"></div>
+                <div class="club-logo"><img src="images/logos/clubs/mody-ndiaye.jpg" alt="Mody Ndiaye" onerror="this.src='https://via.placeholder.com/100?text=MN'" loading="lazy"></div>
                 <div class="club-nom">Mody Ndiaye</div>
             </div>
         </div>
@@ -560,36 +610,20 @@
         </div>
     </section>
     
+    <!-- Annonce AdSense #3 (pied de page) -->
+    <div class="ads-container">
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-4708549060535093"
+             data-ad-slot="1234567890"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+    
     <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3><i class="fas fa-futbol"></i> Village Ajar</h3>
-                <p>Site officiel du village Ajar. Toute l'histoire, le football et la vie associative de notre communauté.</p>
-            </div>
-            
-            <div class="footer-section">
-                <h3><i class="fas fa-envelope"></i> Contact</h3>
-                <p><i class="fas fa-envelope"></i> administration@ajar-foot.online</p>
-                <p><i class="fas fa-envelope"></i> contact@ajar-foot.online</p>
-                <p><i class="fas fa-handshake"></i> partenariat@ajar-foot.online</p>
-                <p><i class="fas fa-phone"></i> +222 XX XX XX XX</p>
-            </div>
-            
-            <div class="footer-section">
-                <h3><i class="fas fa-map-marker-alt"></i> Adresse</h3>
-                <p>Village Ajar</p>
-                <p>Guidimakha, Mauritanie</p>
-            </div>
-            
-            <div class="footer-section">
-                <h3><i class="fas fa-link"></i> Liens rapides</h3>
-                <p><a href="histoire/index.html" style="color: #ccc; text-decoration: none;">Histoire</a></p>
-                <p><a href="clubs-championnat/index.html" style="color: #ccc; text-decoration: none;">Clubs</a></p>
-                <p><a href="associations/index.html" style="color: #ccc; text-decoration: none;">Associations</a></p>
-                <p><a href="temoignages/index.html" style="color: #ccc; text-decoration: none;">Témoignages</a></p>
-            </div>
-        </div>
-        
         <div class="footer-links">
             <a href="index.html">Accueil</a>
             <a href="histoire/index.html">Histoire</a>
@@ -599,11 +633,11 @@
             <a href="temoignages/index.html">Témoignages</a>
             <a href="contact.html">Contact</a>
         </div>
-        
+
         <div class="copyright">
             <p>&copy; 2026 Village Ajar - Tous droits réservés</p>
-            <p>Email: contact@ajar-foot.online | Tel: +222 XX XX XX XX</p>
-            <p><a href="#" style="color:#ff8c42;">Mentions légales</a></p>
+            <p>Email: contact@ajar-foot.online | Tel: +222 49 03 76 97</p>
+            <p><a href="/mentions-legales.html" style="color:#ff8c42;">Mentions légales</a> | <a href="/contact.html" style="color:#ff8c42;">Contact</a></p>
         </div>
     </footer>
     
@@ -630,6 +664,10 @@
         indicators.forEach((indicator, index) => {
             indicator.addEventListener('click', () => showSlide(index));
         });
+
+        // Vérification AdSense
+        console.log('✅ Site Ajar chargé - Meta tag Google: G6LVCic9lMK_xT3cy33xUhfSSiam0y9tsvvfZ_ImQbo');
+        console.log('📢 AdSense client: ca-pub-4708549060535093');
     </script>
 </body>
 </html>
