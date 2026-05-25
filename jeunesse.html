@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jeunesse d'Ajar - Association AJDCS</title>
+    <title>Jeunesse d'Ajar - Association AJCDD</title>
     
     <!-- Google AdSense & Meta Tags -->
     <meta name="google-site-verification" content="G6LVCic9lMK_xT3cy33xUhfSSiam0y9tsvvfZ_ImQbo" />
@@ -23,32 +23,63 @@
         
         body {
             font-family: 'Poppins', sans-serif;
-            background: #f5f5f5;
-            color: #333;
+            background: #f0f4f8;
+            color: #1e2a3e;
             line-height: 1.6;
         }
         
-        /* HERO SECTION */
+        /* HERO SECTION AVEC ANIMATION */
         .hero {
-            height: 50vh;
-            background: linear-gradient(135deg, #1a5f7a, #0a2f3a);
+            height: 60vh;
+            background: linear-gradient(135deg, #0f2b3d, #1b4f6e);
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             color: white;
             position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: "🤝";
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            font-size: 300px;
+            opacity: 0.08;
+            transform: rotate(15deg);
         }
         
         .hero-content {
+            position: relative;
+            z-index: 2;
             max-width: 800px;
             padding: 2rem;
+            animation: fadeInUp 1s ease-out;
         }
         
         .hero h1 {
-            font-size: 3rem;
+            font-size: 3.5rem;
             color: #ff8c42;
             margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            opacity: 0.95;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
         
         /* NAVIGATION */
@@ -58,40 +89,72 @@
             position: sticky;
             top: 0;
             z-index: 100;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
         
-        nav a {
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        nav ul li a {
             color: white;
             text-decoration: none;
-            margin: 0 1rem;
+            font-weight: 500;
             transition: 0.3s;
+            position: relative;
         }
         
-        nav a:hover {
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #ff8c42;
+            transition: width 0.3s;
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        nav ul li a:hover {
             color: #ff8c42;
         }
         
         .container {
-            max-width: 1200px;
-            margin: 3rem auto;
+            max-width: 1300px;
+            margin: 4rem auto;
             padding: 0 2rem;
         }
         
         /* CARTES & SECTIONS */
         .card {
             background: white;
-            border-radius: 20px;
-            padding: 2rem;
+            border-radius: 24px;
+            padding: 2.5rem;
             margin-bottom: 3rem;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.12);
         }
         
         .section-title {
             font-size: 2rem;
-            color: #1a2634;
+            color: #1e2a3e;
             margin-bottom: 1.5rem;
             position: relative;
-            padding-bottom: 0.5rem;
+            padding-bottom: 0.8rem;
+            font-weight: 600;
         }
         
         .section-title::after {
@@ -99,79 +162,186 @@
             position: absolute;
             bottom: 0;
             left: 0;
-            width: 80px;
+            width: 70px;
             height: 4px;
             background: #ff8c42;
+            border-radius: 2px;
         }
         
-        /* GRILLE POUR LE BUREAU */
+        /* GRILLE BUREAU */
         .team-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 1.5rem;
-            margin-top: 1rem;
+            margin-top: 1.5rem;
         }
         
         .member-card {
-            background: #f8f9fa;
-            padding: 1rem;
-            border-radius: 10px;
+            background: #f8fafc;
+            padding: 1.2rem;
+            border-radius: 16px;
             text-align: center;
-            transition: 0.3s;
-            border-left: 4px solid #ff8c42;
+            transition: all 0.3s;
+            border: 1px solid #e2e8f0;
+            cursor: default;
+        }
+        
+        .member-card:hover {
+            transform: translateY(-5px);
+            border-color: #ff8c42;
+            box-shadow: 0 10px 25px rgba(255,140,66,0.15);
         }
         
         .member-role {
             font-weight: 700;
             color: #ff8c42;
             margin-bottom: 0.3rem;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
         
+        .member-name {
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        
+        /* BADGE PRÉSIDENT */
         .badge-president {
             background: #ff8c42;
             color: white;
             font-size: 0.7rem;
-            padding: 0.2rem 0.5rem;
+            padding: 0.2rem 0.7rem;
             border-radius: 20px;
             display: inline-block;
             margin-top: 0.3rem;
         }
         
-        /* ACTIVITES */
-        .activite-item {
-            margin-bottom: 2rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid #eee;
+        /* GRILLE PHOTOS ASSAINISSEMENT */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
         }
         
+        .gallery-item {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            transition: transform 0.4s ease;
+        }
+        
+        .gallery-item:hover {
+            transform: scale(1.02);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            font-weight: 500;
+        }
+        
+        /* OBJECTIFS LISTE */
+        .objectifs-list {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+        
+        .objectifs-list li {
+            margin-bottom: 1rem;
+            padding-left: 1.8rem;
+            position: relative;
+        }
+        
+        .objectifs-list li::before {
+            content: "🎯";
+            position: absolute;
+            left: 0;
+            color: #ff8c42;
+        }
+        
+        /* BOUTONS */
         .btn-retour {
             display: inline-block;
             background: #1a2634;
             color: white;
-            padding: 1rem 2rem;
+            padding: 1rem 2.5rem;
             border-radius: 50px;
             text-decoration: none;
             margin: 1rem 0;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: 2px solid transparent;
         }
         
+        .btn-retour:hover {
+            background: #ff8c42;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(255,140,66,0.3);
+        }
+        
+        .btn-facebook {
+            display: inline-block;
+            background: #1877f2;
+            color: white;
+            padding: 0.7rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s;
+            margin-top: 1rem;
+        }
+        
+        .btn-facebook:hover {
+            background: #0d5fd9;
+            transform: translateY(-2px);
+        }
+        
+        /* FOOTER */
         footer {
             background: #1a2634;
             color: white;
             text-align: center;
-            padding: 2rem;
-            margin-top: 3rem;
+            padding: 2.5rem;
+            margin-top: 4rem;
         }
         
+        footer p {
+            opacity: 0.8;
+        }
+        
+        /* RESPONSIVE */
         @media (max-width: 768px) {
             .hero h1 {
-                font-size: 2rem;
+                font-size: 2.2rem;
             }
-            .team-grid {
-                grid-template-columns: 1fr;
+            .section-title {
+                font-size: 1.6rem;
             }
-            nav a {
-                display: inline-block;
-                margin: 0.5rem;
+            .container {
+                padding: 0 1.5rem;
+            }
+            .card {
+                padding: 1.5rem;
             }
         }
     </style>
@@ -181,99 +351,106 @@
 <div class="hero">
     <div class="hero-content">
         <h1>Association Jeunesse Cohésion & Développement Durable</h1>
-        <p>Unir, Agir, Bâtir l'avenir d'Ajar</p>
+        <p>Fédérer les énergies, préserver notre cadre de vie, bâtir l'avenir d'Ajar</p>
     </div>
 </div>
 
 <nav>
-    <a href="index.html">Accueil</a>
-    <a href="jeunesse.html">Jeunesse</a>
-    <a href="histoire/index.html">Histoire</a>
-    <a href="clubs-championnat/index.html">Clubs</a>
-    <a href="associations/index.html">Associations</a>
-    <a href="village/index.html">Village</a>
-    <a href="temoignages/index.html">Témoignages</a>
-    <a href="contact.html">Contact</a>
+    <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="jeunesse.html">Jeunesse</a></li>
+        <li><a href="histoire/index.html">Histoire</a></li>
+        <li><a href="clubs-championnat/index.html">Clubs</a></li>
+        <li><a href="associations/index.html">Associations</a></li>
+        <li><a href="village/index.html">Village</a></li>
+        <li><a href="temoignages/index.html">Témoignages</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
 </nav>
 
 <div class="container">
     
     <!-- 1. INTRODUCTION -->
     <div class="card">
-        <h2 class="section-title">Qui sommes-nous ?</h2>
-        <p><strong>L'Association Jeunesse Cohésion & Développement Durable (AJCDD)</strong> est le moteur de la vie citoyenne et solidaire à Ajar. Nous travaillons à fédérer les énergies pour un village plus propre, plus sportif et plus uni.</p>
-        <p>Notre action repose sur trois piliers : l’engagement citoyen, le développement par le sport, et la formation.</p>
+        <h2 class="section-title">Notre raison d'être</h2>
+        <p>L'<strong>Association Jeunesse Cohésion & Développement Durable (AJDCS)</strong> incarne l'élan citoyen et solidaire d'Ajar. Notre mission est de mobiliser les jeunes générations autour de projets structurants : assainissement du village, organisation d'activités sportives, formation, et promotion de la culture locale. Forts de notre histoire et de nos valeurs, nous bâtissons un avenir meilleur pour notre communauté.</p>
     </div>
 
-    <!-- 2. HISTORIQUE -->
+    <!-- 2. HISTORIQUE DE LA PRÉSIDENCE -->
     <div class="card">
-        <h2 class="section-title">📜 Historique de la présidence</h2>
-        <p><strong>Djiby Sanghare</strong> a succédé à <strong>Feremakha Diallo</strong> après une élection en 2025. Il connaît bien l’association puisqu’il y est membre actif depuis 2010. Il a déjà été président de 2010 à 2016, puis a laissé la place à <strong>Pape Demba Soumare</strong>, avant que <strong>Feremakha Diallo</strong> ne prenne le relais. Aujourd'hui, il revient avec un mandat de <strong>2 ans renouvelable</strong> pour impulser une nouvelle dynamique.</p>
+        <h2 class="section-title">📜 Un héritage, une vision</h2>
+        <p>Fondée en 1983, l'association a vu se succéder des présidents engagés, chacun apportant sa pierre à l'édifice. <strong>Djiby Sanghare</strong>, membre actif depuis la création, a déjà présidé l'association de 2010 à 2016. Après le départ de <strong>Pape Demba Soumare</strong> à Sélibaby, l'intérim a été assuré par <strong>Bilaly Tandia</strong>, puis par <strong>Feremakha Diallo</strong> qui a finalement pris la tête de l'association jusqu'en 2025.</p>
+        <p>Élu en 2025, <strong>Djiby Sanghare</strong> entame aujourd'hui un <strong>mandat de deux ans renouvelable</strong>, fort d'une expérience précieuse et d'une ambition collective. Sous son impulsion, l'AJDCS se dote d'objectifs clairs et mobilise l'intelligence collective.</p>
     </div>
 
     <!-- 3. BUREAU EXÉCUTIF -->
     <div class="card">
-        <h2 class="section-title">🏛 Bureau Exécutif 2025</h2>
+        <h2 class="section-title">🏛 Gouvernance</h2>
+        <h3 style="color:#ff8c42; margin-bottom:1rem;">Bureau exécutif</h3>
         <div class="team-grid">
-            <div class="member-card"><div class="member-role">Président</div>Djiby Sanghare</div>
-            <div class="member-card"><div class="member-role">Vice-Présidente</div>Zeinabou Diallo</div>
-            <div class="member-card"><div class="member-role">Secrétaire Général</div>Pape Demba Soumare</div>
-            <div class="member-card"><div class="member-role">Trésorier</div>Mody Sy</div>
-            <div class="member-card"><div class="member-role">Commissaire aux comptes</div>Diango Cissokho</div>
-            <div class="member-card"><div class="member-role">Relations ext. & Communication</div>Demba Sanghare</div>
+            <div class="member-card"><div class="member-role">Président</div><div class="member-name">Djiby Sanghare</div></div>
+            <div class="member-card"><div class="member-role">Vice-Présidente</div><div class="member-name">Zeinabou Diallo</div></div>
+            <div class="member-card"><div class="member-role">Secrétaire Général</div><div class="member-name">Pape Demba Soumare</div></div>
+            <div class="member-card"><div class="member-role">Trésorier</div><div class="member-name">Mody Sy</div></div>
+            <div class="member-card"><div class="member-role">Commissaire aux comptes</div><div class="member-name">Diango Cissokho</div></div>
+            <div class="member-card"><div class="member-role">Relations ext. & Communication</div><div class="member-name">Demba Sanghare</div></div>
+        </div>
+
+        <h3 style="color:#ff8c42; margin:2rem 0 1rem;">Commissions & Comités</h3>
+        <div class="team-grid">
+            <div class="member-card"><div class="member-role">Président Commission Sport</div><div class="member-name">Cheikhou Diabira</div><div class="badge-president">Président</div></div>
+            <div class="member-card"><div class="member-role">Commission Arbitrage</div><div class="member-name">Moussa Diallo</div></div>
+            <div class="member-card"><div class="member-role">Entraîneurs</div><div class="member-name">Hamidou Gata & Sedi Sanghare</div></div>
+            <div class="member-card"><div class="member-role">Comité Éducation</div><div class="member-name">Diallel</div></div>
+            <div class="member-card"><div class="member-role">Commission Culture</div><div class="member-name">Hadde Traore</div></div>
+            <div class="member-card"><div class="member-role">Comité Santé</div><div class="member-name">Founé Ndiaye, Tissilmé Ba</div></div>
+            <div class="member-card"><div class="member-role">Comité des travaux</div><div class="member-name">Gaye Deppe, Mamadou Diawara, Ibrahima Diallo</div></div>
         </div>
     </div>
 
-    <!-- 4. COMMISSIONS & COMITÉS -->
+    <!-- 4. OBJECTIFS & CHAMPIONNAT -->
     <div class="card">
-        <h2 class="section-title">⚙ Commissions & Comités</h2>
-        <div class="team-grid">
-            <div class="member-card"><div class="member-role">Président Commission Sport</div><strong>Cheikhou Diabira</strong><span class="badge-president">Président</span></div>
-            <div class="member-card"><div class="member-role">Commission Arbitrage</div>Moussa Diallo</div>
-            <div class="member-card"><div class="member-role">Entraîneurs</div>Hamidou Gata & Sedi Sanghare</div>
-            <div class="member-card"><div class="member-role">Comité Éducation</div>Diallel</div>
-            <div class="member-card"><div class="member-role">Commission Culture</div>Hadde Traore</div>
-            <div class="member-card"><div class="member-role">Comité Santé</div>Founé Ndiaye, Tissilmé Ba</div>
-            <div class="member-card"><div class="member-role">Comité Chef des Travaux</div>Gaye Deppe, Mamadou Diawara, Ibrahima Diallo</div>
-        </div>
-    </div>
-
-    <!-- 5. OBJECTIFS & CHAMPIONNAT -->
-    <div class="card">
-        <h2 class="section-title">🎯 Objectifs & Règlement du Championnat</h2>
-        <ul style="margin-left: 2rem;">
-            <li><strong>Licences 2025/2026 :</strong> Joueurs originaires d’Ajar → 50 MRU. Joueurs extérieurs (Arr, Wompou, Agoinitt…) → 100 MRU.</li>
-            <li><strong>Accès à la licence :</strong> Seuls les membres actifs et en règle (cotisations, pas de sanctions) y ont droit.</li>
-            <li><strong>Sanctions :</strong> Un joueur sanctionné ne joue pas tant que sa situation n’est pas régularisée.</li>
-            <li><strong>Formation & Arbitrage :</strong> Des sessions de formation seront dispensées à Ajar et à Sélibaby. Une réunion d’information avec tous les responsables d’équipes est prévue pour harmoniser les règles.</li>
+        <h2 class="section-title">⚽ Relance du championnat & licences</h2>
+        <ul class="objectifs-list">
+            <li><strong>Licences 2025-2026 :</strong> 50 MRU pour les joueurs originaires d'Ajar, 100 MRU pour les joueurs extérieurs (ARR, Wompou, Agoinitt, etc.).</li>
+            <li><strong>Conditions :</strong> Seuls les membres en règle (cotisations, absence de sanction) pourront obtenir leur licence.</li>
+            <li><strong>Sanctions :</strong> Aucun joueur sous le coup d'une sanction ne pourra participer tant qu'il ne l'aura pas régularisée.</li>
+            <li><strong>Formation :</strong> Des sessions de formation à l'arbitrage seront organisées à Ajar et à Sélibaby. Une réunion d'information avec les responsables d'équipes est prévue pour harmoniser les règles.</li>
         </ul>
-        <p style="margin-top:1rem">Objectif clair : professionnaliser le championnat, le rendre plus juste, plus transparent, et développer les compétences locales.</p>
+        <p>Objectif : professionnaliser notre championnat, le rendre plus transparent, juste, et développer les compétences locales.</p>
     </div>
 
-    <!-- 6. ACTION ASSAINISSEMENT -->
+    <!-- 5. ACTION ASSAINISSEMENT (avec les deux photos) -->
     <div class="card">
-        <h2 class="section-title">🧹 Nos actions : Assainissement du village</h2>
-        <div style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;">
-            <div style="flex: 1;">
-                <img src="images/jeunesse/assainir.jpg" alt="Assainissement Ajar" style="width:100%; border-radius:15px;">
+        <h2 class="section-title">🌿 Engagement citoyen : opération assainissement</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="images/jeunesse/assainir.jpg" alt="Jeunes en action - Nettoyage du village">
+                <div class="gallery-overlay">Jeunes mobilisés pour un cadre plus propre</div>
             </div>
-            <div style="flex: 2;">
-                <p><strong>Un bel exemple d’engagement et de solidarité à Ajar</strong><br>
-                Des jeunes se sont mobilisés pour une opération d’assainissement afin de rendre notre environnement plus propre, plus sain et plus agréable pour tous. Cette action démontre que le développement passe par la prise de conscience et l’union.</p>
-                <p>👏 Félicitations à tous les participants !</p>
-                <a href="https://www.facebook.com/share/p/1CqZKC5UHK/" target="_blank" style="color:#ff8c42;">Voir la publication Facebook →</a>
+            <div class="gallery-item">
+                <img src="images/jeunesse/propre.jpg" alt="Résultat après assainissement">
+                <div class="gallery-overlay">Un environnement plus sain et agréable</div>
             </div>
+        </div>
+        <div style="margin-top: 1.5rem;">
+            <p><strong>Un bel exemple d’engagement et de solidarité</strong><br>
+            Après plusieurs mois d’absence, Ajar-Foot fait son retour avec une publication qui met en lumière une initiative inspirante menée au village d’Ajar. Des jeunes se sont mobilisés pour une opération d’assainissement afin de rendre notre environnement plus propre, plus sain et plus agréable pour tous. À travers cette action, ils montrent que le développement commence par la prise de conscience, l’union et les actes concrets.</p>
+            <p>👏 Félicitations à tous les participants pour leur engagement et leur détermination. Et ce n’est que le début…</p>
+            <a href="https://www.facebook.com/share/p/1CqZKC5UHK/" target="_blank" class="btn-facebook"><i class="fab fa-facebook"></i> Voir la publication sur Facebook</a>
         </div>
     </div>
 
-    <!-- 7. LOGO -->
+    <!-- 6. LOGO OFFICIEL -->
     <div class="card" style="text-align: center;">
-        <h2 class="section-title" style="text-align: center;">Logo officiel</h2>
-        <img src="images/jeunesse/logo_association.jpg" alt="Logo AJCDD" style="max-width: 200px; border-radius: 20px;">
-        <p style="margin-top:1rem">Notre identité visuelle.</p>
+        <h2 class="section-title" style="text-align: center;">Identité visuelle</h2>
+        <img src="images/jeunesse/logo_association.jpg" alt="Logo AJCDD" style="max-width: 220px; border-radius: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+        <p style="margin-top: 1rem; opacity: 0.7;">Logo officiel de l'AJCDD</p>
     </div>
 
-    <a href="index.html" class="btn-retour"><i class="fas fa-arrow-left"></i> Retour à l'accueil</a>
+    <div style="text-align: center;">
+        <a href="index.html" class="btn-retour"><i class="fas fa-arrow-left"></i> Retour à l'accueil</a>
+    </div>
 </div>
 
 <footer>
