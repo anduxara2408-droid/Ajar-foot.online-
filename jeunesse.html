@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeunesse d'Ajar - Association AJDCS</title>
+    
+    <!-- Google AdSense & Meta Tags -->
+    <meta name="google-site-verification" content="G6LVCic9lMK_xT3cy33xUhfSSiam0y9tsvvfZ_ImQbo" />
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4708549060535093" crossorigin="anonymous"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* HERO SECTION */
+        .hero {
+            height: 50vh;
+            background: linear-gradient(135deg, #1a5f7a, #0a2f3a);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            padding: 2rem;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            color: #ff8c42;
+            margin-bottom: 1rem;
+        }
+        
+        /* NAVIGATION */
+        nav {
+            background: #1a2634;
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: #ff8c42;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+        
+        /* CARTES & SECTIONS */
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .section-title {
+            font-size: 2rem;
+            color: #1a2634;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background: #ff8c42;
+        }
+        
+        /* GRILLE POUR LE BUREAU */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+        
+        .member-card {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: 0.3s;
+            border-left: 4px solid #ff8c42;
+        }
+        
+        .member-role {
+            font-weight: 700;
+            color: #ff8c42;
+            margin-bottom: 0.3rem;
+        }
+        
+        /* ACTIVITES */
+        .activite-item {
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .btn-retour {
+            display: inline-block;
+            background: #1a2634;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            margin: 1rem 0;
+        }
+        
+        footer {
+            background: #1a2634;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="hero">
+    <div class="hero-content">
+        <h1>Association Jeunesse Cohésion & Développement Durable</h1>
+        <p>Unir, Agir, Bâtir l'avenir d'Ajar</p>
+    </div>
+</div>
+
+<nav>
+    <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="jeunesse.html">Jeunesse AJCDD</a></li>
+        <li><a href="histoire/index.html">Histoire</a></li>
+        <li><a href="clubs-championnat/index.html">Clubs</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+</nav>
+
+<div class="container">
+    
+    <!-- 1. INTRODUCTION -->
+    <div class="card">
+        <h2 class="section-title">Qui sommes-nous ?</h2>
+        <p><strong>L'Association Jeunesse Cohésion & Développement Durable (AJCDD)</strong> est le moteur de la vie citoyenne et solidaire à Ajar. Nous travaillons à fédérer les énergies pour un village plus propre, plus sportif et plus uni.</p>
+        <p>Notre action repose sur trois piliers : l’engagement citoyen, le développement par le sport, et la formation.</p>
+    </div>
+
+    <!-- 2. HISTORIQUE ET BUREAU (avec les infos fournies) -->
+    <div class="card">
+        <h2 class="section-title">📜 Historique et Bureau Exécutif</h2>
+        
+        <h3 style="color:#ff8c42; margin-top:1rem;">Présidence : Djiby Sanghare</h3>
+        <p>Djiby Sanghare a succédé à Feremakha Diallo après une élection en 2025. Il connaît bien l’association puisqu’il y est membre actif depuis 2010. Il a déjà été président de 2010 à 2016, puis a laissé la place à Pape Demba Soumare, avant que Feremakha Diallo ne prenne le relais. Aujourd'hui, il revient avec un mandat de <strong>2 ans renouvelable</strong> pour impulser une nouvelle dynamique.</p>
+        
+        <div style="margin-top: 2rem;">
+            <h3 class="section-title">🏛 Bureau Exécutif 2025</h3>
+            <div class="team-grid">
+                <div class="member-card"><div class="member-role">Président</div>Djiby Sanghare</div>
+                <div class="member-card"><div class="member-role">Vice-Présidente</div>Zeinabou Diallo</div>
+                <div class="member-card"><div class="member-role">Secrétaire Général</div>Pape Demba Soumare</div>
+                <div class="member-card"><div class="member-role">Trésorier</div>Mody Sy</div>
+                <div class="member-card"><div class="member-role">Commissaire aux comptes</div>Diango Cissokho</div>
+                <div class="member-card"><div class="member-role">Relations ext. & Communication</div>Demba Sanghare</div>
+            </div>
+        </div>
+
+        <div style="margin-top: 2rem;">
+            <h3 class="section-title">⚙ Commissions & Comités</h3>
+            <div class="team-grid">
+                <div class="member-card"><div class="member-role">Président Commission Sport</div>Feremakha Diallo</div>
+                <div class="member-card"><div class="member-role">Commission Arbitrage</div>Moussa Diallo</div>
+                <div class="member-card"><div class="member-role">Entraîneurs</div>Hamidou Gata & Sedi Sanghare</div>
+                <div class="member-card"><div class="member-role">Comité Éducation</div>Diallel</div>
+                <div class="member-card"><div class="member-role">Commission Culture</div>Hadde Traore</div>
+                <div class="member-card"><div class="member-role">Comité Santé</div>Founé Ndiaye, Tissilmé Ba</div>
+                <div class="member-card"><div class="member-role">Comité Chef des Travaux</div>Gaye Deppe, Mamadou Diawara, Ibrahima Diallo</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3. OBJECTIFS & CHAMPIONNAT (Licences, règles, formations) -->
+    <div class="card">
+        <h2 class="section-title">🎯 Objectifs & Règlement du Championnat</h2>
+        <ul style="margin-left: 2rem;">
+            <li><strong>Licences 2025/2026 :</strong> Joueurs originaires d’Ajar → 50 MRU. Joueurs extérieurs (Arr, Wompou, Agoinitt…) → 100 MRU.</li>
+            <li><strong>Accès à la licence :</strong> Seuls les membres actifs et en règle (cotisations, pas de sanctions) y ont droit.</li>
+            <li><strong>Sanctions :</strong> Un joueur sanctionné ne joue pas tant que sa situation n’est pas régularisée.</li>
+            <li><strong>Formation & Arbitrage :</strong> Des sessions de formation seront dispensées à Ajar et à Sélibaby. Une réunion d’information avec tous les responsables d’équipes est prévue pour harmoniser les règles.</li>
+        </ul>
+        <p style="margin-top:1rem">Objectif clair : professionnaliser le championnat, le rendre plus juste, plus transparent, et développer les compétences locales.</p>
+    </div>
+
+    <!-- 4. ACTIONS RÉCENTES : ASSAINISSEMENT -->
+    <div class="card">
+        <h2 class="section-title">🧹 Nos actions : Assainissement du village</h2>
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;">
+            <div style="flex: 1;">
+                <img src="images/jeunesse/assainir.jpg" alt="Assainissement Ajar" style="width:100%; border-radius:15px;">
+            </div>
+            <div style="flex: 2;">
+                <p><strong>Un bel exemple d’engagement et de solidarité à Ajar</strong><br>
+                Des jeunes se sont mobilisés pour une opération d’assainissement afin de rendre notre environnement plus propre, plus sain et plus agréable pour tous. Cette action démontre que le développement passe par la prise de conscience et l’union.</p>
+                <p>👏 Félicitations à tous les participants !</p>
+                <a href="https://www.facebook.com/share/p/1CqZKC5UHK/" target="_blank" style="color:#ff8c42;">Voir la publication Facebook →</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 5. LOGO DE L'ASSOCIATION -->
+    <div class="card" style="text-align: center;">
+        <h2 class="section-title" style="text-align: center;">Logo officiel</h2>
+        <img src="images/jeunesse/logo_association.jpg" alt="Logo AJCDD" style="max-width: 200px; border-radius: 20px;">
+        <p style="margin-top:1rem">Notre identité visuelle.</p>
+    </div>
+
+    <a href="index.html" class="btn-retour"><i class="fas fa-arrow-left"></i> Retour à l'accueil</a>
+</div>
+
+<footer>
+    <p>&copy; 2026 Village Ajar - Association Jeunesse Cohésion & Développement Durable</p>
+</footer>
+
+</body>
+</html>
