@@ -123,6 +123,61 @@
             text-decoration: none;
         }
         
+        /* SECTION ANCIENNES SÉLECTIONS HISTORIQUES */
+        .historic-section {
+            margin: 3rem 0;
+            padding: 2rem;
+            background: #e8e8e8;
+            border-radius: 15px;
+        }
+        
+        .historic-title {
+            text-align: center;
+            font-size: 1.8rem;
+            color: #1a2634;
+            margin-bottom: 1rem;
+        }
+        
+        .historic-subtitle {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #666;
+            font-style: italic;
+        }
+        
+        .historic-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+        
+        .historic-card {
+            background: #f5f5f5;
+            border-radius: 10px;
+            padding: 1rem;
+            border: 1px dashed #ff8c42;
+        }
+        
+        .historic-logo {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 1rem;
+            border-radius: 50%;
+            background: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: #ff8c42;
+        }
+        
+        .historic-note {
+            font-size: 0.8rem;
+            color: #888;
+            margin-top: 0.5rem;
+        }
+        
         footer {
             background: #1a2634;
             color: white;
@@ -140,7 +195,7 @@
 <body>
     <header>
         <h1>🏆 Les Clubs du Championnat d'Ajar</h1>
-        <p>9 clubs pour une seule passion</p>
+        <p>7 clubs officiels pour une seule passion</p>
     </header>
     
     <nav>
@@ -167,6 +222,7 @@
             </script>
         </div>
         
+        <!-- SECTION CLUBS OFFICIELS -->
         <div class="clubs-grid">
             <!-- FC Dango -->
             <div class="club-card">
@@ -243,26 +299,34 @@
                 <p>Fondé en 2016</p>
                 <a href="fc-nassr.html" class="btn">Voir le club</a>
             </div>
+        </div>
+        
+        <!-- SECTION ANCIENNES SÉLECTIONS HISTORIQUES -->
+        <div class="historic-section">
+            <h2 class="historic-title">🏅 Anciennes sélections historiques</h2>
+            <p class="historic-subtitle">Ces équipes ont marqué l'histoire du football à Ajar avant la création officielle des clubs</p>
             
-            <!-- Sadio Kalloga -->
-            <div class="club-card">
-                <div class="club-logo">
-                    <img src="../images/logos/clubs/sadio-kalloga.jpg" alt="Sadio Kalloga" onerror="this.src='https://via.placeholder.com/120?text=SK'">
+            <div class="historic-grid">
+                <div class="historic-card">
+                    <div class="historic-logo">
+                        <i class="fas fa-star" style="font-size: 3rem;"></i>
+                    </div>
+                    <h3>Sadio Kalloga</h3>
+                    <p>Sélection historique</p>
+                    <div class="historic-note">Nom donné en hommage à un aîné du village</div>
                 </div>
-                <h3 class="club-name">Sadio Kalloga</h3>
-                <p>Club historique</p>
-                <a href="sadio-kalloga.html" class="btn">Voir le club</a>
+                
+                <div class="historic-card">
+                    <div class="historic-logo">
+                        <i class="fas fa-star" style="font-size: 3rem;"></i>
+                    </div>
+                    <h3>Mody Ndiaye</h3>
+                    <p>Sélection historique</p>
+                    <div class="historic-note">Nom donné en hommage à un aîné du village</div>
+                </div>
             </div>
             
-            <!-- Mody Ndiaye -->
-            <div class="club-card">
-                <div class="club-logo">
-                    <img src="../images/logos/clubs/mody-ndiaye.jpg" alt="Mody Ndiaye" onerror="this.src='https://via.placeholder.com/120?text=MN'">
-                </div>
-                <h3 class="club-name">Mody Ndiaye</h3>
-                <p>Club historique</p>
-                <a href="mody-ndiaye.html" class="btn">Voir le club</a>
-            </div>
+            <p style="text-align: center; font-size: 0.85rem; margin-top: 1.5rem; color: #666;">Ces noms ont précédé la création des clubs structurés du championnat d'Ajar. Ils sont aujourd'hui honorés comme les précurseurs du football organisé dans notre village.</p>
         </div>
         
         <div style="text-align: center;">
