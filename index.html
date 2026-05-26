@@ -192,6 +192,15 @@
             color: #ff8c42;
         }
         
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.8rem;
+            margin: 3rem 0 2rem;
+            color: #ff8c42;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
         .cards-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -244,6 +253,95 @@
             opacity: 0.9;
         }
         
+        /* SECTION ÉQUIPE AJAR EN FRANCE */
+        .equipe-france {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+        
+        .equipe-france-card {
+            background: linear-gradient(135deg, #1a2634, #2a3a4a);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+            margin-top: 2rem;
+        }
+        
+        .equipe-france-header {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            padding: 2rem;
+            align-items: center;
+            border-bottom: 1px solid #ff8c42;
+        }
+        
+        .equipe-france-photo {
+            flex: 1;
+            min-width: 280px;
+        }
+        
+        .equipe-france-photo img {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        
+        .equipe-france-infos {
+            flex: 2;
+        }
+        
+        .equipe-france-infos h3 {
+            font-size: 2rem;
+            color: #ff8c42;
+            margin-bottom: 0.5rem;
+        }
+        
+        .equipe-france-infos .badge-france {
+            display: inline-block;
+            background: #ff8c42;
+            color: #1a2634;
+            padding: 0.3rem 1rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+        }
+        
+        .equipe-france-body {
+            padding: 2rem;
+        }
+        
+        .equipe-france-body h4 {
+            color: #ff8c42;
+            margin: 1.5rem 0 1rem;
+        }
+        
+        .equipe-france-body p {
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+        
+        .equipe-france-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        .stat-puce {
+            background: rgba(255,140,66,0.2);
+            padding: 0.8rem;
+            border-radius: 10px;
+            text-align: center;
+            border-left: 3px solid #ff8c42;
+        }
+        
+        .stat-puce strong {
+            color: #ff8c42;
+        }
+        
         /* SECTION CLUBS */
         .clubs-section {
             max-width: 1200px;
@@ -253,7 +351,7 @@
         
         .clubs-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
             gap: 2rem;
             text-align: center;
         }
@@ -274,6 +372,10 @@
             overflow: hidden;
             border: 3px solid #ff8c42;
             transition: 0.3s;
+            background: #1a1a1a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
         .club-logo img {
@@ -291,6 +393,43 @@
             color: #ff8c42;
             font-size: 0.8rem;
             font-weight: 600;
+        }
+        
+        .historic-section {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: rgba(255,255,255,0.05);
+            border-radius: 20px;
+        }
+        
+        .historic-title {
+            text-align: center;
+            font-size: 1.8rem;
+            color: #ff8c42;
+            margin-bottom: 2rem;
+        }
+        
+        .historic-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+        
+        .historic-logo {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 0.5rem;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #2a2a2a, #1a1a1a);
+            border: 2px dashed #ff8c42;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: bold;
+            color: #ff8c42;
         }
         
         /* SECTION TERRAIN */
@@ -363,10 +502,6 @@
             text-decoration: none;
         }
         
-        .copyright a:hover {
-            text-decoration: underline;
-        }
-        
         @media (max-width: 768px) {
             .hero-content h1 {
                 font-size: 2.5rem;
@@ -375,14 +510,14 @@
                 font-size: 3rem;
             }
             .clubs-grid {
-                grid-template-columns: repeat(4, 1fr);
+                grid-template-columns: repeat(3, 1fr);
             }
             .cards-grid {
                 grid-template-columns: 1fr;
             }
-            .footer-links {
+            .equipe-france-header {
                 flex-direction: column;
-                gap: 1rem;
+                text-align: center;
             }
         }
     </style>
@@ -473,13 +608,13 @@
     <nav>
         <ul>
             <li><a href="index.html">Accueil</a></li>
+            <li><a href="jeunesse.html">Jeunesse</a></li>
             <li><a href="histoire/index.html">Histoire</a></li>
             <li><a href="clubs-championnat/index.html">Clubs</a></li>
             <li><a href="associations/index.html">Associations</a></li>
             <li><a href="village/index.html">Village</a></li>
             <li><a href="temoignages/index.html">Témoignages</a></li>
             <li><a href="contact.html">Contact</a></li>
-            <li><a href="jeunesse.html">Jeunesse</a></li>
         </ul>
     </nav>
     
@@ -551,6 +686,53 @@
         </div>
     </section>
     
+    <!-- SECTION ÉQUIPE D'AJAR EN FRANCE -->
+    <section class="equipe-france">
+        <h2 class="section-title">🇫🇷 L'<span>Équipe d'Ajar en France</span></h2>
+        
+        <div class="equipe-france-card">
+            <div class="equipe-france-header">
+                <div class="equipe-france-photo">
+                    <img src="images/histoire/equipe-france.jpg" alt="Équipe d'Ajar en France" onerror="this.src='https://via.placeholder.com/400x250?text=Équipe+Ajar+France'">
+                </div>
+                <div class="equipe-france-infos">
+                    <h3>Les Diambars d'Ajar</h3>
+                    <div class="badge-france">🇫🇷 France - Depuis 2022</div>
+                    <p>Une équipe fondée par les jeunes d'Ajar en France pour perpétuer l'esprit du village loin de la terre natale.</p>
+                </div>
+            </div>
+            
+            <div class="equipe-france-body">
+                <h4>📜 Historique</h4>
+                <p>L'équipe a été <strong>fondée en 2022</strong> par les jeunes d'Ajar résidant en France. Dès sa création, elle a su rassembler la communauté ajaroise autour de valeurs communes : solidarité, partage et fierté des origines.</p>
+                
+                <h4>👥 Staff technique</h4>
+                <div class="equipe-france-stats">
+                    <div class="stat-puce"><strong>Entraîneur (2022-2024)</strong><br>Demba Samba Camara</div>
+                    <div class="stat-puce"><strong>Entraîneur adjoint</strong><br>Fodé Diallo</div>
+                    <div class="stat-puce"><strong>Président (2024-2026)</strong><br>Papis Sakho</div>
+                </div>
+                
+                <p>Papis Sakho, jeune d'Ajar qui a également évolué dans l'équipe d'Ajar à Nouakchott, a pris la présidence de l'équipe en 2024 après avoir été un joueur clé.</p>
+                
+                <h4>🏆 Participations aux tournois</h4>
+                <div class="equipe-france-stats">
+                    <div class="stat-puce"><strong>2022</strong><br>Première participation au tournoi LEED</div>
+                    <div class="stat-puce"><strong>2024</strong><br>Première participation au tournoi KEBE<br>❌ Élimination en <strong>demi-finale</strong></div>
+                    <div class="stat-puce"><strong>2025</strong><br>Deuxième participation au tournoi KEBE<br>❌ Élimination en <strong>quart de finale</strong></div>
+                </div>
+                
+                <h4>⚽ Tournoi KEBE</h4>
+                <p>Le tournoi KEBE est une compétition qui regroupe tous les villages de la région de KEBE : <strong>Ajar, Diaguily, Soomankidy, Leyya, Gussela</strong>, et bien d'autres. C'est un moment de retrouvailles et de compétition amicale entre les communautés.</p>
+                
+                <div style="margin-top: 1.5rem; padding: 1rem; background: rgba(255,140,66,0.1); border-radius: 10px; border-left: 3px solid #ff8c42;">
+                    <i class="fas fa-quote-left" style="color: #ff8c42; margin-right: 0.5rem;"></i>
+                    L'équipe d'Ajar en France continue de porter haut les couleurs du village, renforçant les liens entre la diaspora et la terre natale.
+                </div>
+            </div>
+        </div>
+    </section>
+    
     <section class="clubs-section">
         <h2 class="section-title">Les <span>Clubs</span> du Championnat</h2>
         
@@ -558,43 +740,37 @@
             <div class="club-item">
                 <div class="club-logo"><img src="images/logos/clubs/dango.jpg" alt="FC Dango" loading="lazy"></div>
                 <div class="club-nom">FC Dango</div>
-                <div class="club-titres">1 titre</div>
+                <div class="club-titres">🏆 1 titre (2017)</div>
             </div>
             <div class="club-item">
                 <div class="club-logo"><img src="images/logos/clubs/wale.jpg" alt="FC Walé" loading="lazy"></div>
                 <div class="club-nom">FC Walé</div>
-                <div class="club-titres">3 titres</div>
+                <div class="club-titres">🏆🏆🏆 3 titres</div>
             </div>
             <div class="club-item">
                 <div class="club-logo"><img src="images/logos/clubs/soumpou.jpg" alt="FC Soumpou" loading="lazy"></div>
                 <div class="club-nom">FC Soumpou</div>
-                <div class="club-titres">1 titre</div>
+                <div class="club-titres">🏆 1 titre (2022)</div>
             </div>
             <div class="club-item">
                 <div class="club-logo"><img src="images/logos/clubs/lion-ajar.jpg" alt="Lion d'Ajar" loading="lazy"></div>
                 <div class="club-nom">Lion d'Ajar</div>
-                <div class="club-titres">1 titre</div>
+                <div class="club-titres">🏆 1 titre (2024)</div>
             </div>
             <div class="club-item">
                 <div class="club-logo"><img src="images/logos/clubs/kelifado.jpg" alt="Kelifado" loading="lazy"></div>
                 <div class="club-nom">Kelifado</div>
-                <div class="club-titres">1 titre</div>
+                <div class="club-titres">🏆 1 titre (2021)</div>
             </div>
             <div class="club-item">
                 <div class="club-logo"><img src="images/logos/clubs/kawral.jpg" alt="FC Kawral" loading="lazy"></div>
                 <div class="club-nom">FC Kawral</div>
+                <div class="club-titres">—</div>
             </div>
             <div class="club-item">
                 <div class="club-logo"><img src="images/logos/clubs/nassr.jpg" alt="FC Nassr" loading="lazy"></div>
                 <div class="club-nom">FC Nassr</div>
-            </div>
-            <div class="club-item">
-                <div class="club-logo"><img src="images/logos/clubs/sadio-kalloga.jpg" alt="Sadio Kalloga" onerror="this.src='https://via.placeholder.com/100?text=SK'" loading="lazy"></div>
-                <div class="club-nom">Sadio Kalloga</div>
-            </div>
-            <div class="club-item">
-                <div class="club-logo"><img src="images/logos/clubs/mody-ndiaye.jpg" alt="Mody Ndiaye" onerror="this.src='https://via.placeholder.com/100?text=MN'" loading="lazy"></div>
-                <div class="club-nom">Mody Ndiaye</div>
+                <div class="club-titres">—</div>
             </div>
         </div>
         
@@ -602,6 +778,26 @@
             <a href="clubs-championnat/index.html" class="hero-btn" style="background:#ff8c42; border:none;">Tous les clubs →</a>
         </div>
     </section>
+    
+    <!-- SECTION ANCIENNES SÉLECTIONS HISTORIQUES -->
+    <div class="historic-section">
+        <h2 class="historic-title">🏅 Anciennes sélections historiques</h2>
+        <p style="text-align: center; margin-bottom: 2rem; opacity: 0.7;">Ces équipes ont marqué l'histoire du football à Ajar avant la création officielle des clubs</p>
+        
+        <div class="historic-grid">
+            <div class="historic-item">
+                <div class="historic-logo">⭐</div>
+                <div class="historic-nom">Sadio Kalloga</div>
+                <div class="historic-note">Sélection historique</div>
+            </div>
+            <div class="historic-item">
+                <div class="historic-logo">⭐</div>
+                <div class="historic-nom">Mody Ndiaye</div>
+                <div class="historic-note">Sélection historique</div>
+            </div>
+        </div>
+        <p style="text-align: center; font-size: 0.8rem; margin-top: 2rem; opacity: 0.6;">Ces noms ont été donnés en hommage aux aînés du village. Ils ont précédé la création des clubs structurés du championnat d'Ajar.</p>
+    </div>
     
     <section class="terrain" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('images/terrain/terrain-foot.jpg');">
         <div class="terrain-content">
@@ -611,7 +807,7 @@
         </div>
     </section>
     
-    <!-- Annonce AdSense #3 (pied de page) -->
+    <!-- Annonce AdSense #3 -->
     <div class="ads-container">
         <ins class="adsbygoogle"
              style="display:block"
@@ -627,6 +823,7 @@
     <footer>
         <div class="footer-links">
             <a href="index.html">Accueil</a>
+            <a href="jeunesse.html">Jeunesse</a>
             <a href="histoire/index.html">Histoire</a>
             <a href="clubs-championnat/index.html">Clubs</a>
             <a href="associations/index.html">Associations</a>
@@ -666,7 +863,6 @@
             indicator.addEventListener('click', () => showSlide(index));
         });
 
-        // Vérification AdSense
         console.log('✅ Site Ajar chargé - Meta tag Google: G6LVCic9lMK_xT3cy33xUhfSSiam0y9tsvvfZ_ImQbo');
         console.log('📢 AdSense client: ca-pub-4708549060535093');
     </script>
