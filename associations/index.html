@@ -121,7 +121,6 @@
             background: #ff8c42;
         }
         
-        /* Annonce AdSense */
         .ads-container {
             text-align: center;
             margin: 2rem auto;
@@ -245,6 +244,62 @@
             font-size: 1.5rem;
         }
         
+        /* Timeline pour l'histoire de la jeunesse */
+        .timeline-jeunesse {
+            position: relative;
+            margin: 2rem 0;
+            padding-left: 2rem;
+        }
+        
+        .timeline-jeunesse::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: #ff8c42;
+        }
+        
+        .timeline-event {
+            margin-bottom: 1.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .timeline-event::before {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ff8c42;
+        }
+        
+        .timeline-date {
+            font-weight: 700;
+            color: #ff8c42;
+            display: inline-block;
+            margin-right: 1rem;
+        }
+        
+        .presidents-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        .president-card {
+            background: #f8f9fa;
+            padding: 0.8rem;
+            border-radius: 10px;
+            text-align: center;
+            border-left: 3px solid #ff8c42;
+        }
+        
         footer {
             background: #1a2634;
             color: white;
@@ -308,6 +363,7 @@
             </script>
         </div>
         
+        <!-- SECTION ADAL -->
         <section>
             <h2 class="section-title">ADAL - Association pour le Développement d'Ajar</h2>
             
@@ -340,6 +396,7 @@
             </div>
         </section>
         
+        <!-- SECTION TOURNOI -->
         <section id="tournoi" style="margin-top: 3rem;">
             <h2 class="section-title">Tournoi de Couva - 2025</h2>
             
@@ -362,6 +419,7 @@
             </div>
         </section>
         
+        <!-- SECTION JEUNESSE D'AJAR - VERSION ENRICHIE -->
         <section style="margin-top: 3rem;">
             <h2 class="section-title">Association de la Jeunesse d'Ajar</h2>
             
@@ -377,8 +435,48 @@
                         <div class="association-meta">Association des jeunes du village</div>
                         
                         <p class="association-description">
-                            L'Association de la Jeunesse d'Ajar regroupe les jeunes du village autour de projets communs : sport, culture, éducation et développement.
+                            L'Association de la Jeunesse d'Ajar regroupe les jeunes du village autour de projets communs : sport, culture, éducation et développement. Elle joue un rôle clé dans l'organisation des activités sportives et la mobilisation des jeunes pour les travaux communautaires.
                         </p>
+                        
+                        <!-- HISTORIQUE DE LA JEUNESSE -->
+                        <div style="margin-top: 2rem;">
+                            <h4 style="color: #ff8c42; margin-bottom: 1rem;">📜 Historique de la Jeunesse d'Ajar</h4>
+                            <p>L'association a été fondée dans les années 1980, à l'époque où les jeunes d'Ajar se distinguaient déjà par leur engagement et leur ouverture d'esprit. Contrairement aux villages voisins, Ajar était le seul village où les jeunes filles et garçons se mélangeaient dans les activités associatives, créant ainsi un terreau fertile pour l'émergence d'une jeunesse unie et dynamique.</p>
+                            
+                            <div class="timeline-jeunesse">
+                                <div class="timeline-event">
+                                    <span class="timeline-date">Années 1980</span> - Fondation informelle de l'association des jeunes, marquée par l'organisation des premiers tournois de football et des soirées théâtrales.
+                                </div>
+                                <div class="timeline-event">
+                                    <span class="timeline-date">1995</span> - Première participation officielle au championnat d'Ajar, avec des équipes composées uniquement de jeunes du village.
+                                </div>
+                                <div class="timeline-event">
+                                    <span class="timeline-date">2000-2010</span> - Expansion des activités : organisation de tournois à Nouakchott, participation aux compétitions régionales.
+                                </div>
+                                <div class="timeline-event">
+                                    <span class="timeline-date">2017</span> - Création du championnat officiel avec les clubs actuels (Dango, Walé, Soumpou, etc.).
+                                </div>
+                                <div class="timeline-event">
+                                    <span class="timeline-date">2025</span> - Nouvelle dynamique avec l'élection de Djiby Sanghare à la présidence de la Jeunesse d'Ajar (AJDCS)
+                                </div>
+                            </div>
+                            
+                            <h4 style="color: #ff8c42; margin: 1.5rem 0 1rem;">👥 Rôle dans le championnat</h4>
+                            <ul style="margin-left: 2rem;">
+                                <li>🏆 Organisation et gestion des matchs</li>
+                                <li>📋 Attribution des licences (50 MRU pour les joueurs d'Ajar, 100 MRU pour les joueurs extérieurs)</li>
+                                <li>🎓 Formation des arbitres et des jeunes aux règles du football</li>
+                                <li>🤝 Coordination entre les clubs et résolution des conflits</li>
+                            </ul>
+                            
+                            <h4 style="color: #ff8c42; margin: 1.5rem 0 1rem;">🌿 Actions citoyennes</h4>
+                            <p>Au-delà du sport, la Jeunesse d'Ajar s'engage dans des actions concrètes pour le village : opérations d'assainissement, campagnes de sensibilisation, soutien aux activités scolaires et culturelles. Ces initiatives, régulièrement relayées sur la page Facebook officielle <strong>Ajar-Foot</strong>, démontrent l'implication des jeunes dans le développement durable de leur communauté.</p>
+                            
+                            <div style="margin-top: 1rem; padding: 1rem; background: #f0f7e6; border-radius: 10px; font-style: italic;">
+                                <i class="fas fa-quote-left" style="color: #ff8c42; margin-right: 0.5rem;"></i>
+                                Un bel exemple d’engagement et de solidarité à Ajar : des jeunes mobilisés pour rendre notre environnement plus propre, plus sain et plus agréable pour tous.
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
