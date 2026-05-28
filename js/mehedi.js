@@ -1,8 +1,167 @@
-// MEHEDI - IA Assistant Premium - Design Original
+// MEHEDI - IA Assistant Premium avec Groq API
+// Version 7.0 - Intelligence hybride
+
 (function(){
-    console.log('MEHEDI chargé');
+    console.log('MEHEDI chargé - Version Groq IA');
     
-    // Style CSS
+    // Configuration Groq API
+    const GROQ_API_KEY = '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';
+    const MASCOTTE = '/images/mehedi/MEHEDI.jpeg';
+    
+    // Réponses locales (rapides, sans API)
+    function getLocalResponse(msg) {
+        const m = msg.toLowerCase().trim();
+        
+        // Salutations
+        const salutations = ['bonjour', 'bonsoir', 'salut', 'coucou', 'hello', 'hi', 'hey', 'slt', 'bjr'];
+        if (salutations.some(s => m.includes(s))) {
+            return "Salut ! Je suis MEHEDI, ton assistant intelligent pour le village Ajar. Comment puis-je t'aider aujourd'hui ?";
+        }
+        
+        // Comment ça va
+        const commentVa = ['comment ca va', 'comment vas-tu', 'ça va', 'comment tu vas', 'how are you', 'ccava'];
+        if (commentVa.some(c => m.includes(c))) {
+            return "Je vais très bien, merci de demander ! Je suis toujours heureux de discuter. Et toi, comment ça va aujourd'hui ?";
+        }
+        
+        // Qui es-tu
+        const quiEsTu = ['qui es-tu', 'tu es qui', 'c\'est qui mehedi', 'presente toi', 'présente-toi', 'your name'];
+        if (quiEsTu.some(q => m.includes(q))) {
+            return "Je suis MEHEDI, l'intelligence artificielle officielle du village Ajar. Je connais toute l'histoire du village depuis 1983, ses clubs de football, ses associations, et j'adore discuter avec les visiteurs. Pose-moi toutes tes questions !";
+        }
+        
+        // Remerciements
+        if (m.includes('merci') || m.includes('thanks') || m.includes('thank you')) {
+            return "Avec plaisir ! C'est toujours un bonheur d'aider. N'hésite pas si tu as d'autres questions.";
+        }
+        
+        // Au revoir
+        const auRevoir = ['au revoir', 'bye', 'à plus', 'see you', 'a bientôt', 'ciao', 'tchao', 'adieu'];
+        if (auRevoir.some(a => m.includes(a))) {
+            return "Au revoir ! Reviens quand tu veux parler d'Ajar. Je serai toujours là pour toi. Prends soin de toi !";
+        }
+        
+        // Football - Clubs
+        if ((m.includes('club') || m.includes('clubs')) && (m.includes('foot') || m.includes('championnat'))) {
+            return "Ajar compte 7 clubs officiels. Voici les champions :\n• FC Walé : 3 titres (2018, 2019, 2023)\n• FC Dango : champion 2017\n• FC Soumpou : champion 2022\n• Lion d'Ajar : champion 2024\n• Kelifado : champion 2021\n• FC Kawral\n• FC Nassr";
+        }
+        
+        // FC Walé
+        if (m.includes('wale') || m.includes('walé')) {
+            return "FC Walé est le club le plus titré d'Ajar avec trois championnats (2018, 2019, 2023). Fondé en 2015 par Pape Demba Soumare, l'équipe compte 28 joueurs. C'est le club emblématique du village. Une véritable fierté pour Ajar !";
+        }
+        
+        // FC Dango
+        if (m.includes('dango')) {
+            return "FC Dango est le premier champion officiel d'Ajar (2017). Ils ont également remporté la première Super Coupe d'Ajar contre Kelifado aux tirs au but. Un club historique !";
+        }
+        
+        // Histoire d'Ajar
+        if (m.includes('histoire') || m.includes('1983') || m.includes('origines') || m.includes('fondation')) {
+            return "L'histoire d'Ajar commence en 1983 avec le premier match de football contre Tachott (victoire 2-0). Le village a été fondé entre 1909 et 1910 par les Diabira venant de Diaguilly. Le nom soninké 'Assaré' signifie naissance. C'est une histoire riche et passionnante !";
+        }
+        
+        // Jeunesse / AJCDD
+        if (m.includes('jeunesse') || m.includes('ajcdd') || m.includes('djiby')) {
+            return "L'AJCDD (Association Jeunesse Cohésion et Développement Durable) est présidée par Djiby Sanghare depuis 2025. Le bureau exécutif comprend Zeinabou Diallo (vice-présidente), Pape Demba Soumare (secrétaire général) et Mody Sy (trésorier). Ils font un travail formidable pour le village !";
+        }
+        
+        // ADAL
+        if (m.includes('adal')) {
+            return "ADAL est l'Association pour le Développement d'Ajar Ladji. Créée en 2021 par Diabe Soumare, elle a obtenu son récépissé officiel en 2023. Le président est Moussa Boubou Sy. En 2025, Cheikhou Diabira a été nommé président de la commission culturelle et sportive.";
+        }
+        
+        // Forage
+        if (m.includes('forage') || m.includes('eau') || m.includes('puits')) {
+            return "Le forage d'Ajar a été construit en 2007 grâce à Ladji Boubou Diabira et ses partenaires européens. Il alimente tout le village en eau potable. Une infrastructure vitale pour la communauté !";
+        }
+        
+        // Terrain
+        if (m.includes('terrain') || m.includes('stade') || m.includes('pelouse')) {
+            return "Le terrain de football d'Ajar existe depuis 1983. Quatre générations de joueurs y ont joué. Il a été rénové plusieurs fois et reste le cœur du sport villageois. Beaucoup d'émotions sur cette pelouse !";
+        }
+        
+        // Contact
+        if (m.includes('contact') || m.includes('email') || m.includes('téléphone') || m.includes('mail')) {
+            return "Tu peux contacter l'équipe d'Ajar-foot par email :\n• contact@ajar-foot.online\n• administration@ajar-foot.online\n• partenariat@ajar-foot.online\n📞 Téléphone : +222 49 03 76 97";
+        }
+        
+        // Équipe France / KEBE
+        if (m.includes('france') || m.includes('kebe') || m.includes('paris')) {
+            return "L'équipe d'Ajar en France a été fondée en 2022. Son premier entraîneur était Demba Samba Camara, assisté de Fodé Diallo. Depuis 2024, le président est Papis Sakho, un jeune d'Ajar qui a aussi joué à Nouakchott. Meilleur résultat : demi-finale du tournoi KEBE en 2024.";
+        }
+        
+        // Culture
+        if (m.includes('tamtam') || m.includes('dimmu') || m.includes('culture') || m.includes('tradition')) {
+            return "Ajar est riche en traditions. Le tamtam est un instrument utilisé lors des cérémonies. Le dimmu est une danse traditionnelle soninké. La culture est au cœur de la vie du village, transmise de génération en génération.";
+        }
+        
+        // Ladji Boubou
+        if (m.includes('ladji') || m.includes('boubou')) {
+            return "Ladji Boubou Diabira est une figure emblématique d'Ajar. Il a joué le premier match en 1983, a créé l'association Fedde, et a participé à la construction du forage et du dispensaire. Un véritable bâtisseur et un modèle pour la jeunesse !";
+        }
+        
+        // Cheikhou Diabira
+        if (m.includes('cheikhou') || m.includes('cheikh')) {
+            return "Cheikhou Diabira est le président de la Commission Culturelle et Sportive d'ADAL. Il est aussi membre actif de l'AJCDD et participe activement à la vie associative du village.";
+        }
+        
+        // Pape Demba
+        if (m.includes('pape demba') || m.includes('pape')) {
+            return "Pape Demba Soumare est le fondateur du FC Walé. Il a été président du club et est aujourd'hui secrétaire général de l'AJCDD. Un homme engagé pour le football et la jeunesse d'Ajar.";
+        }
+        
+        return null; // Pas de réponse locale -> appel API
+    }
+    
+    // Appel à l'API Groq
+    async function callGroqAPI(userMessage) {
+        try {
+            const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+                method: 'POST',
+                headers: {
+                    'Authorization': `Bearer ${GROQ_API_KEY}`,
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    model: 'llama-3.1-8b-instant',
+                    messages: [
+                        { 
+                            role: 'system', 
+                            content: 'Tu es MEHEDI, un assistant IA amical, professionnel et passionné. Tu représentes le village Ajar en Mauritanie. Tu connais son histoire depuis 1983, ses clubs de football (FC Walé, FC Dango, FC Soumpou, Lion d\'Ajar, Kelifado, FC Kawral, FC Nassr), ses associations (AJCDD, ADAL), ses infrastructures (forage, terrain), l\'équipe d\'Ajar en France. Tu es chaleureux, concis et toujours prêt à aider. Réponds en français de manière naturelle.'
+                        },
+                        { role: 'user', content: userMessage }
+                    ],
+                    temperature: 0.7,
+                    max_tokens: 500
+                })
+            });
+            
+            const data = await response.json();
+            
+            if (data.choices && data.choices[0] && data.choices[0].message) {
+                return data.choices[0].message.content;
+            } else {
+                console.error('Erreur Groq:', data);
+                return "Désolé, j'ai une petite difficulté technique. Peux-tu reformuler ta question ou me poser une question sur Ajar, ses clubs ou son histoire ?";
+            }
+        } catch (error) {
+            console.error('Erreur API:', error);
+            return "Je n'arrive pas à me connecter à mon serveur d'intelligence. Pose-moi une question sur Ajar, ses clubs (FC Walé, Dango...), la jeunesse ou les associations. Je suis toujours là pour t'aider !";
+        }
+    }
+    
+    // Fonction principale hybride
+    async function getResponse(userMessage) {
+        // 1. Vérifier les réponses locales en priorité
+        const localResponse = getLocalResponse(userMessage);
+        if (localResponse) return localResponse;
+        
+        // 2. Utiliser Groq API pour les questions complexes
+        return await callGroqAPI(userMessage);
+    }
+    
+    // ========== STYLES CSS ==========
     const style = document.createElement('style');
     style.textContent = `
         #mehedi-widget {
@@ -74,9 +233,7 @@
             border: 2px solid #ff8c42;
             object-fit: cover;
         }
-        .mehedi-status {
-            flex: 1;
-        }
+        .mehedi-status { flex: 1; }
         .mehedi-status h3 {
             font-size: 1.1rem;
             margin: 0;
@@ -232,32 +389,13 @@
     `;
     document.head.appendChild(style);
     
-    // Réponses intelligentes
-    function getResponse(msg) {
-        var m = msg.toLowerCase();
-        if(m.indexOf('bonjour') !== -1 || m.indexOf('salut') !== -1) return 'Salut ! Je suis MEHEDI, ravi de te parler. Comment vas-tu ?';
-        if(m.indexOf('comment') !== -1 && m.indexOf('va') !== -1) return 'Je vais très bien, merci de demander ! Et toi, comment ça va ?';
-        if(m.indexOf('club') !== -1 || m.indexOf('foot') !== -1) return 'Ajar a 7 clubs. FC Walé est le plus titré avec 3 championnats (2018,2019,2023). FC Dango champion 2017, FC Soumpou 2022, Lion d\'Ajar 2024, Kelifado 2021.';
-        if(m.indexOf('wale') !== -1) return 'FC Walé est le club le plus titré avec 3 championnats. Fondé par Pape Demba Soumare en 2015.';
-        if(m.indexOf('histoire') !== -1) return 'L\'histoire d\'Ajar commence en 1983 avec le premier match contre Tachott (2-0). Le village a été fondé entre 1909-1910 par les Diabira.';
-        if(m.indexOf('jeunesse') !== -1) return 'L\'AJCDD est l\'association jeunesse. Présidée par Djiby Sanghare, avec Zeinabou Diallo (VP), Pape Demba Soumare (SG), Mody Sy (trésorier).';
-        if(m.indexOf('adal') !== -1) return 'ADAL est l\'association de développement. Créée en 2021, présidée par Moussa Boubou Sy.';
-        if(m.indexOf('forage') !== -1) return 'Le forage a été construit en 2007 par Ladji Boubou Diabira. Il alimente tout le village en eau potable.';
-        if(m.indexOf('terrain') !== -1) return 'Le terrain d\'Ajar existe depuis 1983. 4 générations de joueurs y ont joué.';
-        if(m.indexOf('contact') !== -1) return 'Email : contact@ajar-foot.online. Tél : +222 49 03 76 97';
-        if(m.indexOf('merci') !== -1) return 'Avec plaisir ! N\'hésite pas si tu as d\'autres questions.';
-        if(m.indexOf('au revoir') !== -1) return 'Au revoir ! Reviens quand tu veux parler d\'Ajar.';
-        if(m.indexOf('mehedi') !== -1) return 'MEHEDI, c\'est moi ! Je suis ton assistant IA, spécialisé dans le village Ajar.';
-        return 'Je suis spécialisé dans le village Ajar. Parle-moi de son histoire, de ses clubs (FC Walé, Dango...), de la jeunesse ou des associations. Que veux-tu savoir ?';
-    }
-    
-    // Widget
+    // ========== WIDGET ==========
     const container = document.createElement('div');
     container.id = 'mehedi-widget';
     container.innerHTML = `
         <div id="mehedi-chat">
             <div class="mehedi-header">
-                <img src="images/mehedi/MEHEDI.jpeg" class="mehedi-avatar" onerror="this.src='https://via.placeholder.com/45'">
+                <img src="${MASCOTTE}" class="mehedi-avatar" onerror="this.src='https://via.placeholder.com/45'">
                 <div class="mehedi-status">
                     <h3>MEHEDI</h3>
                     <p>IA Assistant</p>
@@ -266,9 +404,9 @@
             </div>
             <div class="mehedi-messages" id="mehedi-messages">
                 <div class="message-bot">
-                    <img src="images/mehedi/MEHEDI.jpeg" class="message-bot-avatar" onerror="this.src='https://via.placeholder.com/35'">
+                    <img src="${MASCOTTE}" class="message-bot-avatar" onerror="this.src='https://via.placeholder.com/35'">
                     <div class="message-bot-content">
-                        Salut ! Je suis MEHEDI, ton assistant. Je connais le village Ajar, ses clubs, son histoire. Pose-moi une question !
+                        Salut ! Je suis MEHEDI, ton assistant intelligent avec Groq AI. Je connais le village Ajar, ses clubs, son histoire. Pose-moi une question !
                     </div>
                 </div>
             </div>
@@ -280,17 +418,17 @@
             </div>
         </div>
         <div class="mehedi-button" id="mehedi-button">
-            <img src="images/mehedi/MEHEDI.jpeg" alt="MEHEDI" onerror="this.src='https://via.placeholder.com/55'">
+            <img src="${MASCOTTE}" alt="MEHEDI" onerror="this.src='https://via.placeholder.com/55'">
         </div>
     `;
     document.body.appendChild(container);
     
-    // Splash screen
+    // ========== SPLASH SCREEN ==========
     if(!localStorage.getItem('mehedi_splash')) {
         const splash = document.createElement('div');
         splash.id = 'mehedi-splash';
         splash.innerHTML = `<div class="mehedi-splash-content">
-            <img src="images/mehedi/MEHEDI.jpeg" onerror="this.src='https://via.placeholder.com/100'">
+            <img src="${MASCOTTE}" onerror="this.src='https://via.placeholder.com/100'">
             <h2>MEHEDI</h2>
             <p>Bienvenue</p>
         </div>`;
@@ -299,7 +437,7 @@
         localStorage.setItem('mehedi_splash', 'true');
     }
     
-    // Événements
+    // ========== ÉVÉNEMENTS ==========
     const chat = document.getElementById('mehedi-chat');
     const button = document.getElementById('mehedi-button');
     const closeBtn = document.getElementById('mehedi-close');
@@ -310,7 +448,7 @@
     button.onclick = () => chat.classList.toggle('active');
     closeBtn.onclick = () => chat.classList.remove('active');
     
-    function sendMessage() {
+    async function sendMessage() {
         const userMsg = input.value.trim();
         if(!userMsg) return;
         
@@ -321,14 +459,15 @@
         const typing = document.createElement('div');
         typing.className = 'message-bot';
         typing.id = 'typing';
-        typing.innerHTML = `<img src="images/mehedi/MEHEDI.jpeg" class="message-bot-avatar" onerror="this.src='https://via.placeholder.com/35'"><div class="typing-indicator"><span></span><span></span><span></span></div>`;
+        typing.innerHTML = `<img src="${MASCOTTE}" class="message-bot-avatar" onerror="this.src='https://via.placeholder.com/35'"><div class="typing-indicator"><span></span><span></span><span></span></div>`;
         messages.appendChild(typing);
         messages.scrollTop = messages.scrollHeight;
         
-        setTimeout(() => {
-            typing.remove();
-            const response = getResponse(userMsg);
-            messages.innerHTML += `<div class="message-bot"><img src="images/mehedi/MEHEDI.jpeg" class="message-bot-avatar" onerror="this.src='https://via.placeholder.com/35'"><div class="message-bot-content">🤖 ${response}</div></div>`;
+        setTimeout(async () => {
+            const typingElem = document.getElementById('typing');
+            if(typingElem) typingElem.remove();
+            const response = await getResponse(userMsg);
+            messages.innerHTML += `<div class="message-bot"><img src="${MASCOTTE}" class="message-bot-avatar" onerror="this.src='https://via.placeholder.com/35'"><div class="message-bot-content">🤖 ${response}</div></div>`;
             messages.scrollTop = messages.scrollHeight;
         }, 800);
     }
