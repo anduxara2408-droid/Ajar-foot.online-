@@ -1,122 +1,195 @@
 // MEHEDI - IA Assistant Premium avec Groq API
-// Version 7.0 - Intelligence hybride
+// Version 8.0 - Réponses ultra-précises sur Ajar
 
 (function(){
-    console.log('MEHEDI chargé - Version Groq IA');
-    
+    console.log('MEHEDI chargé - Version Groq IA v8');
+
     // Configuration Groq API
     const GROQ_API_KEY = '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';
     const MASCOTTE = '/images/mehedi/MEHEDI.jpeg';
-    
-    // Réponses locales (rapides, sans API)
+
+    // ========== BASE DE CONNAISSANCES LOCALES ULTRA-PRÉCISES ==========
+    const ajarknowledge = {
+        // LOCALISATION
+        situation: "Ajar est situé dans la région du Guidimakha, en Mauritanie méridionale. Le village se trouve à environ 15°31'02.8\"N de latitude et 12°37'55.5\"W de longitude. Il est situé à proximité des villages d'Agoinitt, Tachott, Ouloumbony et Diaguilly. Il ne se trouve ni à Nouakchott, ni à Dakhlet Nouadhibou, ni à Rosso. C'est un village rural du Guidimakha.",
+        
+        // RÉGION
+        region: "Guidimakha",
+        wilaya: "Guidimakha",
+        
+        // HISTOIRE
+        histoire: "L'histoire d'Ajar commence entre 1909 et 1910. Les premiers habitants venaient de Diaguilly pour cultiver les terres. Les Diabira sont les fondateurs, avec Ladji Hamady Diabira comme patriarche. Le premier match de football a eu lieu en 1983 contre Tachott (victoire 2-0).",
+        
+        // CHEFFERIE
+        chefs: "Les chefs du village viennent de la famille Diabira. Le dernier chef était Siakha Ladji Diabira, décédé le 16 juillet 2025. La succession est en préparation, avec Ladji Boubou Diabira comme successeur pressenti.",
+        
+        // INFRASTRUCTURES
+        forage: "Le forage a été construit en 2007 par Ladji Boubou Diabira et des partenaires européens.",
+        terrain: "Le terrain de football existe depuis 1983. Quatre générations de joueurs y ont joué.",
+        dispensaire: "Le dispensaire a été inauguré en 2003 par le CER et Ladji Boubou Diabira.",
+        
+        // FOOTBALL
+        clubs: "7 clubs officiels : FC Walé (3 titres), FC Dango (2017), FC Soumpou (2022), Lion d'Ajar (2024), Kelifado (2021), FC Kawral, FC Nassr.",
+        wale: "FC Walé a été fondé en 2015 par Pape Demba Soumare. Titres : 2018, 2019, 2023. 28 joueurs.",
+        
+        // ASSOCIATIONS
+        jeunesse: "L'AJCDD est présidée par Djiby Sanghare depuis 2025. Bureau : Zeinabou Diallo (VP), Pape Demba Soumare (SG), Mody Sy (trésorier).",
+        adal: "ADAL a été créée en 2021 par Diabe Soumare. Président : Moussa Boubou Sy. Récépissé : FA 010000242301202305689 du 24/01/2023.",
+        
+        // CONTACT
+        contact: "Email : contact@ajar-foot.online, administration@ajar-foot.online, partenariat@ajar-foot.online. Tél : +222 49 03 76 97.",
+        
+        // ÉQUIPE FRANCE
+        france: "L'équipe d'Ajar en France a été fondée en 2022. Président : Papis Sakho. Meilleur résultat : demi-finale du tournoi KEBE 2024.",
+        
+        // CULTURE
+        culture: "Tamtam (instrument), dimmu (danse soninké). La langue soninké est parlée."
+    };
+
+    // Réponse locale ultra-précise
     function getLocalResponse(msg) {
         const m = msg.toLowerCase().trim();
+
+        // Localisation géographique
+        if (m.includes('où') && (m.includes('situé') || m.includes('se trouve') || m.includes('localisation') || m.includes('adresse'))) {
+            return ajarknowledge.situation;
+        }
+        if (m.includes('guidimakha')) return `Ajar est situé dans la région du ${ajarknowledge.region} en Mauritanie.`;
+        if (m.includes('région')) return `Ajar se trouve dans le ${ajarknowledge.region}, en Mauritanie méridionale.`;
         
+        // Informations géographiques
+        if (m.includes('latitude') || m.includes('longitude') || m.includes('coordonnées') || m.includes('gps')) {
+            return "Les coordonnées GPS du village Ajar sont : 15°31'02.8\"N (latitude) et 12°37'55.5\"W (longitude), soit 15.517452, -12.632089 en décimales.";
+        }
+        
+        // Correction des fausses informations
+        if (m.includes('nouakchott') || m.includes('dakhlet') || m.includes('nouadhibou') || m.includes('rosso')) {
+            return "Attention : Ajar n'est pas situé à Nouakchott, ni à Dakhlet Nouadhibou, ni à Rosso. Le village se trouve dans la région du Guidimakha, en Mauritanie méridionale, près des villages d'Agoinitt et de Tachott.";
+        }
+
         // Salutations
         const salutations = ['bonjour', 'bonsoir', 'salut', 'coucou', 'hello', 'hi', 'hey', 'slt', 'bjr'];
         if (salutations.some(s => m.includes(s))) {
-            return "Salut ! Je suis MEHEDI, ton assistant intelligent pour le village Ajar. Comment puis-je t'aider aujourd'hui ?";
+            return "Salut ! Je suis MEHEDI, l'assistant officiel du village Ajar. Je connais parfaitement notre village situé dans le Guidimakha. Comment puis-je t'aider ?";
         }
-        
+
         // Comment ça va
         const commentVa = ['comment ca va', 'comment vas-tu', 'ça va', 'comment tu vas', 'how are you', 'ccava'];
         if (commentVa.some(c => m.includes(c))) {
-            return "Je vais très bien, merci de demander ! Je suis toujours heureux de discuter. Et toi, comment ça va aujourd'hui ?";
+            return "Je vais très bien, merci ! Je suis toujours heureux de parler du village Ajar, situé dans le Guidimakha. Et toi, comment ça va ?";
         }
-        
+
         // Qui es-tu
-        const quiEsTu = ['qui es-tu', 'tu es qui', 'c\'est qui mehedi', 'presente toi', 'présente-toi', 'your name'];
-        if (quiEsTu.some(q => m.includes(q))) {
-            return "Je suis MEHEDI, l'intelligence artificielle officielle du village Ajar. Je connais toute l'histoire du village depuis 1983, ses clubs de football, ses associations, et j'adore discuter avec les visiteurs. Pose-moi toutes tes questions !";
+        if (m.includes('qui es-tu') || m.includes('tu es qui') || m.includes('c\'est qui mehedi') || m.includes('presente toi')) {
+            return "Je suis MEHEDI, l'intelligence artificielle officielle du village Ajar. Je connais toute l'histoire du village depuis 1983, ses clubs de football, ses associations, et je donne des informations précises. Le village est situé dans la région du Guidimakha en Mauritanie.";
         }
-        
-        // Remerciements
-        if (m.includes('merci') || m.includes('thanks') || m.includes('thank you')) {
-            return "Avec plaisir ! C'est toujours un bonheur d'aider. N'hésite pas si tu as d'autres questions.";
+
+        // Histoire
+        if (m.includes('histoire') || m.includes('1983') || m.includes('origines') || m.includes('fondation')) {
+            return ajarknowledge.histoire;
         }
-        
-        // Au revoir
-        const auRevoir = ['au revoir', 'bye', 'à plus', 'see you', 'a bientôt', 'ciao', 'tchao', 'adieu'];
-        if (auRevoir.some(a => m.includes(a))) {
-            return "Au revoir ! Reviens quand tu veux parler d'Ajar. Je serai toujours là pour toi. Prends soin de toi !";
+
+        // Chefferie
+        if (m.includes('chef') || m.includes('diabira') || m.includes('siakha')) {
+            return ajarknowledge.chefs;
         }
-        
-        // Football - Clubs
-        if ((m.includes('club') || m.includes('clubs')) && (m.includes('foot') || m.includes('championnat'))) {
-            return "Ajar compte 7 clubs officiels. Voici les champions :\n• FC Walé : 3 titres (2018, 2019, 2023)\n• FC Dango : champion 2017\n• FC Soumpou : champion 2022\n• Lion d'Ajar : champion 2024\n• Kelifado : champion 2021\n• FC Kawral\n• FC Nassr";
+
+        // Clubs
+        if (m.includes('club') || m.includes('clubs') || m.includes('championnat')) {
+            return ajarknowledge.clubs;
         }
-        
+
         // FC Walé
         if (m.includes('wale') || m.includes('walé')) {
-            return "FC Walé est le club le plus titré d'Ajar avec trois championnats (2018, 2019, 2023). Fondé en 2015 par Pape Demba Soumare, l'équipe compte 28 joueurs. C'est le club emblématique du village. Une véritable fierté pour Ajar !";
+            return ajarknowledge.wale;
         }
-        
+
         // FC Dango
         if (m.includes('dango')) {
-            return "FC Dango est le premier champion officiel d'Ajar (2017). Ils ont également remporté la première Super Coupe d'Ajar contre Kelifado aux tirs au but. Un club historique !";
+            return "FC Dango est le premier champion officiel d'Ajar (2017). Ils ont aussi remporté la première Super Coupe contre Kelifado aux tirs au but.";
         }
-        
-        // Histoire d'Ajar
-        if (m.includes('histoire') || m.includes('1983') || m.includes('origines') || m.includes('fondation')) {
-            return "L'histoire d'Ajar commence en 1983 avec le premier match de football contre Tachott (victoire 2-0). Le village a été fondé entre 1909 et 1910 par les Diabira venant de Diaguilly. Le nom soninké 'Assaré' signifie naissance. C'est une histoire riche et passionnante !";
-        }
-        
+
         // Jeunesse / AJCDD
         if (m.includes('jeunesse') || m.includes('ajcdd') || m.includes('djiby')) {
-            return "L'AJCDD (Association Jeunesse Cohésion et Développement Durable) est présidée par Djiby Sanghare depuis 2025. Le bureau exécutif comprend Zeinabou Diallo (vice-présidente), Pape Demba Soumare (secrétaire général) et Mody Sy (trésorier). Ils font un travail formidable pour le village !";
+            return ajarknowledge.jeunesse;
         }
-        
+
         // ADAL
         if (m.includes('adal')) {
-            return "ADAL est l'Association pour le Développement d'Ajar Ladji. Créée en 2021 par Diabe Soumare, elle a obtenu son récépissé officiel en 2023. Le président est Moussa Boubou Sy. En 2025, Cheikhou Diabira a été nommé président de la commission culturelle et sportive.";
+            return ajarknowledge.adal;
         }
-        
+
         // Forage
         if (m.includes('forage') || m.includes('eau') || m.includes('puits')) {
-            return "Le forage d'Ajar a été construit en 2007 grâce à Ladji Boubou Diabira et ses partenaires européens. Il alimente tout le village en eau potable. Une infrastructure vitale pour la communauté !";
+            return ajarknowledge.forage;
         }
-        
+
         // Terrain
-        if (m.includes('terrain') || m.includes('stade') || m.includes('pelouse')) {
-            return "Le terrain de football d'Ajar existe depuis 1983. Quatre générations de joueurs y ont joué. Il a été rénové plusieurs fois et reste le cœur du sport villageois. Beaucoup d'émotions sur cette pelouse !";
+        if (m.includes('terrain') || m.includes('stade')) {
+            return ajarknowledge.terrain;
         }
-        
+
+        // Dispensaire
+        if (m.includes('dispensaire') || m.includes('santé') || m.includes('cer')) {
+            return ajarknowledge.dispensaire;
+        }
+
         // Contact
-        if (m.includes('contact') || m.includes('email') || m.includes('téléphone') || m.includes('mail')) {
-            return "Tu peux contacter l'équipe d'Ajar-foot par email :\n• contact@ajar-foot.online\n• administration@ajar-foot.online\n• partenariat@ajar-foot.online\n📞 Téléphone : +222 49 03 76 97";
+        if (m.includes('contact') || m.includes('email') || m.includes('téléphone')) {
+            return ajarknowledge.contact;
         }
-        
+
         // Équipe France / KEBE
-        if (m.includes('france') || m.includes('kebe') || m.includes('paris')) {
-            return "L'équipe d'Ajar en France a été fondée en 2022. Son premier entraîneur était Demba Samba Camara, assisté de Fodé Diallo. Depuis 2024, le président est Papis Sakho, un jeune d'Ajar qui a aussi joué à Nouakchott. Meilleur résultat : demi-finale du tournoi KEBE en 2024.";
+        if (m.includes('france') || m.includes('kebe')) {
+            return ajarknowledge.france;
         }
-        
+
         // Culture
         if (m.includes('tamtam') || m.includes('dimmu') || m.includes('culture') || m.includes('tradition')) {
-            return "Ajar est riche en traditions. Le tamtam est un instrument utilisé lors des cérémonies. Le dimmu est une danse traditionnelle soninké. La culture est au cœur de la vie du village, transmise de génération en génération.";
+            return ajarknowledge.culture;
         }
-        
-        // Ladji Boubou
-        if (m.includes('ladji') || m.includes('boubou')) {
-            return "Ladji Boubou Diabira est une figure emblématique d'Ajar. Il a joué le premier match en 1983, a créé l'association Fedde, et a participé à la construction du forage et du dispensaire. Un véritable bâtisseur et un modèle pour la jeunesse !";
+
+        // Merci
+        if (m.includes('merci') || m.includes('thanks')) {
+            return "Avec plaisir ! C'est un honneur de partager des informations précises sur notre village Ajar, situé dans le Guidimakha.";
         }
-        
-        // Cheikhou Diabira
-        if (m.includes('cheikhou') || m.includes('cheikh')) {
-            return "Cheikhou Diabira est le président de la Commission Culturelle et Sportive d'ADAL. Il est aussi membre actif de l'AJCDD et participe activement à la vie associative du village.";
+
+        // Au revoir
+        const auRevoir = ['au revoir', 'bye', 'à plus', 'see you', 'a bientôt', 'ciao'];
+        if (auRevoir.some(a => m.includes(a))) {
+            return "Au revoir ! Reviens quand tu veux en savoir plus sur Ajar, notre village du Guidimakha. Bonne journée !";
         }
-        
-        // Pape Demba
-        if (m.includes('pape demba') || m.includes('pape')) {
-            return "Pape Demba Soumare est le fondateur du FC Walé. Il a été président du club et est aujourd'hui secrétaire général de l'AJCDD. Un homme engagé pour le football et la jeunesse d'Ajar.";
-        }
-        
-        return null; // Pas de réponse locale -> appel API
+
+        return null; // Pas de réponse locale -> API
     }
-    
-    // Appel à l'API Groq
+
+    // Appel à Groq API avec prompt ultra-précis
     async function callGroqAPI(userMessage) {
         try {
+            const systemPrompt = `Tu es MEHEDI, l'assistant IA officiel et ultra-précis du village Ajar.
+
+INFORMATIONS OBLIGATOIRES ET EXACTES SUR AJAR (TU NE DOIS PAS DIFFUSER DE FAUSSES INFORMATIONS) :
+
+- LOCALISATION : Ajar est situé dans la RÉGION DU GUIDIMAKHA, en Mauritanie méridionale. Coordonnées GPS : 15.517452, -12.632089 (15°31'02.8"N 12°37'55.5"W).
+- IL N'EST PAS à Nouakchott, ni à Dakhlet Nouadhibou, ni à Rosso, ni à Sélibaby (Sélibaby est le chef-lieu du Guidimakha, mais Ajar est un village rural).
+- Villages voisins : Agoinitt (18 km), Tachott, Ouloumbony, Diaguilly.
+
+- HISTOIRE : Fondation entre 1909-1910 par les Diabira venant de Diaguilly. Premier match de football en 1983 contre Tachott (2-0). Le nom soninké "Assaré" signifie "naissance".
+
+- CHEFFERIE : Famille Diabira. Dernier chef : Siakha Ladji Diabira (décédé le 16 juillet 2025). Successeur pressenti : Ladji Boubou Diabira.
+
+- FOOTBALL : 7 clubs. FC Walé (3 titres : 2018,2019,2023), FC Dango (2017), FC Soumpou (2022), Lion d'Ajar (2024), Kelifado (2021), FC Kawral, FC Nassr.
+
+- INFRASTRUCTURES : Forage (2007), terrain de foot (1983), dispensaire (2003).
+
+- ASSOCIATIONS : AJCDD (jeunesse, présidée par Djiby Sanghare), ADAL (développement, créée en 2021, présidée par Moussa Boubou Sy).
+
+- CONTACT : contact@ajar-foot.online, administration@ajar-foot.online, partenariat@ajar-foot.online. Tél : +222 49 03 76 97.
+
+Tu es amical, professionnel, et tu donnes des réponses PRÉCISES, CONCISES et VRAIES. Tu ne dois JAMAIS inventer de fausses informations sur Ajar. Tu peux discuter de sujets généraux, mais toujours en restant positif et utile.
+
+Question de l'utilisateur : ${userMessage}`;
+
             const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
                 method: 'POST',
                 headers: {
@@ -126,42 +199,36 @@
                 body: JSON.stringify({
                     model: 'llama-3.1-8b-instant',
                     messages: [
-                        { 
-                            role: 'system', 
-                            content: 'Tu es MEHEDI, un assistant IA amical, professionnel et passionné. Tu représentes le village Ajar en Mauritanie. Tu connais son histoire depuis 1983, ses clubs de football (FC Walé, FC Dango, FC Soumpou, Lion d\'Ajar, Kelifado, FC Kawral, FC Nassr), ses associations (AJCDD, ADAL), ses infrastructures (forage, terrain), l\'équipe d\'Ajar en France. Tu es chaleureux, concis et toujours prêt à aider. Réponds en français de manière naturelle.'
-                        },
+                        { role: 'system', content: systemPrompt },
                         { role: 'user', content: userMessage }
                     ],
-                    temperature: 0.7,
+                    temperature: 0.5,  // Plus bas pour plus de précision
                     max_tokens: 500
                 })
             });
-            
+
             const data = await response.json();
-            
+
             if (data.choices && data.choices[0] && data.choices[0].message) {
                 return data.choices[0].message.content;
             } else {
                 console.error('Erreur Groq:', data);
-                return "Désolé, j'ai une petite difficulté technique. Peux-tu reformuler ta question ou me poser une question sur Ajar, ses clubs ou son histoire ?";
+                return "Désolé, j'ai une petite difficulté technique. Le village Ajar se trouve dans le Guidimakha, en Mauritanie. Peux-tu reformuler ta question ?";
             }
         } catch (error) {
             console.error('Erreur API:', error);
-            return "Je n'arrive pas à me connecter à mon serveur d'intelligence. Pose-moi une question sur Ajar, ses clubs (FC Walé, Dango...), la jeunesse ou les associations. Je suis toujours là pour t'aider !";
+            return "Je n'arrive pas à me connecter. Mais je peux te dire qu'Ajar est situé dans la région du Guidimakha en Mauritanie, pas à Nouakchott. Pose-moi une question sur le village, ses clubs ou son histoire !";
         }
     }
-    
+
     // Fonction principale hybride
     async function getResponse(userMessage) {
-        // 1. Vérifier les réponses locales en priorité
         const localResponse = getLocalResponse(userMessage);
         if (localResponse) return localResponse;
-        
-        // 2. Utiliser Groq API pour les questions complexes
         return await callGroqAPI(userMessage);
     }
-    
-    // ========== STYLES CSS ==========
+
+    // ========== STYLES CSS (inchangé, garde le design) ==========
     const style = document.createElement('style');
     style.textContent = `
         #mehedi-widget {
@@ -388,8 +455,8 @@
         }
     `;
     document.head.appendChild(style);
-    
-    // ========== WIDGET ==========
+
+    // Widget
     const container = document.createElement('div');
     container.id = 'mehedi-widget';
     container.innerHTML = `
@@ -406,7 +473,7 @@
                 <div class="message-bot">
                     <img src="${MASCOTTE}" class="message-bot-avatar" onerror="this.src='https://via.placeholder.com/35'">
                     <div class="message-bot-content">
-                        Salut ! Je suis MEHEDI, ton assistant intelligent avec Groq AI. Je connais le village Ajar, ses clubs, son histoire. Pose-moi une question !
+                        Salut ! Je suis MEHEDI, l'assistant officiel du village Ajar. Je connais parfaitement notre village situé dans le Guidimakha. Pose-moi une question précise !
                     </div>
                 </div>
             </div>
@@ -422,9 +489,9 @@
         </div>
     `;
     document.body.appendChild(container);
-    
-    // ========== SPLASH SCREEN ==========
-    if(!localStorage.getItem('mehedi_splash')) {
+
+    // Splash screen
+    if (!localStorage.getItem('mehedi_splash')) {
         const splash = document.createElement('div');
         splash.id = 'mehedi-splash';
         splash.innerHTML = `<div class="mehedi-splash-content">
@@ -436,42 +503,42 @@
         setTimeout(() => splash.remove(), 3000);
         localStorage.setItem('mehedi_splash', 'true');
     }
-    
-    // ========== ÉVÉNEMENTS ==========
+
+    // Événements
     const chat = document.getElementById('mehedi-chat');
     const button = document.getElementById('mehedi-button');
     const closeBtn = document.getElementById('mehedi-close');
     const sendBtn = document.getElementById('mehedi-send');
     const input = document.getElementById('mehedi-input');
     const messages = document.getElementById('mehedi-messages');
-    
+
     button.onclick = () => chat.classList.toggle('active');
     closeBtn.onclick = () => chat.classList.remove('active');
-    
+
     async function sendMessage() {
         const userMsg = input.value.trim();
-        if(!userMsg) return;
-        
+        if (!userMsg) return;
+
         messages.innerHTML += `<div class="message-user"><div class="message-user-content">${userMsg.replace(/</g, '&lt;')}</div></div>`;
         input.value = '';
         messages.scrollTop = messages.scrollHeight;
-        
+
         const typing = document.createElement('div');
         typing.className = 'message-bot';
         typing.id = 'typing';
         typing.innerHTML = `<img src="${MASCOTTE}" class="message-bot-avatar" onerror="this.src='https://via.placeholder.com/35'"><div class="typing-indicator"><span></span><span></span><span></span></div>`;
         messages.appendChild(typing);
         messages.scrollTop = messages.scrollHeight;
-        
+
         setTimeout(async () => {
             const typingElem = document.getElementById('typing');
-            if(typingElem) typingElem.remove();
+            if (typingElem) typingElem.remove();
             const response = await getResponse(userMsg);
             messages.innerHTML += `<div class="message-bot"><img src="${MASCOTTE}" class="message-bot-avatar" onerror="this.src='https://via.placeholder.com/35'"><div class="message-bot-content">🤖 ${response}</div></div>`;
             messages.scrollTop = messages.scrollHeight;
         }, 800);
     }
-    
+
     sendBtn.onclick = sendMessage;
-    input.onkeypress = (e) => { if(e.key === 'Enter') sendMessage(); };
+    input.onkeypress = (e) => { if (e.key === 'Enter') sendMessage(); };
 })();
